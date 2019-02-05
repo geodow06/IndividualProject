@@ -10,17 +10,20 @@ public class App {
 
 	public static void main(String[] args) {
 
-		adjustFace(BuildingCube.faces[5], 4, 5);
+		adjustFace(BuildingCube.faces[5], 2, BuildingCube.faces[5][9]);  
+		adjustFace(BuildingCube.faces[5], 2, BuildingCube.faces[5][9]);  
+		adjustFace(BuildingCube.faces[5], 2, BuildingCube.faces[5][9]); 
+		printLoop(BuildingCube.faces[5]);
 
 	}
 
 	public static void adjustFace(int[] x, int z, int r) {
-
+		int turns = 0;
 		while (turns < (z)) {
 
 			turns++;
-//			int[] dummyMatrix = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-			int[] dummyMatrix = new int[9];
+
+			int[] dummyMatrix = new int[18];
 			
 			dummyMatrix[0] = x[6];
 			dummyMatrix[2] = x[0];
