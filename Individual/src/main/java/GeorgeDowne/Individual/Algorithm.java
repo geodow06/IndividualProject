@@ -1,6 +1,6 @@
 package GeorgeDowne.Individual;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -11,7 +11,7 @@ public class Algorithm {
 	}
 
 	public static void Algorithm() {
-		String alg = "U U U U";
+		String alg = "U U U U D D D2 U";
 //		Scanner algScanner = new Scanner(System.in);
 //		System.out.println("type in the algroithm : ");
 //		String alg = algScanner.nextLine();
@@ -109,7 +109,7 @@ public class Algorithm {
 		}
 		System.out.println();
 		if (acceptableAlg) {
-			System.out.println("would you like to save this algortithm to your database");
+			System.out.println("would you like to save this algorithm to your database");
 		} 
 		App.printLoop(BuildingCube.faces[0]);
 		App.printLoop(BuildingCube.faces[1]);

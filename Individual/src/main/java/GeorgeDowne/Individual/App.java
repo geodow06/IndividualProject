@@ -35,7 +35,11 @@ public class App {
 			dummyMatrix[5] = x[1];
 			dummyMatrix[7] = x[5];
 			dummyMatrix[3] = x[7];
-
+			
+			for(int i=9;i<18;i++) { 
+				dummyMatrix[i]=x[i];
+			}
+			
 			x = dummyMatrix;
 			BuildingCube.faces[r] = x;
 
@@ -55,6 +59,18 @@ public class App {
 
 			}
 			k++;
+
+		}
+		System.out.println();
+	} 
+	public static void printArray(int[] g) { 
+		
+		for (int j = 0; j < 18; j++) {
+
+			
+				System.out.print(g[j] + " ");
+
+			
 
 		}
 		System.out.println();
