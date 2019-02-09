@@ -1,0 +1,53 @@
+body 
+{ 
+
+    background-color:white;
+
+} 
+h2,h3,h4,u1 
+{ 
+    color: black; 
+}  
+
+header {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 60px;
+    color: black;
+} 
+
+footer{ 
+    background-color: white; 
+    margin-top:100px;
+    text-align:left; 
+    font-size: 25px; 
+    color: black;
+} 
+#indexsection{ 
+    background-color: white; 
+    text-align: left;
+    font-size: 40px; 
+    margin-left: 50;
+    
+}  
+.othersections{ 
+    text-align: middle; 
+    font-size: 30px; 
+
+}
+
+#nobull{ 
+    list-style-type: none; 
+    display: inline;
+} 
+#i1{ 
+    /* padding-left: 1000px;   */
+    float: right;  
+    padding-top:10px; 
+    
+    padding-right:200px; 
+    margin-right: 100px; 
+    
+       
+}
