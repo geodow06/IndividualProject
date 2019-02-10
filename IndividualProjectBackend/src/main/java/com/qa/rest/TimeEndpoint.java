@@ -27,7 +27,14 @@ public class TimeEndpoint {
 	@Produces({ "application/json" }) 
 	public String getATime(@PathParam("time_id") Long time_id) { 
 		return service.getATime(time_id);
-	} 
+	}  
+	
+	@Path("/get3Avg/{user_id}/{alg_id}") 
+	@GET 
+	@Produces({ "application/json" }) 
+	public String get3Avg(@PathParam("user_id") Long user_id, @PathParam("alg_id") Long alg_id) { 
+		return service.get3Avg(user_id, alg_id);
+	}
 	
 	@Path("/createTime") 
 	@POST 

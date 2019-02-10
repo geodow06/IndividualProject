@@ -7,7 +7,9 @@ public interface TimeService {
 	// R
 	String getAllTimes();
 
-	String getATime(Long time_id);
+	String getATime(Long time_id); 
+	
+	String get3Avg(Long user_id, Long alg_id);
 
 	// U
 	String updateTime(String time, Long time_id);

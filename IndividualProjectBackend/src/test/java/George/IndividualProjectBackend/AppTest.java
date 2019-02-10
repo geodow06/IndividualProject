@@ -3,36 +3,31 @@ package George.IndividualProjectBackend;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import com.qa.persistence.repository.*;
 
-/**
- * Unit test for simple App.
- */
+import javax.inject.Inject;
+
+import com.qa.business.service.*; 
+import com.qa.persistence.domain.*; 
+import com.qa.rest.*; 
+import com.qa.util.*;
+
 public class AppTest 
     extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
+	@Inject 
+	private AlgorithmRepository repo; 
+	@Inject
+	private Algorithm Alg;
+	
     public void testApp()
-    {
-        assertTrue( true );
+    {  
+    	Algorithm alg = new Algorithm();
+    	repo.createAlgorithm("j");  
+    	Long id = (long) 1;
+    	System.out.print(repo.getAAlgorithm(id));
+    	
+        
+    	assertEquals( 2,2 );
     }
 }

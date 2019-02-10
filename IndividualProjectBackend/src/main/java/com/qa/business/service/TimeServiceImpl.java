@@ -29,6 +29,11 @@ public class TimeServiceImpl implements TimeService{
 	public String getATime(Long time_id) {
 		
 		return repo.getATime(time_id);
+	} 
+	
+	@Override 
+	public String get3Avg(Long user_id, Long alg_id) { 
+		return repo.get3Avg(user_id, alg_id);
 	}
 
 	@Override
