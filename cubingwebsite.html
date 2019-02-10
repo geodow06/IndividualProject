@@ -3,15 +3,15 @@
     <head>
             <link rel="stylesheet" href="index.css"> 
             <!-- <script src=""> </script> -->
-            <!-- <script src="main.js"></script> -->
+            
     </head>
     <body>
         <h1>G-DAWGS hella smart PLL trainer</h1>
         <h2>Algorithms</h2>
         <u1> 
             <p>Choose the algoritms you would like to practice:</p>
-            <form action="algorithms.html"> --> 
-            <form>
+            
+            <!-- <form>
                 <input type="checkbox" id="A1" value=true  onclick="clickMe(this)"/> A1<br> 
                 <input type='button' id="button" value='firstbutton' onclick ="clickMe(this)"/>
                 <input type="checkbox" id="A2" value=true onclick="clickMe(this)"> A2<br> 
@@ -36,34 +36,44 @@
                 <input type="checkbox" id="E" value=true onclick="clickMe(this)"> E<br>  
                 <input type="submit" value="Submit"> 
                 
-            </form>  
+            </form>    -->
 
 
-            <p>Enter names in the fields, then click "Submit" to submit the form:</p>
+            <!-- <p>Enter names in the fields, then click "Submit" to submit the form:</p> -->
 
             <!-- <form id="Algorithm" action="/action_page.php">   -->
-            <form id="Algorithm" >
+            <!-- <form id="Algorithm"> -->
             <!-- <form> -->
-                Algorithm: <input type="text" name="Algorithm"><br>
+                <!-- Algorithm: <input type="text" name="Algorithm"><br> -->
                 
                 <!-- <input type="button" onclick="myFunction()" value="Submit">  -->
-                <input type="button" onclick="myFunction()" value="submit"> 
+                <!-- <input type="button" onclick="myFunction()" value="submit">  -->
                 
-            </form>
+            <!-- </form> -->
 
             <!-- <script>
             function myFunction() {
                 document.getElementById("Algorithm").submit();
             }
             </script> --> 
-            <script> 
+            <!-- <script> 
             function myFunction(){ 
                 console.log(document.getElementById("Algorithm"));  
+                console.log(formInput[0].value);
                 
-                console.log("hello"); 
                 // alert("hello");
             }
-            </script>
+            </script>  -->
+           
+            <form class="form-inline">
+                <label class="required">* required </label>
+                <div class="form-group">
+                    <input type="text" class="form-control inputArea" id="Algorithm" placeholder="Algorithm *">
+                </div>
+            </form>
+           
+        
+
             
            
         </u1> 
@@ -71,4 +81,5 @@
           
         
     </body>
+    <script src="main.js"> </script> 
 </html>
