@@ -107,7 +107,8 @@ function Algorithm() {
     }
     
     if (acceptableAlg) {
-        console.log("would you like to save this algortithm to your database");
+        console.log("would you like to save this algortithm to your database"); 
+        // <div class="roofpig"  data-config="alg=U R F L M2 x L B y z R U2 S2"></div>
     }
 
 
@@ -118,4 +119,5 @@ document.querySelector('form.form-inline').addEventListener('submit', function (
     e.preventDefault();
     Algorithm();
     console.log(formInput[0].value);
-});
+}); 
+dataConfig

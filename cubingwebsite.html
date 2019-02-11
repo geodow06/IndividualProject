@@ -8,11 +8,27 @@
             
     </head>
     <body>
-        <h1>G-DAWGS hella smart PLL trainer</h1>
+        <h1>G-DAWGS kinda smart PLL trainer</h1>
         <h2>Algorithms</h2>
         <u1> 
-            <p>Choose the algoritms you would like to practice:</p>
-            <div class="roofpig"  data-config="alg=R U2 D2 L2 R F M2 x y' S2 R F L z D2 D2"></div>
+            <p>Choose the algoritms you would like to practice:</p> 
+
+            <form class="form-inline">
+                <label class="required">* required </label>
+                <div class="form-group">
+                    <input type="text" class="form-control inputArea" id="Algorithm" placeholder="Algorithm *">
+                </div>
+            </form> 
+            <button type="button" onclick="myFunction()">Click Me!</button>
+            <div class="roofpig" id="demo" data-config="alg=U"></div>
+            <p id="demo">This is a demonstration.</p>
+            <script>  
+            function myFunction(){ 
+                document.getElementById("demo").innerHTML = "U R"; 
+                document.
+            }
+            </script>
+            <!-- <div class="roofpig"  data-config="alg=U R F L M2 x L B y z R U2 S2"></div> -->
             <!-- <form>
                 <input type="checkbox" id="A1" value=true  onclick="clickMe(this)"/> A1<br> 
                 <input type='button' id="button" value='firstbutton' onclick ="clickMe(this)"/>
@@ -67,12 +83,7 @@
             }
             </script>  -->
            
-            <form class="form-inline">
-                <label class="required">* required </label>
-                <div class="form-group">
-                    <input type="text" class="form-control inputArea" id="Algorithm" placeholder="Algorithm *">
-                </div>
-            </form>
+            
            
         
 
