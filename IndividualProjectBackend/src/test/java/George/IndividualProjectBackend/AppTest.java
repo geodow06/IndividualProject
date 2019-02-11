@@ -1,33 +1,43 @@
 package George.IndividualProjectBackend;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import com.qa.persistence.repository.*;
 
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 import javax.inject.Inject;
 
-import com.qa.business.service.*; 
-import com.qa.persistence.domain.*; 
-import com.qa.rest.*; 
+import org.junit.Before;
+
+import com.qa.business.service.*;
+import com.qa.persistence.domain.*;
+import com.qa.rest.*;
 import com.qa.util.*;
 
-public class AppTest 
-    extends TestCase
+public class AppTest
+
 {
-	@Inject 
-	private AlgorithmRepository repo; 
-	@Inject
-	private Algorithm Alg;
+
+	private AlgorithmServiceImpl svc = new AlgorithmServiceImpl();
 	
-    public void testApp()
-    {  
-    	Algorithm alg = new Algorithm();
-    	repo.createAlgorithm("j");  
-    	Long id = (long) 1;
-    	System.out.print(repo.getAAlgorithm(id));
-    	
-        
-    	assertEquals( 2,2 );
-    }
+	
+	private static final String MOCK_OBJECT = "{\"alg_id\":1,\"alg_name\":\"12\",\"alg_moves\":\"U R\",\"alg_scramble\":\"R' U'\"}";
+
+//	@Before
+//	public void setup() {
+//
+//	
+//		svc = new AlgorithmServiceImpl();
+//	}
+
+	@Test
+	public void addAlgorithmTest() {
+		
+
+		String reply = svc.createAlgorithm(MOCK_OBJECT);
+		System.out.println(reply);
+		Assert.assertEquals("{\"message\": \"algorithm has been succesfully added\"}", reply);
+		
+	}
 }

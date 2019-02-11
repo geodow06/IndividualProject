@@ -38,8 +38,8 @@ public class AlgorithmDBRepository implements AlgorithmRepository{
 	@PersistenceContext(unitName = "primary") 
 	private EntityManager manager; 
 	
-	@Inject 
-	private JSONUtil util;
+	
+	private JSONUtil util = new JSONUtil();
 	
 	@Transactional(REQUIRED)
 	public String createAlgorithm(String algorithm) {
