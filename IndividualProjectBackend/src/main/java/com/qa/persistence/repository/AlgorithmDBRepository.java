@@ -47,18 +47,19 @@ public class AlgorithmDBRepository implements AlgorithmRepository {
 	
 	private JSONUtil util = new JSONUtil();
 
-	public String createAlgorithm(String algorithm) {  
+//	public String createAlgorithm(String algorithm) {  
+//		Algorithm aAlgorithm = util.getObjectForJSON(algorithm, Algorithm.class);
+//		testMap.put(aAlgorithm.getAlg_id(), aAlgorithm);
+//		return "Worked";
+//	}
+	@Transactional(REQUIRED)
+	public String createAlgorithm(String algorithm) {
+		
 		Algorithm aAlgorithm = util.getObjectForJSON(algorithm, Algorithm.class);
-		testMap.put(aAlgorithm.getAlg_id(), aAlgorithm);
+		manager.persist(aAlgorithm);
+//		return "{\"message\": \"algorithm has been succesfully added\"}"; 
 		return "Worked";
 	}
-//	@Transactional(REQUIRED)
-//	public String createAlgorithm(String algorithm) {
-//		
-//		Algorithm aAlgorithm = util.getObjectForJSON(algorithm, Algorithm.class);
-//		manager.persist(aAlgorithm);
-//		return "{\"message\": \"algorithm has been succesfully added\"}";
-//	}
 
 	public String getAllAlgorihtms() {
 		Query query = manager.createQuery("Select a FROM Recipe a");

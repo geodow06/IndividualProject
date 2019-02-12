@@ -33,7 +33,8 @@ public class AppTest
 
 	}
 
-	@Test
+	@Test 
+	@Ignore
 	public void addAlgorithmTest() {
 		
 
