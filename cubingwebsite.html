@@ -19,15 +19,24 @@
                     <input type="text" class="form-control inputArea" id="Algorithm" placeholder="Algorithm *">
                 </div>
             </form> 
-            <button type="button" onclick="myFunction()">Click Me!</button>
+            <tr>
+                <td id="timer" style="height: 100%;">
+                    ready
+                </td>
+                <td id="stats" style="width: 300px; height: 100%; vertical-align: top;">
+                    times (<a class="settings" onclick="confirmClear();">clear</a>, <a class="settings" onclick="confirmRemLast()">delete last</a>):
+                    <div id="times"></div>
+                </td>
+            </tr>
+            <!-- <button type="button" onclick="myFunction()">Click Me!</button>
             <div class="roofpig" id="demo" data-config="alg=U"></div>
             <p id="demo">This is a demonstration.</p>
             <script>  
             function myFunction(){ 
                 document.getElementById("demo").innerHTML = "U R"; 
-                document.
+               
             }
-            </script>
+            </script> -->
             <!-- <div class="roofpig"  data-config="alg=U R F L M2 x L B y z R U2 S2"></div> -->
             <!-- <form>
                 <input type="checkbox" id="A1" value=true  onclick="clickMe(this)"/> A1<br> 

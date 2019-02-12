@@ -53,4 +53,15 @@ footer{
 } 
 .roofpig{ 
     width: 25%; 
+} 
+#timer {
+	font-size: 30px;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: bold;
 }
+
+#timer.timer_notRunning {color: #000;}
+#timer.timer_Ready {color: #008500;}
+#timer.timer_Stopped {color: #850000;}
+#timer.timer_Running {color: #000085;}
