@@ -58,7 +58,7 @@ public class AlgorithmDBRepository implements AlgorithmRepository {
 		Algorithm aAlgorithm = util.getObjectForJSON(algorithm, Algorithm.class);
 		manager.persist(aAlgorithm);
 //		return "{\"message\": \"algorithm has been succesfully added\"}"; 
-		return "Worked";
+		return "{\"message\": \"An account number cannot contain the number 9\"}";
 	}
 
 	public String getAllAlgorihtms() {
@@ -74,7 +74,7 @@ public class AlgorithmDBRepository implements AlgorithmRepository {
 
 	public String updateAlgorithm(String algorithm, Long alg_id) {
 		String query = manager.merge(algorithm);
-		return "updated fam";
+		return "{\"message\": \"An account number cannot contain the number 9\"}";
 	}
 
 	@Transactional(REQUIRED)
@@ -84,7 +84,7 @@ public class AlgorithmDBRepository implements AlgorithmRepository {
 		if (manager.contains(manager.find(Algorithm.class, alg_id))) {
 			manager.remove(manager.find(Algorithm.class, alg_id));
 		}
-		return "{\"message\": \"algorithm sucessfully deleted\"}";
+		return "{\"message\": \"Algorithm sucessfully deleted\"}";
 	}
 
 	public int cycleAlgorithms(String alg_name) {

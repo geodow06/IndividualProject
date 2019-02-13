@@ -1,20 +1,41 @@
 package com.qa.persistence.domain;
 
 import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Size;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Algorithm {
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
+	@Column(name = "alg_id")
 	private Long alg_id;
+	
+	@Column(name = "Name")
 	private String alg_name;
+	
+	@Column(name = "Moves")
 	private String alg_moves;
+	
+	@Column(name = "Scramble")
 	private String alg_scramble;
+	
+	@OneToMany(mappedBy = "alg_id")
+	private List<Algorithm> timeListAlg;
+
+	public List<Algorithm> getTimeListAlg() {
+		return timeListAlg;
+	}
+
+	public void setTimeListAlg(List<Algorithm> timeListAlg) {
+		this.timeListAlg = timeListAlg;
+	}
 
 	public Algorithm() {
 
