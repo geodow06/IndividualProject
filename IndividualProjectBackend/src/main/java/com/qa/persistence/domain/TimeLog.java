@@ -7,8 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "TimeLog")
 public class TimeLog {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +21,7 @@ public class TimeLog {
 	@Column(name = "Times")
 	private String time;
 
-	@JoinColumn(name = "User Id", referencedColumnName = "user_id")
+	@JoinColumn(name = "User_Id", referencedColumnName = "user_id")
 	@ManyToOne
 	private User user_id;
 

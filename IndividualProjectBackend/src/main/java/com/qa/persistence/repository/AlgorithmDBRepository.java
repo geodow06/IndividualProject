@@ -62,7 +62,7 @@ public class AlgorithmDBRepository implements AlgorithmRepository {
 	}
 
 	public String getAllAlgorihtms() {
-		Query query = manager.createQuery("Select a FROM Recipe a");
+		Query query = manager.createQuery("Select a FROM Algorithm a");
 		Collection<Algorithm> algorithms = (Collection<Algorithm>) query.getResultList();
 		return util.getJSONForObject(algorithms);
 	}
