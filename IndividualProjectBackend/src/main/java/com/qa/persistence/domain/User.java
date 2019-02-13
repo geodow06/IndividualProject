@@ -16,10 +16,10 @@ public class User {
 	@Id
 	@Column(name = "user_id")
 	private Long user_id;
-
+	
 	@Column(name = "Username")
 	private String user_name;
-
+	
 	@Column(name = "Password")
 	private String user_password;
 
@@ -34,15 +34,13 @@ public class User {
 	@OneToMany(mappedBy = "user_id")
 	private List<TimeLog> timeListUser;
 
-	public User(Long user_id, String user_name, String user_password, List<TimeLog> timeListUser) {
-		super();
-		this.user_id = user_id;
-		this.user_name = user_name;
-		this.user_password = user_password;
-		this.timeListUser = timeListUser;
+	public User() {
+
 	}
 
-	public User() {
+	public User(String user_name, String user_password) {
+		this.user_name = user_name;
+		this.user_password = user_password;
 
 	}
 
