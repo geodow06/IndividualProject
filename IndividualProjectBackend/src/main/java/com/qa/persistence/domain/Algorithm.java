@@ -11,21 +11,21 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Algorithm {
-
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "alg_id")
 	private Long alg_id;
-
+	
 	@Column(name = "Name")
 	private String alg_name;
-
+	
 	@Column(name = "Moves")
 	private String alg_moves;
-
+	
 	@Column(name = "Scramble")
 	private String alg_scramble;
-
+	
 	@OneToMany(mappedBy = "alg_id")
 	private List<Algorithm> timeListAlg;
 
@@ -41,13 +41,11 @@ public class Algorithm {
 
 	}
 
-	public Algorithm(Long alg_id, String alg_name, String alg_moves, String alg_scramble, List<Algorithm> timeListAlg) {
-		super();
-		this.alg_id = alg_id;
+	public Algorithm(String alg_name, String alg_moves, String alg_scramble) {
 		this.alg_name = alg_name;
 		this.alg_moves = alg_moves;
 		this.alg_scramble = alg_scramble;
-		this.timeListAlg = timeListAlg;
+
 	}
 
 	public Long getAlg_id() {

@@ -52,7 +52,7 @@ public class TimeDBRepository implements TimeRepository{
 
 	
 	public String getAllTimes() {
-		Query query = manager.createQuery("Select t FROM TimeLog t");
+		Query query = manager.createQuery("Select a FROM TimeLog a");
 		Collection<TimeLog> times = (Collection<TimeLog>) query.getResultList();
 		return util.getJSONForObject(times);
 	}
@@ -64,10 +64,9 @@ public class TimeDBRepository implements TimeRepository{
 	}
 
 	public String get3Avg(Long user_id, Long alg_id) { 
-//		Query query = manager.createQuery("select alg_id, avg(time) from (select t from TimeLog t where user_id="+user_id+") as user1 where alg_id="+alg_id+" order by time desc Limit 3");
-//		int avgTime = query.getFirstResult();
-//		return util.getJSONForObject(avgTime);
-		return "{\"message\": \"user sucessfully deleted\"}";
+		Query query = manager.createQuery("select alg_id, avg(time) from (select t from times t where user_id="+user_id+") as user1 where alg_id="+alg_id+" order by time desc Limit 3");
+		int avgTime = query.getFirstResult();
+		return util.getJSONForObject(avgTime);
 	}
 	
 	public String updateTime(String time, Long time_id) {
