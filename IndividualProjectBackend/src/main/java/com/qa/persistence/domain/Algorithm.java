@@ -8,43 +8,47 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity
+@Entity 
+@Table(name="ALGORITHM")
 public class Algorithm {
-	
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "alg_id")
 	private Long alg_id;
-	
+
 	@Column(name = "Name")
 	private String alg_name;
-	
+
 	@Column(name = "Moves")
 	private String alg_moves;
-	
+
 	@Column(name = "Scramble")
 	private String alg_scramble;
-	
-	@OneToMany(mappedBy = "alg_id")
-	private List<Algorithm> timeListAlg;
 
-	public List<Algorithm> getTimeListAlg() {
-		return timeListAlg;
+	@OneToMany(mappedBy = "algorithm")
+	private List<TimeLog> algTimeLogs;
+
+	public List<TimeLog> getAlgTimeLogs() {
+		return algTimeLogs;
 	}
 
-	public void setTimeListAlg(List<Algorithm> timeListAlg) {
-		this.timeListAlg = timeListAlg;
+	public void setAlgTimeLogs(List<TimeLog> algTimeLogs) {
+		this.algTimeLogs = algTimeLogs;
 	}
 
-	public Algorithm() {
-
-	}
-
-	public Algorithm(String alg_name, String alg_moves, String alg_scramble) {
+	public Algorithm(Long alg_id, String alg_name, String alg_moves, String alg_scramble, List<TimeLog> algTimeLogs) {
+		super();
+		this.alg_id = alg_id;
 		this.alg_name = alg_name;
 		this.alg_moves = alg_moves;
 		this.alg_scramble = alg_scramble;
+		this.algTimeLogs = algTimeLogs;
+	}
+
+	public Algorithm() {
 
 	}
 

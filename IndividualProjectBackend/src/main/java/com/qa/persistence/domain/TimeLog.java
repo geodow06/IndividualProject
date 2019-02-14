@@ -7,8 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity
+@Entity 
+@Table(name="TIMELOG")
 public class TimeLog {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,40 +21,40 @@ public class TimeLog {
 	@Column(name = "Times")
 	private String time;
 
-	@JoinColumn(name = "User Id", referencedColumnName = "user_id")
 	@ManyToOne
-	private User user_id;
+	@JoinColumn(name = "user_id", nullable=false)
+	private User user;
 
-	@JoinColumn(name = "alg_id", referencedColumnName = "alg_id")
 	@ManyToOne
-	private Algorithm alg_id;
+	@JoinColumn(name = "alg_id", nullable=false)
+	private Algorithm algorithm;
 
 	public TimeLog() {
 
 	}
 
-	public TimeLog(Long time_id, String time, User user_id, Algorithm alg_id) {
+	public Algorithm getAlgorithm() {
+		return algorithm;
+	}
+
+	public void setAlgorithm(Algorithm algorithm) {
+		this.algorithm = algorithm;
+	}
+
+	public TimeLog(Long time_id, String time, User user, Algorithm algorithm) {
 		super();
 		this.time_id = time_id;
 		this.time = time;
-		this.user_id = user_id;
-		this.alg_id = alg_id;
+		this.user = user;
+		this.algorithm = algorithm;
 	}
 
-	public Algorithm getAlg_id() {
-		return alg_id;
+	public User getUser() {
+		return user;
 	}
 
-	public void setAlg_id(Algorithm alg_id) {
-		this.alg_id = alg_id;
-	}
-
-	public User getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(User user_id) {
-		this.user_id = user_id;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Long getTime_id() {

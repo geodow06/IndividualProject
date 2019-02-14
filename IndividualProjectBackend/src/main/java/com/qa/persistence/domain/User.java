@@ -1,6 +1,7 @@
 package com.qa.persistence.domain;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,39 +9,43 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity
+@Entity 
+@Table(name="USER")
 public class User {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "user_id")
 	private Long user_id;
-	
+
 	@Column(name = "Username")
 	private String user_name;
-	
+
 	@Column(name = "Password")
 	private String user_password;
 
-	public List<TimeLog> getTimeListUser() {
-		return timeListUser;
-	}
+	@OneToMany(mappedBy = "user")
+	private Set<TimeLog> userTimeLogs;
 
-	public void setTimeListUser(List<TimeLog> timeListUser) {
-		this.timeListUser = timeListUser;
-	}
-
-	@OneToMany(mappedBy = "user_id")
-	private List<TimeLog> timeListUser;
-
-	public User() {
-
-	}
-
-	public User(String user_name, String user_password) {
+	public User(Long user_id, String user_name, String user_password, Set<TimeLog> userTimeLogs) {
+		super();
+		this.user_id = user_id;
 		this.user_name = user_name;
 		this.user_password = user_password;
+		this.userTimeLogs = userTimeLogs;
+	}
+
+	public Set<TimeLog> getUserTimeLogs() {
+		return userTimeLogs;
+	}
+
+	public void setUserTimeLogs(Set<TimeLog> userTimeLogs) {
+		this.userTimeLogs = userTimeLogs;
+	}
+
+	public User() {
 
 	}
 
