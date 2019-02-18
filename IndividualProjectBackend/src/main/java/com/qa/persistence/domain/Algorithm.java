@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity 
-@Table(name="ALGORITHM")
+@Entity
+@Table(name = "ALGORITHM")
 public class Algorithm {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
