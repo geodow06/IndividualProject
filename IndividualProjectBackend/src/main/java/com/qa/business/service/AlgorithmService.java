@@ -5,7 +5,7 @@ public interface AlgorithmService {
 	String createAlgorithm(String algorithm); 
 	
 	//R 
-	String getAllAlgorihtms(); 
+	String getAllAlgorithms(); 
 	
 	String getAAlgorithm(Long alg_id);
 	

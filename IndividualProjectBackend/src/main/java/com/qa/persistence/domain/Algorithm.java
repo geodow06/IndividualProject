@@ -1,21 +1,28 @@
 package com.qa.persistence.domain;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "ALGORITHM")
-public class Algorithm {
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Entity
+@Table(name = "Algorithm")
+
+public class Algorithm {
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "alg_id")
 	private Long alg_id;
 
@@ -28,29 +35,46 @@ public class Algorithm {
 	@Column(name = "Scramble")
 	private String alg_scramble;
 
-	@OneToMany(mappedBy = "algorithm")
-	private List<TimeLog> algTimeLogs;
+	// @OneToMany(mappedBy = "algorithm")
+	// private List<TimeLog> algTimeLogs;
 
-	public List<TimeLog> getAlgTimeLogs() {
-		return algTimeLogs;
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "alg_id", nullable = false, insertable = false, updatable = false)
+//	@OnDelete(action = OnDeleteAction.CASCADE)
+	private Set<TimeLog> alg_times;
+
+	public Algorithm() {
+
 	}
 
-	public void setAlgTimeLogs(List<TimeLog> algTimeLogs) {
-		this.algTimeLogs = algTimeLogs;
-	}
-
-	public Algorithm(Long alg_id, String alg_name, String alg_moves, String alg_scramble, List<TimeLog> algTimeLogs) {
+	public Algorithm(Long alg_id, String alg_name, String alg_moves, String alg_scramble, Set<TimeLog> alg_times) {
 		super();
 		this.alg_id = alg_id;
 		this.alg_name = alg_name;
 		this.alg_moves = alg_moves;
 		this.alg_scramble = alg_scramble;
-		this.algTimeLogs = algTimeLogs;
+		this.alg_times = alg_times;
 	}
 
-	public Algorithm() {
-
-	}
+	// public Algorithm(Long alg_id, String alg_name, String alg_moves, String
+	// alg_scramble, List<TimeLog> algTimeLogs) {
+	// super();
+	// this.alg_id = alg_id;
+	// this.alg_name = alg_name;
+	// this.alg_moves = alg_moves;
+	// this.alg_scramble = alg_scramble;
+	// this.algTimeLogs = algTimeLogs;
+	// }
+	//
+	//
+	//
+	// public List<TimeLog> getAlgTimeLogs() {
+	// return algTimeLogs;
+	// }
+	//
+	// public void setAlgTimeLogs(List<TimeLog> algTimeLogs) {
+	// this.algTimeLogs = algTimeLogs;
+	// }
 
 	public Long getAlg_id() {
 		return alg_id;
@@ -82,6 +106,14 @@ public class Algorithm {
 
 	public void setAlg_scramble(String alg_scramble) {
 		this.alg_scramble = alg_scramble;
+	}
+
+	public Set<TimeLog> getAlg_times() {
+		return alg_times;
+	}
+
+	public void setAlg_times(Set<TimeLog> times) {
+		this.alg_times = times;
 	}
 
 }

@@ -11,12 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity 
-@Table(name="USER")
+@Entity
+@Table(name = "USER")
 public class User {
-
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private Long user_id;
 
@@ -26,28 +26,37 @@ public class User {
 	@Column(name = "Password")
 	private String user_password;
 
-	@OneToMany(mappedBy = "user")
-	private Set<TimeLog> userTimeLogs;
+	// @OneToMany(mappedBy = "user")
+	// private Set<TimeLog> userTimeLogs;
 
-	public User(Long user_id, String user_name, String user_password, Set<TimeLog> userTimeLogs) {
-		super();
-		this.user_id = user_id;
-		this.user_name = user_name;
-		this.user_password = user_password;
-		this.userTimeLogs = userTimeLogs;
-	}
-
-	public Set<TimeLog> getUserTimeLogs() {
-		return userTimeLogs;
-	}
-
-	public void setUserTimeLogs(Set<TimeLog> userTimeLogs) {
-		this.userTimeLogs = userTimeLogs;
-	}
+	// public User(Long user_id, String user_name, String user_password,
+	// Set<TimeLog> userTimeLogs) {
+	// super();
+	// this.user_id = user_id;
+	// this.user_name = user_name;
+	// this.user_password = user_password;
+	// this.userTimeLogs = userTimeLogs;
+	// }
 
 	public User() {
 
 	}
+
+	public User(Long user_id, String user_name, String user_password, Long time_id) {
+		super();
+		this.user_id = user_id;
+		this.user_name = user_name;
+		this.user_password = user_password;
+
+	}
+
+	// public Set<TimeLog> getUserTimeLogs() {
+	// return userTimeLogs;
+	// }
+	//
+	// public void setUserTimeLogs(Set<TimeLog> userTimeLogs) {
+	// this.userTimeLogs = userTimeLogs;
+	// }
 
 	public Long getUser_id() {
 		return user_id;

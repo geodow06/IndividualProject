@@ -31,24 +31,24 @@ public static void  main(String[] args){
 	
     public static void testApp()
     {  
-    	Algorithm alg = new Algorithm();
-    	alg.setAlg_name("j"); 
-    	Long id = (long) 1;
-    	alg.setAlg_id(id); 
-    	alg.setAlg_moves("U R"); 
-    	alg.setAlg_scramble("R' U'"); 
-    	System.out.println(alg.getAlg_id()); 
-    	System.out.println(alg.getAlg_name());
-    
-    	System.out.println(alg.getAlg_moves()); 
-    	System.out.println(alg.getAlg_scramble());
-//    	repo.createAlgorithm("j");  
-    	Algorithm algTest = new Algorithm(); 
-    	algTest.setAlg_id(id); 
-    	algTest.setAlg_moves("U"); 
-    	algTest.setAlg_name("j"); 
-    	algTest.setAlg_scramble("R'"); 
-    	repoDB.getAAlgorithm(id);
+//    	Algorithm alg = new Algorithm();
+//    	alg.setAlg_name("j"); 
+//    	Long id = (long) 1;
+//    	alg.setAlg_id(id); 
+//    	alg.setAlg_moves("U R"); 
+//    	alg.setAlg_scramble("R' U'"); 
+//    	System.out.println(alg.getAlg_id()); 
+//    	System.out.println(alg.getAlg_name());
+//    
+//    	System.out.println(alg.getAlg_moves()); 
+//    	System.out.println(alg.getAlg_scramble());
+////    	repo.createAlgorithm("j");  
+//    	Algorithm algTest = new Algorithm(); 
+//    	algTest.setAlg_id(id); 
+//    	algTest.setAlg_moves("U"); 
+//    	algTest.setAlg_name("j"); 
+//    	algTest.setAlg_scramble("R'"); 
+//    	repoDB.getAAlgorithm(id);
     	
 //    	System.out.print(repo.getAAlgorithm(id));
     	

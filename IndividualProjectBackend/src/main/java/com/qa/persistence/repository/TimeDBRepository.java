@@ -64,11 +64,12 @@ public class TimeDBRepository implements TimeRepository{
 	}
 
 	public String get3Avg(Long user_id, Long alg_id) { 
-		Query query = manager.createQuery("select alg_id, avg(time) from (select t from times t where user_id="+user_id+") as user1 where alg_id="+alg_id+" order by time desc Limit 3");
+		Query query = manager.createQuery("select alg_id, avg(time) from (select t from TimeLog t where user_id="+user_id+") as user1 where alg_id="+alg_id+" order by time desc Limit 3");
 		int avgTime = query.getFirstResult();
 		return util.getJSONForObject(avgTime);
 	}
 	
+	@Transactional(REQUIRED)
 	public String updateTime(String time, Long time_id) {
 		// not yet
 		return null;

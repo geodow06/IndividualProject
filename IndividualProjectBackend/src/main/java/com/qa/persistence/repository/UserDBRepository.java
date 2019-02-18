@@ -23,8 +23,6 @@ import org.apache.log4j.Logger;
 
 import com.qa.persistence.domain.Algorithm;
 
-//import com.qa.business.service.RecipeService;
-
 import com.qa.persistence.domain.User;
 import com.qa.util.JSONUtil;
 
@@ -54,7 +52,6 @@ public class UserDBRepository implements UserRepository {
 	public String getAllUsers() {
 		Query query = manager.createQuery("Select a FROM User a");
 		Collection<User> users = (Collection<User>) query.getResultList();
-
 		return util.getJSONForObject(users);
 	}
 
@@ -62,7 +59,8 @@ public class UserDBRepository implements UserRepository {
 
 		return util.getJSONForObject(manager.find(User.class, user_id));
 	}
-
+	
+	@Transactional(REQUIRED)
 	public String updateUser(String user, Long user_id) {
 		// not yet
 		return null;
