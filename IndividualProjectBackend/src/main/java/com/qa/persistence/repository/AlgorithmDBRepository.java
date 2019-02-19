@@ -22,7 +22,7 @@ import javax.transaction.Transactional;
 import org.apache.log4j.Logger;
 
 import com.qa.persistence.domain.Algorithm;
-
+import com.qa.persistence.domain.TimeLog;
 import com.qa.util.JSONUtil;
 
 import okhttp3.OkHttpClient;
@@ -59,25 +59,32 @@ public class AlgorithmDBRepository implements AlgorithmRepository {
 
 		return util.getJSONForObject(manager.find(Algorithm.class, alg_id));
 	}
+
 	@Transactional(REQUIRED)
 	public String updateAlgorithm(String algorithm, Long alg_id) {
-		deleteAlgorithm(alg_id); 
+		deleteAlgorithm(alg_id);
 		createAlgorithm(algorithm);
-		return "{\"message\": \"Algorithm "+alg_id+" updated\"}";
+		return "{\"message\": \"Algorithm " + alg_id + " updated\"}";
 	}
 
 	@Transactional(REQUIRED)
 	public String deleteAlgorithm(Long alg_id) {
+		// need to cascade
 		Algorithm algorithmInDB = util.getObjectForJSON(getAAlgorithm(alg_id), Algorithm.class);
-
+		// TimeLog timeInDB = util.getObjectForJSON(getATime(time_id), TimeLog.class);
+		//
+		// if(manager.contains(manager.find(TimeLog.class, time_id))) {
+		// manager.remove(manager.find(TimeLog.class, time_id));
+		// }
+		//
+		// return "{\"message\": \"user sucessfully deleted\"}";
 		if (manager.contains(manager.find(Algorithm.class, alg_id))) {
-			manager.remove(manager.find(Algorithm.class, alg_id)); 
+			manager.remove(manager.find(Algorithm.class, alg_id));
 			return "{\"message\": \"Algorithm sucessfully deleted\"}";
-		} 
-		else { 
+		} else {
 			return "{\"message\": \"Algorithm not deleted\"}";
 		}
-		
+
 	}
 
 	public int cycleAlgorithms(String alg_name) {

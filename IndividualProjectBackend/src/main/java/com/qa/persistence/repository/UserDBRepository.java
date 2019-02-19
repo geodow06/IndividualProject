@@ -59,11 +59,12 @@ public class UserDBRepository implements UserRepository {
 
 		return util.getJSONForObject(manager.find(User.class, user_id));
 	}
-	
+
 	@Transactional(REQUIRED)
 	public String updateUser(String user, Long user_id) {
-		// not yet
-		return null;
+		deleteUser(user_id);
+		createUser(user);
+		return "{\"message\": \"user sucessfully deleted\"}";
 	}
 
 	@Transactional(REQUIRED)

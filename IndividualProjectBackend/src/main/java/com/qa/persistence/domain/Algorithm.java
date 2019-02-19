@@ -20,7 +20,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Table(name = "Algorithm")
 
 public class Algorithm {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "alg_id")
@@ -35,46 +35,36 @@ public class Algorithm {
 	@Column(name = "Scramble")
 	private String alg_scramble;
 
-	// @OneToMany(mappedBy = "algorithm")
-	// private List<TimeLog> algTimeLogs;
-
 	@OneToMany(fetch = FetchType.EAGER)
+	// @OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "alg_id", nullable = false, insertable = false, updatable = false)
-//	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Set<TimeLog> alg_times;
+
+	@Column(name = "user_id")
+	private Long user_id;
 
 	public Algorithm() {
 
 	}
 
-	public Algorithm(Long alg_id, String alg_name, String alg_moves, String alg_scramble, Set<TimeLog> alg_times) {
+	public Algorithm(Long alg_id, String alg_name, String alg_moves, String alg_scramble, Set<TimeLog> alg_times,
+			Long user_id) {
 		super();
 		this.alg_id = alg_id;
 		this.alg_name = alg_name;
 		this.alg_moves = alg_moves;
 		this.alg_scramble = alg_scramble;
 		this.alg_times = alg_times;
+		this.user_id = user_id;
 	}
 
-	// public Algorithm(Long alg_id, String alg_name, String alg_moves, String
-	// alg_scramble, List<TimeLog> algTimeLogs) {
-	// super();
-	// this.alg_id = alg_id;
-	// this.alg_name = alg_name;
-	// this.alg_moves = alg_moves;
-	// this.alg_scramble = alg_scramble;
-	// this.algTimeLogs = algTimeLogs;
-	// }
-	//
-	//
-	//
-	// public List<TimeLog> getAlgTimeLogs() {
-	// return algTimeLogs;
-	// }
-	//
-	// public void setAlgTimeLogs(List<TimeLog> algTimeLogs) {
-	// this.algTimeLogs = algTimeLogs;
-	// }
+	public Long getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(Long user_id) {
+		this.user_id = user_id;
+	}
 
 	public Long getAlg_id() {
 		return alg_id;

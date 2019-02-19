@@ -18,7 +18,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 @Table(name = "TimeLog")
 public class TimeLog {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "time_id")
@@ -27,19 +27,6 @@ public class TimeLog {
 	@Column(name = "Times")
 	private String time;
 
-	// @ManyToOne
-	// @JoinColumn(name = "user_id", nullable=false)
-	// private User user;
-	//
-	// @ManyToOne
-	// @JoinColumn(name = "alg_id", nullable=false)
-	// private Algorithm algorithm;
-
-	// @OneToMany
-	// @JoinColumn(name = "user_id", nullable = false, insertable = false, updatable
-	// = false)
-	// @OnDelete(action = OnDeleteAction.CASCADE)
-	// private Set<User> users;
 	@Column(name = "alg_id")
 	private Long alg_id;
 
