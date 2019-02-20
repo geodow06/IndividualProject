@@ -3,24 +3,15 @@
 <head> 
 	<script> 
 		let xhr = new XMLHttpRequest(); 
-		xhr.open("GET","api/algorithm/getAllAlgorithms"); 
+		xhr.withcredentials=true; 
+		xhr.open("GET","https:/localhost:8080//IndividualProjectBackend/api/algorithm/getAllAlgorithms"); 
+		xhr.responseType = 'json';
 		xhr.onload = () => { 
-			document.write(xhr.responseText);
-		}  
-		xhr.send(); 
-			let xhr = new XMLHttpRequest(); 
-		xhr.open("GET","api/algorithm/getAAlgorithm"); 
-		xhr.onload = () => { 
-			document.write(xhr.responseText);
-		}  
-		xhr.send();  
-		
-			let xhr = new XMLHttpRequest(); 
-		xhr.open("GET","api/algorithm/cycleAlgorithms/{alg_name}"); 
-		xhr.onload = () => { 
-			document.write(xhr.responseText);
-		}  
-		xhr.send(); 
+	
+	    let returnJSON =JSON.parse(xhr.response)
+	    document.getElementById("writeAlgsHere").innerHTML = returnJSON;
+}  
+xhr.send(); 
 		
 	</script>
 </head> 

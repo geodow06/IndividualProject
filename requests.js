@@ -10,7 +10,7 @@
 
 function getAllAlgorithms(){
 let xhr = new XMLHttpRequest(); 
-xhr.open("GET","api/user/getAllAlgorithms"); 
+xhr.open("GET","/api/algorithm/getAllAlgorithms"); 
 xhr.responseType = 'json';
 xhr.onload = function() { 
     var algorithms = xhr.response;
