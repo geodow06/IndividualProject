@@ -19,7 +19,7 @@ public class TimeLogController {
 	@Autowired
 	public TimeLogServiceImpl svc;
 
-	@RequestMapping("/addTimeLog/{time}/{algId}")
+	@RequestMapping("/addTimeLog/{time}/{algID}")
 	public TimeLog addTimeLog(@PathVariable String time, @PathVariable Long algID) {
 		TimeLog result = svc.createTimeLog(time, algID);
 
@@ -32,7 +32,7 @@ public class TimeLogController {
 		return svc.getAllTimeLogs();
 	}
 
-	@RequestMapping("/getATimeLog/{timeId}")
+	@RequestMapping("/getATimeLog/{timeID}")
 	public Optional<TimeLog> getATimeLog(@PathVariable Long timeID) {
 
 		return svc.getATimeLog(timeID);
@@ -44,7 +44,7 @@ public class TimeLogController {
 		return svc.get3Avg(userId, algID);
 	}
 
-	@RequestMapping("/updateTimeLog/{time}/{timeId}")
+	@RequestMapping("/updateTimeLog/{time}/{timeID}")
 	public String updateTimeLog(@PathVariable String time, @PathVariable Long timeID) {
 
 		return svc.updateTimeLog(time, timeID);

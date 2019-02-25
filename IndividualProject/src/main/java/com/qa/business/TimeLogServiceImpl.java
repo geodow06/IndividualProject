@@ -32,13 +32,13 @@ public class TimeLogServiceImpl implements TimeLogService{
 	@Override
 	public List<TimeLog> getAllTimeLogs() {
 		// TODO Auto-generated method stub
-		return null;
+		return timeRepo.findAll();
 	}
 
 	@Override
 	public Optional<TimeLog> getATimeLog(Long timeID) {
 		// TODO Auto-generated method stub
-		return null;
+		return timeRepo.findById(timeID);
 	}
 
 	@Override
@@ -55,8 +55,8 @@ public class TimeLogServiceImpl implements TimeLogService{
 
 	@Override
 	public String deleteTimeLog(Long timeID) {
-		// TODO Auto-generated method stub
-		return null;
+		timeRepo.deleteById(timeID);
+		return "Time " + timeID + " deleted.";
 	}
 
 }
