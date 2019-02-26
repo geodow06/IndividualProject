@@ -14,7 +14,7 @@ class App extends Component {
       <div>
         <NavBar/> 
         {/* <Cube/> */}  
-        {/* <UserGet/>  */}
+        <UserGet/> 
         <AddUser/>
       
       </div>

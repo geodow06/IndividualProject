@@ -7,7 +7,7 @@ class UserGet extends Component {
   constructor(){ 
     super(); 
     this.state = { 
-      data: "hello", 
+      data: ["hello","goodbye"], 
       username:"null", 
       password:"null"
     }
@@ -19,17 +19,27 @@ class UserGet extends Component {
         axios.get('/getAllUsers').then(r=>{this.setState({data: r.data})}); 
         
     }
-
-    render() {
-      return (
-        <div>
-            <button onClick={this.getRequest}>Click</button> 
-            <p>username={this.state.data[0].userName}</p> 
-            <p>password={this.state.data[0].userPassword}</p> 
-        </div>
-      
-      );
+    loopUsers = ()=>{ 
+      for(let i=0 ; i<2 ; i++){ 
+        
+      }
     }
+    
+    render() { 
+      for(let i=0 ; i<2 ; i++){ 
+        return (
+          <div>
+              {/* <button onClick={this.getRequest}>Click</button>  */}
+              {/* <p>username={this.state.data[i].userName}</p> 
+              <p>password={this.state.data[i].userPassword}</p>  */} 
+              <p>{this.state.data[i]}</p> 
+              {/* <p>{this.state.data[1]}</p> */}
+          </div>
+        
+        ); 
+      } 
+    }
+   
   }
   
   export default UserGet;
