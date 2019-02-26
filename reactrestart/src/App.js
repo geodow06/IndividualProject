@@ -3,16 +3,10 @@ import './App.css';
 import NavBar from './NavBar.js';
 import Cube from './Cube.js'; 
 import axios from 'axios';
-import UserGet from './UserGet';
+import UserGet from './UserGet'; 
+import AddUser from './AddUser';
 class App extends Component { 
-constructor(){ 
-  super(); 
-  this.state = { 
-    data: "hello", 
-    username:"null", 
-    password:"null"
-  }
-}
+
 
 
   render() {
@@ -20,7 +14,8 @@ constructor(){
       <div>
         <NavBar/> 
         {/* <Cube/> */}  
-        <UserGet/>
+        {/* <UserGet/>  */}
+        <AddUser/>
       
       </div>
     );
