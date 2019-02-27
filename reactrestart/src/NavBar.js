@@ -5,7 +5,7 @@ class NavBar extends Component {
   render() {
     return (
     <div className="header">
-      <a href="worm.html" className="logo">George's PLL Trainer</a>
+      <a  className="logo">George's PLL Trainer</a>
       <div className="header-right">
           <a className="active" href="#home">Home</a> 
           <a href="">ebverjbgwerhi</a>
