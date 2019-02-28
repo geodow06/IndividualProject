@@ -15,7 +15,6 @@ import com.qa.persistence.domain.User;
 public class TimeLogDomainTest {
 	TimeLog timeLog;
 
-	Set<Algorithm> userAlgs = new HashSet<Algorithm>();
 	Long timeID = 1L;
 	String time = "time";
 	Long algID = 1L;
@@ -23,6 +22,7 @@ public class TimeLogDomainTest {
 	@Before
 	public void setup() {
 
+		timeLog = new TimeLog(timeID, time, algID);
 	}
 
 	@Test

@@ -53,7 +53,7 @@ public class AlgorithmEndpointTest {
 	}
 
 	@Test
-	public void testUpdateAAlgorithm() {
+	public void testUpdateAlgorithm() {
 		Mockito.when(svc.updateAlgorithm(testString, testLong)).thenReturn(testString);
 		assertEquals(testString, aCon.updateAlgorithm(testString, testLong));
 
