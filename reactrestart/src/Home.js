@@ -12,12 +12,12 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <NavBar/> 
+        {/* <NavBar/>  */}
         {/* <Cube/> */}  
         <UserGet/> 
         {/* <AddUser/> */}
       
-      </div>
+      </div> 
     );
   }
 }

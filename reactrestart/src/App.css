@@ -17,10 +17,9 @@ code {
 { 
     font-size: 10px;
 }  
-h1 
-{ 
-
-} 
+#content{ 
+    
+}
 
 * {box-sizing: border-box;}
 
@@ -57,7 +56,7 @@ body {
   color: black;
 }
 
-.header a.active {
+.header a#home {
   background-color: dodgerblue;
   color: white;
 }
@@ -95,20 +94,7 @@ body {
     font-size: 50px;
 } 
 
-#gaddlibs{ 
-    padding-left:20px;
-} 
 
-.compGen{ 
-    padding-left:20px;
-} 
 
-.gaddlibboxes{ 
-    padding-left:40px;
-} 
 
-#image{ 
-    background-image: url("https://ichef.bbci.co.uk/news/660/cpsprodpb/37B5/production/_89716241_thinkstockphotos-523060154.jpg"); 
-    
-}
 

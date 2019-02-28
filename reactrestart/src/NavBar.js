@@ -7,10 +7,10 @@ class NavBar extends Component {
     <div className="header">
       <a  className="logo">George's PLL Trainer</a>
       <div className="header-right">
-          <a className="active" href="#home">Home</a> 
-          <a href="">ebverjbgwerhi</a>
-          <a href="">Contact</a>
-          <a href="">About</a> 
+          <a className="active">Home</a> 
+          <a>ebverjbgwerhi</a>
+          <a>Contact</a>
+          <a>About</a> 
       </div>
     </div>
     );
