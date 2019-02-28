@@ -14,7 +14,7 @@ function RoutePage(){
             <div> 
                 <div className="header">
                     
-                    <NavLink className="logo" to="/">George'd PLL Trainer</NavLink>
+                    <NavLink className="logo" to="/">George's PLL Trainer</NavLink>
                     <div className="header-right">  
                         <NavLink id="home" to="/">Home</NavLink>
                         <NavLink to="/UsersPage">Users</NavLink>

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'; 
-// import '/roofpig_and_three.min.js'
 import axios from 'axios';
-import Users from './Users'; 
 import TimeListItems from './TimeListItems';
 
 // const users = []; 
