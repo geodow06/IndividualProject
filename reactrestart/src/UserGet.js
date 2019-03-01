@@ -30,7 +30,7 @@ class UserGet extends Component {
   // this.state.myArray.push('new value')
 
   getRequest = () => {
-    axios.get('/getAllUsers').then(r => { this.setState({ users: r.users }) });
+    axios.get('/getAllUsers').then(r => { this.setState({ users: r.data }) });
     let users = this.state.users.map(u => <Users userID={u.userID} userName={u.userName} userPassword={u.userPassword} />)
     // this.setState({users:[{userID:"1",userName:"George",userPassword:"Downe"},{userID:"2",userName:"George",userPassword:"Heimsith"}]}); 
   }

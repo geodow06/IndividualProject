@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css'; 
 // import '/roofpig_and_three.min.js'
 import axios from 'axios';
-import Users from './Users'; 
-import TimeListItems from './TimeListItems';
+import AlgorithmsListItems from './AlgorithmsListItems';
 
 // const users = []; 
 // let users = [{username:"hello", password:"password"},{username:"hello2",password:"password2"}]
@@ -18,12 +17,12 @@ class GetAllAlgorithms extends Component {
   } 
 
     getRequest = ()=>{ 
-        axios.get('/getAllalgorithms').then(r=>{this.setState({algorithms: r.algorithms})}); 
+        axios.get('/getAllAlgorithms').then(r => {this.setState({algorithms: r.data})}); 
         
       } 
     render() {  
         
-      let algorithms = this.state.algorithms.map(a => <TimeListItems algID={a.algID} name={a.name} moves={a.moves} scramble={a.scramble} userID={a.userID} />)
+      let algorithms = this.state.algorithms.map(a => <AlgorithmsListItems algID={a.algID} name={a.name} moves={a.moves} scramble={a.scramble} userID={a.userID} />)
       return (
         <div>      
             <ul key={`myKey${this.state.algID}`}>  
