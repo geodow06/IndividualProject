@@ -15,16 +15,17 @@ import com.qa.persistence.domain.Algorithm;
 import com.qa.persistence.domain.TimeLog;
 import com.qa.persistence.repository.AlgorithmRepository;
 import com.qa.persistence.repository.TimeLogRepository;
+
 @Service
-public class TimeLogServiceImpl implements TimeLogService{
-	
+public class TimeLogServiceImpl implements TimeLogService {
+
 	@Autowired
 	private TimeLogRepository timeRepo;
-	
+
 	@Override
 	public TimeLog createTimeLog(String time, Long algID) {
-		TimeLog aTimeLog = new TimeLog(); 
-		aTimeLog.setTime(time); 
+		TimeLog aTimeLog = new TimeLog();
+		aTimeLog.setTime(time);
 		aTimeLog.setAlgID(algID);
 		return timeRepo.save(aTimeLog);
 	}
@@ -50,7 +51,7 @@ public class TimeLogServiceImpl implements TimeLogService{
 	@Override
 	public String updateTimeLog(String time, Long timeID) {
 		// TODO Auto-generated method stub
-		return null;
+		return "TimeLog " + timeID + " updated";
 	}
 
 	@Override

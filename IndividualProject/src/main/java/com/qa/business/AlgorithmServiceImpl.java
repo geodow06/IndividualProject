@@ -41,11 +41,11 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 
 		return algRepo.findById(algID);
 	}
-
+ 
 	@Override
 	public String updateAlgorithm(String algorithm, Long algID) {
 		// TODO Auto-generated method stub
-		return null;
+		return "Algorithm " + algID + " updated";
 	}
 
 	@Override

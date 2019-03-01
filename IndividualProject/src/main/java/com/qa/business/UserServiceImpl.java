@@ -16,12 +16,13 @@ import com.qa.persistence.domain.TimeLog;
 import com.qa.persistence.domain.User;
 import com.qa.persistence.repository.AlgorithmRepository;
 import com.qa.persistence.repository.UserRepository;
+
 @Service
-public class UserServiceImpl implements UserService{
-	
+public class UserServiceImpl implements UserService {
+
 	@Autowired
 	private UserRepository userRepo;
-	
+
 //	@Override
 //	public User createUser(String user) {
 //		User aUser = new User();
@@ -30,31 +31,34 @@ public class UserServiceImpl implements UserService{
 //
 //		return userRepo.save(aUser);
 //	} 
-	
+
 	@Override
 	public User createUser(String userName, String userPassword) {
-		User aUser = new User(); 
-		aUser.setUserName(userName); 
+		User aUser = new User();
+		aUser.setUserName(userName);
 		aUser.setUserPassword(userPassword);
 		return userRepo.save(aUser);
 	}
 
 	@Override
 	public List<User> getAllUsers() {
-	
+
 		return userRepo.findAll();
 	}
 
 	@Override
 	public Optional<User> getAUser(Long userID) {
-		
+
 		return userRepo.findById(userID);
 	}
 
 	@Override
-	public String updateUser(String user, Long userId) {
-		
-		return null;
+	public String updateUser(String userName, String userPassword, Long userID) {
+		deleteUser(userID);
+		createUser(userName, userPassword);
+		Optional<User> userToUpdate = userRepo.findById(userID);
+		// userToUpdate
+		return "User " + userID + " updated";
 	}
 
 	@Override
@@ -62,7 +66,5 @@ public class UserServiceImpl implements UserService{
 		userRepo.deleteById(userID);
 		return "User " + userID + " deleted.";
 	}
-
-	
 
 }

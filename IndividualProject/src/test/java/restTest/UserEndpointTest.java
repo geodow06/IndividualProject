@@ -22,6 +22,8 @@ import com.qa.rest.UserController;
 @RunWith(MockitoJUnitRunner.class)
 public class UserEndpointTest {
 	private static final String testString = "test";
+	private static final String testUserName = "username";
+	private static final String testUserPassword = "password";
 	private static final Long testLong = 1L;
 	@InjectMocks
 	UserController uCon;
@@ -53,8 +55,8 @@ public class UserEndpointTest {
 
 	@Test
 	public void testUpdateAUser() {
-		Mockito.when(svc.updateUser(testString, testLong)).thenReturn(testString);
-		assertEquals(testString, uCon.updateUser(testString, testLong));
+		Mockito.when(svc.updateUser(testUserName, testUserPassword, testLong)).thenReturn(testString);
+		assertEquals(testString, uCon.updateUser(testUserName, testUserPassword, testLong));
 	}
 
 	@Test

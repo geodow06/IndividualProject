@@ -35,10 +35,10 @@ public class UserController {
 		return svc.getAUser(userID);
 	}
 
-	@RequestMapping("/updateUser/{user}/{userID}")
-	public String updateUser(@PathVariable String user, @PathVariable Long userId) {
+	@RequestMapping("/updateUser/{userName}/{userPassword}/{userID}")
+	public String updateUser(@PathVariable String userName, @PathVariable String userPassword, @PathVariable Long userId) {
 		
-		return svc.updateUser(user, userId);
+		return svc.updateUser(userName, userPassword, userId);
 	}
 
 	@RequestMapping("/deleteUser/{userID}")

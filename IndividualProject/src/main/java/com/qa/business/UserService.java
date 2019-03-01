@@ -14,7 +14,7 @@ public interface UserService {
 	public Optional<User> getAUser(Long userID);
 
 	// U
-	public String updateUser(String user, Long userId);
+	public String updateUser(String userName, String userPassword, Long userId);
 
 	// D
 	public String deleteUser(Long userID);
