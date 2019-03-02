@@ -41,10 +41,24 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 
 		return algRepo.findById(algID);
 	}
- 
+
 	@Override
-	public String updateAlgorithm(String algorithm, Long algID) {
-		// TODO Auto-generated method stub
+	public String updateAlgorithm(String name, String moves, String scramble, Long userID, Long algID) {
+
+		Optional<Algorithm> anAlgorithm = algRepo.findById(algID);
+
+		if (anAlgorithm.isPresent()) {
+			Algorithm newAlgorithm = anAlgorithm.get();
+
+			newAlgorithm.setMoves(moves);
+			newAlgorithm.setName(name);
+			newAlgorithm.setScramble(scramble);
+			newAlgorithm.setUserID(userID);
+			algRepo.save(newAlgorithm);
+		} else {
+
+		}
+
 		return "Algorithm " + algID + " updated";
 	}
 

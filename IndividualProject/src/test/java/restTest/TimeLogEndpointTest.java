@@ -51,8 +51,8 @@ public class TimeLogEndpointTest {
 
 	@Test
 	public void testUpdateATimeLog() {
-		Mockito.when(svc.updateTimeLog(testString, testLong)).thenReturn(testString);
-		assertEquals(testString, tCon.updateTimeLog(testString, testLong));
+		Mockito.when(svc.updateTimeLog(testString, testLong, testLong)).thenReturn(testString);
+		assertEquals(testString, tCon.updateTimeLog(testString, testLong, testLong));
 	}
 
 	@Test

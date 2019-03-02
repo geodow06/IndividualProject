@@ -44,10 +44,10 @@ public class TimeLogController {
 		return svc.get3Avg(userId, algID);
 	}
 
-	@RequestMapping("/updateTimeLog/{time}/{timeID}")
-	public String updateTimeLog(@PathVariable String time, @PathVariable Long timeID) {
+	@RequestMapping("/updateTimeLog/{time}/{algID}/{timeID}")
+	public String updateTimeLog(@PathVariable String time, @PathVariable Long algID, @PathVariable Long timeID) {
 
-		return svc.updateTimeLog(time, timeID);
+		return svc.updateTimeLog(time, algID, timeID);
 	}
 
 	@RequestMapping("/deleteTimeLog/{timeID}")

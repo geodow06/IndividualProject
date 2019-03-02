@@ -46,8 +46,7 @@ public class Algorithm {
 
 	}
 
-	public Algorithm(Long algID, String name, String moves, String scramble, Set<TimeLog> timeLogs,
-			Long userID) {
+	public Algorithm(Long algID, String name, String moves, String scramble, Set<TimeLog> timeLogs, Long userID) {
 		super();
 		this.algID = algID;
 		this.name = name;
@@ -103,12 +102,11 @@ public class Algorithm {
 
 	public void setTimeLogs(Set<TimeLog> timeLogs) {
 		this.timeLogs = timeLogs;
-	} 
-	
+	}
+
 	@Override
 	public String toString() {
-		return String.format(
-				"Algorithm[algID=" + algID + ", Name=" + name + ", Moves=" + moves + ", Scramble="+scramble+", TimeLog="+timeLogs+"]",
-				algID, name, moves, scramble, timeLogs);
+		return String.format("Algorithm[algID=" + algID + ", Name=" + name + ", Moves=" + moves + ", Scramble="
+				+ scramble + ", TimeLog=" + timeLogs + "]", algID, name, moves, scramble, timeLogs);
 	}
 }

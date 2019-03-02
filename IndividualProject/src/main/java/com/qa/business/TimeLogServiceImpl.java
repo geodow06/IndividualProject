@@ -49,9 +49,16 @@ public class TimeLogServiceImpl implements TimeLogService {
 	}
 
 	@Override
-	public String updateTimeLog(String time, Long timeID) {
-		// TODO Auto-generated method stub
+	public String updateTimeLog(String time, Long algID, Long timeID) {
+		Optional<TimeLog> aTimeLog = timeRepo.findById(timeID);
 		
+		if(aTimeLog.isPresent()) { 
+			TimeLog newTimeLog = aTimeLog.get(); 
+			
+			newTimeLog.setTime(time);
+			newTimeLog.setAlgID(algID); 
+			
+		}
 		return "TimeLog " + timeID + " updated";
 	}
 

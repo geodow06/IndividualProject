@@ -14,7 +14,7 @@ public interface AlgorithmService {
 	public Optional<Algorithm> getAnAlgorithm(Long algID);
 	
 	//U 
-	public String updateAlgorithm(String algorithm, Long algID); 
+	public String updateAlgorithm(String name, String moves, String scramble, Long userID, Long algID); 
 	
 	//D 
 	public String deleteAlgorithm(Long algID); 

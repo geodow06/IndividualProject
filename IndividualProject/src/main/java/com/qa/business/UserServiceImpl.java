@@ -54,10 +54,17 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public String updateUser(String userName, String userPassword, Long userID) {
-		deleteUser(userID);
-		createUser(userName, userPassword);
-		Optional<User> userToUpdate = userRepo.findById(userID);
-		// userToUpdate
+
+		Optional<User> aUser = userRepo.findById(userID);
+		if (aUser.isPresent()) {
+			User newUser = aUser.get();
+
+			newUser.setUserName(userName);
+			newUser.setUserPassword(userPassword);
+			userRepo.save(newUser);
+		} else {
+
+		}
 		return "User " + userID + " updated";
 	}
 
