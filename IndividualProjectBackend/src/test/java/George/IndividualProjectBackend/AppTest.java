@@ -1,33 +1,46 @@
 package George.IndividualProjectBackend;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import com.qa.persistence.repository.*;
 
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 import javax.inject.Inject;
 
-import com.qa.business.service.*; 
-import com.qa.persistence.domain.*; 
-import com.qa.rest.*; 
-import com.qa.util.*;
+import org.junit.Before;
 
-public class AppTest 
-    extends TestCase
+
+import com.qa.persistence.domain.*;
+
+import com.qa.persistence.repository.*;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+public class AppTest
+
 {
-	@Inject 
-	private AlgorithmRepository repo; 
-	@Inject
-	private Algorithm Alg;
+
 	
-    public void testApp()
-    {  
-    	Algorithm alg = new Algorithm();
-    	repo.createAlgorithm("j");  
-    	Long id = (long) 1;
-    	System.out.print(repo.getAAlgorithm(id));
-    	
-        
-    	assertEquals( 2,2 );
-    }
+	
+//	private AlgorithmDBRepository repoDB = new AlgorithmDBRepository();
+	private static final String MOCK_OBJECT = "{\"alg_id\":1,\"alg_name\":\"12\",\"alg_moves\":\"U R\",\"alg_scramble\":\"R' U'\"}";
+
+	private AlgorithmDBRepository repoDB;
+	@Before
+	public void setup() {
+		
+		repoDB = new AlgorithmDBRepository();
+
+	}
+
+	@Test 
+	@Ignore
+	public void addAlgorithmTest() {
+		
+
+		String reply = repoDB.createAlgorithm(MOCK_OBJECT);
+		System.out.println(reply);
+//		Assert.assertEquals("{\"message\": \"algorithm has been succesfully added\"}", reply);
+		Assert.assertEquals("Worked", reply);
+	}
 }
