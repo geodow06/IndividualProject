@@ -10,8 +10,8 @@ render(){
   return (
     <div>      
         <div> 
-          <li>  
-            <a>{this.props.timeID} {this.props.time} {this.props.algID}</a>
+          <li key={`aMyKey${this.props.timeID}`}>  
+            <a >{this.props.timeID} {this.props.time} {this.props.algID}</a>
           </li>
         </div> 
     </div>

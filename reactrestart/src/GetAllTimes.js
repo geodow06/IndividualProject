@@ -10,7 +10,7 @@ class GetAllTimes extends Component {
     super(props);
     this.state = {
 
-      times: [{ time: "1time", algID: "1alg" }, { time: "2time", algID: "2alg" }]
+      times: []
 
     }
   }
@@ -23,7 +23,7 @@ class GetAllTimes extends Component {
     let times = this.state.times.map(t => <TimeListItems timeID={t.timeID} time={t.time} algID={t.algID} />)
     return (
       <div>
-        <ul key={`myKey${this.state.userID}`}>
+        <ul>
           {times}
         </ul>
         <button onClick={this.getRequest}>Click</button>

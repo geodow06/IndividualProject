@@ -10,8 +10,8 @@ render(){
   return (
     <div>      
         <div> 
-          <li>  
-            <a>{this.props.algID} {this.props.name} {this.props.moves} {this.props.scramble} {this.props.userID}</a>
+          <li key={`aMyKey`}>  
+            <a >{this.props.algID} {this.props.name} {this.props.moves} {this.props.scramble} {this.props.userID}</a>
           </li>
         </div> 
     </div>

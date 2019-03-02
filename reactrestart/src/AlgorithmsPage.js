@@ -1,7 +1,8 @@
 import React, { Component } from 'react'; 
 
 import AddAlgorithm from './AddAlgorithm'; 
-import GetAllAlgorithms from './GetAllAlgorithms';
+import GetAllAlgorithms from './GetAllAlgorithms'; 
+import GetAnAlgorithm from './GetAnAlgorithm';
 class AlgorithmsPage extends Component{ 
 
 // constructor(props){ 
@@ -13,7 +14,8 @@ render(){
     <div>
       
         
-        <AddAlgorithm/> 
+        <AddAlgorithm/>  
+        <GetAnAlgorithm/>
         <GetAllAlgorithms/>
     
     </div>

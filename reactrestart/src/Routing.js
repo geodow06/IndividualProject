@@ -7,34 +7,27 @@ import TimeLogPage from './TimeLogPage';
 import AlgorithmsPage from './AlgorithmsPage.js';
 import './App.css'; 
 
-function RoutePage(){ 
-        
+function RoutePage(){        
     return( 
         <Router> 
             <div> 
-                <div className="header">
-                    
+                <div className="header">               
                     <NavLink className="logo" to="/">George's PLL Trainer</NavLink>
                     <div className="header-right">  
                         <NavLink id="home" to="/">Home</NavLink>
                         <NavLink to="/UsersPage">Users</NavLink>
-                        <NavLink to="/Trainer">Trainer</NavLink> 
+                        {/* <NavLink to="/Trainer">Trainer</NavLink>  */}
                         <NavLink to="/TimeLogPage">Times</NavLink>
                         <NavLink to="/AlgorithmsPage">Algorithms</NavLink>
                         <Route exact path="/" component={Home}/>
                         <Route path="/UsersPage" component={UsersPage}/> 
-                        <Route path="/Trainer" component={Trainer}/> 
+                        {/* <Route path="/Trainer" component={Trainer}/>  */}
                         <Route path="/TimeLogPage" component={TimeLogPage}></Route> 
-                        <Route path="/AlgorithmsPage" component={AlgorithmsPage}></Route>
-                        
+                        <Route path="/AlgorithmsPage" component={AlgorithmsPage}></Route>                        
                     </div>
                 </div>
-      
-
-            </div> 
-         
+            </div>        
         </Router> 
-
     );
 }
 

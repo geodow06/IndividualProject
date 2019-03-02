@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from './NavBar.js';
 import Cube from './Cube.js'; 
 import axios from 'axios';
-import UserGet from './UserGet'; 
+import GetAllUsers from './GetAllUsers'; 
 import AddUser from './AddUser';
 class Home extends Component { 
 
@@ -14,7 +14,8 @@ class Home extends Component {
       <div>
         {/* <NavBar/>  */}
         {/* <Cube/> */}  
-        <UserGet/> 
+        <h1>Welcome</h1>
+        {/* <UserGet/>  */}
         {/* <AddUser/> */}
       
       </div> 

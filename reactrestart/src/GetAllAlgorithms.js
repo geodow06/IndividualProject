@@ -11,7 +11,7 @@ class GetAllAlgorithms extends Component {
     super(props); 
     this.state = { 
     
-      algorithms:[{algID:"",name:"1time",moves:"1alg",scramble:"",userId:""},{algID:"",name:"1time",moves:"1alg",scramble:"",userId:""}] 
+      algorithms:[] 
       
     }
   } 
@@ -26,9 +26,10 @@ class GetAllAlgorithms extends Component {
       return (
         <div>      
             <ul key={`myKey${this.state.algID}`}>  
-                {algorithms}
+                {algorithms} 
+                {/* <DeleteAlgorithm/> */}
             </ul>    
-            <button onClick={this.getRequest}>Click</button>
+            <button onClick={this.getRequest}>GetAllAlgorithms</button>
         </div>
       
       ); 

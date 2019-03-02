@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; 
 import NavBar from './NavBar.js'; 
 import AddUser from './AddUser.js'; 
-import UserGet from './UserGet.js';
+import GetAllUsers from './GetAllUsers.js';
 class UsersPage extends Component{ 
 
 constructor(props){ 
@@ -14,7 +14,7 @@ render(){
       
         
         <AddUser/> 
-        <UserGet/>
+        <GetAllUsers/>
     
     </div>
   );
