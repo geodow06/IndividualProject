@@ -7,8 +7,8 @@ import AlgorithmsListItems from './AlgorithmsListItems';
 // const users = []; 
 // let users = [{username:"hello", password:"password"},{username:"hello2",password:"password2"}]
 class GetAllAlgorithms extends Component { 
-  constructor(props){ 
-    super(props); 
+  constructor(){ 
+    super(); 
     this.state = { 
     
       algorithms:[] 
@@ -29,7 +29,8 @@ class GetAllAlgorithms extends Component {
                 {algorithms} 
                 {/* <DeleteAlgorithm/> */}
             </ul>    
-            <button onClick={this.getRequest}>GetAllAlgorithms</button>
+            {/* <button onClick={this.getRequest}>GetAllAlgorithms</button>  */}
+            {this.getRequest()}
         </div>
       
       ); 

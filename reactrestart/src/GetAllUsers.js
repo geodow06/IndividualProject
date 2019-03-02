@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import Users from './Users';
-import DeleteUser from './DeleteUser';
 
 class GetAllUsers extends Component {
   constructor(props) {

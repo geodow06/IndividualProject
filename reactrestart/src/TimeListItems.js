@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-
+import DeleteTimeLog from './DeleteTimeLog';
 class TimeListItems extends Component{ 
  
   constructor(props){ 
@@ -11,7 +11,7 @@ render(){
     <div>      
         <div> 
           <li key={`aMyKey${this.props.timeID}`}>  
-            <a >{this.props.timeID} {this.props.time} {this.props.algID}</a>
+            <a>{this.props.timeID} {this.props.time} {this.props.algFID} <DeleteTimeLog  timeID={this.props.timeID}/></a>
           </li>
         </div> 
     </div>

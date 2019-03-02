@@ -8,7 +8,7 @@ class AddTimeLog extends Component {
     super(props);
     this.state = {
       time: '',
-      algID: ''
+      algFID: ''
     }
   }
 
@@ -16,7 +16,7 @@ class AddTimeLog extends Component {
 
   pushRequest = () => {
 
-    axios.post(`/addTimeLog/${this.state.time}/${this.state.algID}`);
+    axios.post(`/addTimeLog/${this.state.time}/${this.state.algFID}`);
   }
 
   setStates = (event) => {
@@ -25,7 +25,7 @@ class AddTimeLog extends Component {
 
   handleSubmit = (event) => {
     console.log('A time was submitted: ' + this.state.time);
-    console.log('A alg ID was submitted: ' + this.state.algID);
+    console.log('A alg ID was submitted: ' + this.state.algFID);
     event.preventDefault();
   }
 
@@ -37,7 +37,7 @@ class AddTimeLog extends Component {
 
           <label>
             <input type="text" name='time' target='one' className="form-control inputArea" onChange={this.setStates} time={this.state.time} id="Time" placeholder="Time *"></input>
-            <input type="text" name='algID' target='two' className="form-control inputArea" onChange={this.setStates} algID={this.state.algID} id="AlgID" placeholder="AlgID *"></input>
+            <input type="text" name='algFID' target='two' className="form-control inputArea" onChange={this.setStates} algFID={this.state.algFID} id="AlgID" placeholder="AlgID *"></input>
           </label>
 
           <input type="submit" value="Submit" onClick={this.pushRequest} />

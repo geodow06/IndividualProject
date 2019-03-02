@@ -20,13 +20,14 @@ class GetAllTimes extends Component {
 
   }
   render() {
-    let times = this.state.times.map(t => <TimeListItems timeID={t.timeID} time={t.time} algID={t.algID} />)
+    let times = this.state.times.map(t => <TimeListItems timeID={t.timeID} time={t.time} algFID={t.algID} />)
     return (
       <div>
         <ul>
           {times}
         </ul>
-        <button onClick={this.getRequest}>Click</button>
+        {/* <button onClick={this.getRequest}>Click</button>  */}
+        {this.getRequest()}
       </div>
 
     );

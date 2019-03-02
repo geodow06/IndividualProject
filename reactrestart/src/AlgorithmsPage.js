@@ -15,7 +15,7 @@ render(){
       
         
         <AddAlgorithm/>  
-        <GetAnAlgorithm/>
+        
         <GetAllAlgorithms/>
     
     </div>
