@@ -1,0 +1,24 @@
+import React, { Component } from 'react'; 
+import GetAnAlgorithm from './GetAnAlgorithm'; 
+import DisplayUserAlgTimes from './DisplayUserAlgTimes';
+class TrainerDisplay extends Component{ 
+ 
+
+
+render(){ 
+  return (
+    <div>      
+        <div> {this.props.name} 
+          <li key={`aMyKey${this.props.algID}`}>  
+            <a><DisplayUserAlgTimes userID={this.props.userID} name={this.props.name} algID={this.props.algID}/></a>
+          </li>
+        </div> 
+    </div>
+  );
+}
+
+
+
+} 
+
+export default TrainerDisplay;

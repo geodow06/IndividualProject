@@ -10,16 +10,16 @@ class GetAllTimes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      algID:3, 
-      userID:12,
+      // algID:3, 
+      // userID:12,
       times: []
 
     }
   }
 
   getRequest = () => {
-    axios.get(`/getUserAlgTimes/${this.state.userID}/${this.state.algID}`).then(r => { this.setState({ times: r.data }) });
-
+    axios.get(`/getUserAlgTimes/${this.props.userID}/${this.props.algID}`).then(r => { this.setState({ times: r.data }) });
+    
   }
   render() {
     let times = this.state.times.map(t => <TimeDisplay time={t.time} />)

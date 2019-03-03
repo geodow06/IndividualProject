@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios'; 
 import Timer from './Timer';
+import DisplayAlgorithm from './DisplayAlgorithm';
 
 
 
@@ -45,7 +46,8 @@ class GenerateRandomScramble extends Component {
                
            <h1>{this.state.scramble}</h1>
            <button onClick={this.generateRandomScramble}>Next Scramble</button>
-           <Timer/>
+           <Timer/> 
+           <DisplayAlgorithm/>
            <button onClick={this.endTraining}>Click to stop</button>
            </div>
         ); 
