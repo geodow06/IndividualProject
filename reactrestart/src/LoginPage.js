@@ -10,11 +10,11 @@ class LoginPage extends Component {
   constructor(props){ 
     super(props); 
     this.state = { 
-        enteredusername:"", 
-        enteredpassword:"",
+        // enteredusername:"", 
+        // enteredpassword:"",
         // users:[], 
-        accept:false, 
-        loggedinstatus:false
+        // accept:false, 
+        // loggedinstatus:false
       
     }
   } 
@@ -58,16 +58,18 @@ class LoginPage extends Component {
                 </label> 
                 
                 <input type="submit" value="Submit" onClick={this.check}/> 
-                <LoginStatus accept={this.state.accept}/>
+                <LoginStatus accept={this.props.accept}/>
             </form> 
         );   
         } 
         else{ 
             return( 
-               // <LoginStatus accept={this.state.accept} enteredusername={this.state.enteredusername} enteredpassword={this.state.enteredpassword}/> 
-               <a> fyufjcg</a>
+                <LoginStatus accept={this.props.accept} enteredusername={this.state.enteredusername} enteredpassword={this.state.enteredpassword}/>
             );
         }
+      
+ 
+      
     }
    
   }

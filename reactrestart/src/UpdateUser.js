@@ -47,24 +47,17 @@ class UpdateUser extends Component {
       else{
         return ( 
             <form onSubmit={this.handleSubmit} className="form-inline">
-                <label className="required">* required </label>
-                
+                <label className="required">* required </label>     
                     <label>
                     <input type="text" name='newusername' target='one' className="form-control inputArea" onChange={this.setStates} newusername={this.state.newusername} id="newusername" placeholder="New Username *"></input> 
                     <input type="text" name='newpassword' target='two' className="form-control inputArea" onChange={this.setStates} newpassword={this.state.newpassword} id="newpassword" placeholder="New Password *"></input> 
                     {/* <input>add old password check here</input> */}
-                    </label> 
-                
+                    </label>          
                 <input type="submit" value="Submit" onClick={this.updateRequest}/> 
-            
-            </form> 
-        
+            </form>         
         );   
       }
- 
-      
-    }
-   
+    }   
   }
   
   export default UpdateUser;
