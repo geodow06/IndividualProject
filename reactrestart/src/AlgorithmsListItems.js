@@ -10,7 +10,10 @@ render(){
     <div>      
         <div> 
           <li key={`aMyKey`}>  
-            <a>{this.props.algID} {this.props.name} {this.props.moves} {this.props.scramble} {this.props.userID}<DeleteAlgorithm algID={this.props.algID}/><AddDefaultAlgorithms userID={this.props.userID}/></a>
+            <a>{this.props.algID} {this.props.name} {this.props.moves} {this.props.scramble} {this.props.userID}
+              <DeleteAlgorithm algID={this.props.algID}/>
+              <AddDefaultAlgorithms userID={this.props.userID}/>
+            </a>
           </li>
         </div> 
     </div>

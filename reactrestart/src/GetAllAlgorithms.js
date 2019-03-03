@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css'; 
-// import '/roofpig_and_three.min.js'
 import axios from 'axios';
 import AlgorithmsListItems from './AlgorithmsListItems';
 
