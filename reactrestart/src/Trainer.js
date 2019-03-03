@@ -20,7 +20,11 @@ class Trainer extends Component{
   handleSubmit=(event) =>{ 
     console.log(`An ID was submitted: ${this.state.getid}`); 
     event.preventDefault();
-  }
+  } 
+
+  // getRequest=()=>{ 
+  //   this.props.getRequest(this.state.getid);
+  // }
 
 render(){ 
   return (

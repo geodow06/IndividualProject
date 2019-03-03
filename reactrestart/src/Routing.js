@@ -5,7 +5,7 @@ import Trainer from './Trainer.js';
 import UsersPage from './UsersPage'; 
 import TimeLogPage from './TimeLogPage'; 
 import AlgorithmsPage from './AlgorithmsPage.js'; 
-import ErrorPage from './ErrorPage.js'
+import ErrorPage from './ErrorPage'
 import LoginStatus from './LoginStatus';
 import './App.css'; 
 
@@ -15,17 +15,19 @@ function RoutePage(){
             <div> 
                 <div className="header">               
                     <NavLink className="logo" to="/">George's PLL Trainer</NavLink>
-                    <div className="header-right">  
+                    <div className="header-right">   
+                      
                         <NavLink id="home" to="/">Home</NavLink>
                         <NavLink to="/UsersPage">Users</NavLink>
                         <NavLink to="/Trainer">Trainer</NavLink> 
                         <NavLink to="/TimeLogPage">Times</NavLink>
                         <NavLink to="/AlgorithmsPage">Algorithms</NavLink> 
-                         
+                        <LoginStatus/>
+                        
                         {/* <Route path="/error" component={ErrorPage}></Route>                       */}
                     </div>
                 </div>
-                <LoginStatus/>
+                
                 <Route exact path="/" component={Home}/>
                 <Route path="/UsersPage" component={UsersPage}/> 
                 <Route path="/Trainer" component={Trainer}/> 

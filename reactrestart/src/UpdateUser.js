@@ -39,8 +39,10 @@ class UpdateUser extends Component {
       }
 
     render() {   
-      if(!this.state.show){ 
+      if(!this.state.show){  
+          
           return( 
+          
           <button onClick={this.showForm}>Update User</button>
           );
       }

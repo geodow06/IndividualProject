@@ -14,17 +14,6 @@ class App extends Component {
     
     ); 
   }
-  // render() {
-  //   return (
-  //     <div>
-  //       <NavBar/> 
-  //       {/* <Cube/> */}  
-  //       <UserGet/> 
-  //       {/* <AddUser/> */}
-      
-  //     </div>
-  //   );
-  // }
 }
 
 export default App;
