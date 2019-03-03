@@ -10,8 +10,10 @@ public interface AlgorithmService {
 	
 	//R 
 	public List<Algorithm> getAllAlgorithms(); 
+	public String getScramble(Long algID); 
+
+	public Optional<Algorithm> getAnAlgorithm(Long algID); 
 	
-	public Optional<Algorithm> getAnAlgorithm(Long algID);
 	
 	//U 
 	public String updateAlgorithm(String name, String moves, String scramble, Long userID, Long algID); 

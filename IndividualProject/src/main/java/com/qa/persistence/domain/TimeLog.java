@@ -1,6 +1,6 @@
 package com.qa.persistence.domain;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

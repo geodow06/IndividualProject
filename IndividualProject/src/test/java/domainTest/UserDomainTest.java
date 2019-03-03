@@ -2,8 +2,8 @@ package domainTest;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +15,7 @@ public class UserDomainTest {
 
 	User user;
 
-	Set<Algorithm> userAlgs = new HashSet<Algorithm>();
+	List<Algorithm> userAlgs = new ArrayList<Algorithm>();
 	Long userID = 1L;
 	String password = "password";
 	String username = "username";

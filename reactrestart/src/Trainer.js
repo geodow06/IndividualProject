@@ -1,6 +1,9 @@
 import React, { Component } from 'react'; 
 import GenerateScramble from './GenerateScramble';
-import GetAnAlgorithm from './GetAnAlgorithm.js';
+import GetAnAlgorithm from './GetAnAlgorithm.js'; 
+import GenerateRandomScramble from './GenerateRandomScramble';
+import Timer from './Timer'; 
+import DisplayUserAlgTimes from './DisplayUserAlgTimes';
 class Trainer extends Component{ 
  
 
@@ -17,7 +20,8 @@ class Trainer extends Component{
 render(){ 
   return (
     <div>
-      <GenerateScramble/> 
+      <GenerateRandomScramble/> 
+      <DisplayUserAlgTimes/>
       
      
     </div>

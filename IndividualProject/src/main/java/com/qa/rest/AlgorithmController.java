@@ -46,5 +46,10 @@ public class AlgorithmController {
 	public String deleteAlgorithm(@PathVariable Long algID) {
 
 		return svc.deleteAlgorithm(algID);
+	} 
+	
+	@RequestMapping("/getScramble/{algID}")
+	public String getScramble(@PathVariable Long algID) { 
+		return svc.getScramble(algID);
 	}
 }

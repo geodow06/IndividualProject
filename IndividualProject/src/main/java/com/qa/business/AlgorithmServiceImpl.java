@@ -68,4 +68,20 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 		return "Algorithm " + algID + " deleted.";
 	}
 
+	@Override
+	public String getScramble(Long algID) {
+
+		Optional<Algorithm> anAlgorithm = algRepo.findById(algID);
+
+		if (anAlgorithm.isPresent()) {
+			Algorithm algorithm = anAlgorithm.get();
+
+			String scramble = algorithm.getScramble();
+
+			return scramble;
+		} else {
+			return "Algorithm not in database";
+		}
+	}
+
 }

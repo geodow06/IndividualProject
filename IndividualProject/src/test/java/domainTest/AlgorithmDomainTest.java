@@ -2,8 +2,9 @@ package domainTest;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +21,7 @@ public class AlgorithmDomainTest {
 	String name = "name";
 	String moves = "moves";
 	String scramble = "scramble";
-	Set<TimeLog> timeLogs = new HashSet<TimeLog>();
+	List<TimeLog> timeLogs = new ArrayList<TimeLog>();
 	Long userID = 1L;
 
 	@Before
