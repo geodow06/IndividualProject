@@ -4,7 +4,9 @@ import Home from './Home.js';
 import Trainer from './Trainer.js';  
 import UsersPage from './UsersPage'; 
 import TimeLogPage from './TimeLogPage'; 
-import AlgorithmsPage from './AlgorithmsPage.js';
+import AlgorithmsPage from './AlgorithmsPage.js'; 
+import ErrorPage from './ErrorPage.js'
+import LoginStatus from './LoginStatus';
 import './App.css'; 
 
 function RoutePage(){        
@@ -18,14 +20,17 @@ function RoutePage(){
                         <NavLink to="/UsersPage">Users</NavLink>
                         <NavLink to="/Trainer">Trainer</NavLink> 
                         <NavLink to="/TimeLogPage">Times</NavLink>
-                        <NavLink to="/AlgorithmsPage">Algorithms</NavLink>
-                        <Route exact path="/" component={Home}/>
-                        <Route path="/UsersPage" component={UsersPage}/> 
-                        <Route path="/Trainer" component={Trainer}/> 
-                        <Route path="/TimeLogPage" component={TimeLogPage}></Route> 
-                        <Route path="/AlgorithmsPage" component={AlgorithmsPage}></Route>                        
+                        <NavLink to="/AlgorithmsPage">Algorithms</NavLink> 
+                         
+                        {/* <Route path="/error" component={ErrorPage}></Route>                       */}
                     </div>
                 </div>
+                <LoginStatus/>
+                <Route exact path="/" component={Home}/>
+                <Route path="/UsersPage" component={UsersPage}/> 
+                <Route path="/Trainer" component={Trainer}/> 
+                <Route path="/TimeLogPage" component={TimeLogPage}></Route> 
+                <Route path="/AlgorithmsPage" component={AlgorithmsPage}></Route>  
             </div>        
         </Router> 
     );
