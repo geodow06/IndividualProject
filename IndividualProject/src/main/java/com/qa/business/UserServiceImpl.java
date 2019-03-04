@@ -49,17 +49,25 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Optional<User> getAUser(Long userID) {
-
-		return userRepo.findById(userID);
+	public User getAUser(Long userID) {
+		List<User> allUsers = getAllUsers();
+		User theUser = new User(); 
+		for(int i=0;i<allUsers.size();i++) { 
+			if(allUsers.get(i).getUserID()==userID) { 
+				theUser=allUsers.get(i);
+			}
+		}
+		return theUser; 
+		
+//		return userRepo.findById(userID);
 	}
 
 	@Override
 	public String updateUser(String userName, String userPassword, Long userID) {
 
-		Optional<User> aUser = userRepo.findById(userID);
-		if (aUser.isPresent()) {
-			User newUser = aUser.get();
+		User aUser = getAUser(userID);
+		if (aUser != null) {
+			User newUser = aUser;
 
 			newUser.setUserName(userName);
 			newUser.setUserPassword(userPassword);
@@ -78,11 +86,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<Algorithm> getUserAlgs(Long userID) {
-		Optional<User> aUser = userRepo.findById(userID);
-
-		if (aUser.isPresent()) {
-			User user = aUser.get();
-			List<Algorithm> algList =  user.getUserAlgs();
+		User aUser = getAUser(userID);
+		List<User> allUsers = getAllUsers();
+		if (aUser != null) {
+			
+			List<Algorithm> algList =  aUser.getUserAlgs();
 			return algList;
 		} else {
 			return null;

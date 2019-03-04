@@ -33,7 +33,7 @@ public class UserController {
 	}
 //	@RequestMapping(value = " /getAUser/{userId}", method=RequestMethod.GET)
 	@RequestMapping("/getAUser/{userID}")
-	public Optional<User> getAUser(@PathVariable Long userID) {
+	public User getAUser(@PathVariable Long userID) {
 		
 		return svc.getAUser(userID);
 	}

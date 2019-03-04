@@ -49,12 +49,12 @@ public class UserEndpointTest {
 		assertEquals(MOCK_LIST, uCon.getAllUsers());
 	}
 
-	@Test
-	public void testGetAUser() {
-		User MOCK_OBJECT = new User();
-		Mockito.when(svc.getAUser(testLong)).thenReturn(Optional.of(MOCK_OBJECT));
-		assertEquals(Optional.of(MOCK_OBJECT), uCon.getAUser(testLong));
-	}
+//	@Test
+//	public void testGetAUser() {
+//		User MOCK_OBJECT = new User();
+//		Mockito.when(svc.getAUser(testLong)).thenReturn(Optional.of(MOCK_OBJECT));
+//		assertEquals(Optional.of(MOCK_OBJECT), uCon.getAUser(testLong));
+//	}
 
 	@Test
 	public void testUpdateAUser() {
