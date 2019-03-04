@@ -20,6 +20,8 @@ class DisplayAlgorithm extends Component{
         
       }  
 
+      
+
 render(){ 
    
     let algorithms = this.state.algorithms.map(a=><TrainerDisplay name={a.name} algID={a.algID} userID={a.userID}/>)

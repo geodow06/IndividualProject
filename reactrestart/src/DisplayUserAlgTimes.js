@@ -6,7 +6,7 @@ import TimeDisplay from './TimeDisplay';
 const prettyMs = require('pretty-ms');
 // const users = []; 
 // let users = [{username:"hello", password:"password"},{username:"hello2",password:"password2"}]
-class GetAllTimes extends Component {
+class DisplayUserAlgTimes extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,4 +38,4 @@ class GetAllTimes extends Component {
 
 }
 
-export default GetAllTimes;
+export default DisplayUserAlgTimes;

@@ -3,9 +3,7 @@ import DeleteTimeLog from './DeleteTimeLog';
 const prettyMs = require('pretty-ms');
 class TimeDisplay extends Component{ 
 
-addString=()=>{ 
-    
-}
+
 render(){ 
     if(!this.props.time)
     { 
