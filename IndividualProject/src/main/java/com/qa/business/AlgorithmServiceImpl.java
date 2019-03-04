@@ -43,7 +43,7 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 	}
 
 	@Override
-	public String updateAlgorithm(String name, String moves, String scramble, Long userID, Long algID) {
+	public String updateAlgorithm(String name, String moves, String scramble, Long algID) {
 
 		Optional<Algorithm> anAlgorithm = algRepo.findById(algID);
 
@@ -53,7 +53,7 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 			newAlgorithm.setMoves(moves);
 			newAlgorithm.setName(name);
 			newAlgorithm.setScramble(scramble);
-			newAlgorithm.setUserID(userID);
+			
 			algRepo.save(newAlgorithm);
 		} else {
 

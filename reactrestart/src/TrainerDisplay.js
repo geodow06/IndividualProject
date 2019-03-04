@@ -9,7 +9,7 @@ render(){
     <div>      
         <div> 
           <li key={`aMyKey${this.props.algID}`}>  
-            <a> {this.props.name} <DisplayUserAlgTimes userID={this.props.userID} name={this.props.name} algID={this.props.algID}/></a>
+            <a> {this.props.name} <DisplayUserAlgTimes currentUserID={this.props.currentUserID} name={this.props.name} algID={this.props.algID}/></a>
           </li>
         </div> 
     </div>

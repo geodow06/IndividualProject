@@ -6,49 +6,100 @@ import UsersPage from './UsersPage';
 import TimeLogPage from './TimeLogPage'; 
 import AlgorithmsPage from './AlgorithmsPage.js'; 
 import ErrorPage from './ErrorPage'
-import LoginStatus from './LoginStatus';
+import LoginStatus from './LoginStatus'; 
+import axios from 'axios';
 import './App.css'; 
 
-function RoutePage(){        
-    return( 
-        <Router> 
-            <div> 
-                <div className="header">               
-                    <NavLink className="logo" to="/">George's PLL Trainer</NavLink>
-                    <div className="header-right">   
+
+
+
+// function RoutePage(props){        
+    
+    
+    
+//     return( 
+//         <Router> 
+//             <div> 
+//                 <div className="header">               
+//                     <NavLink className="logo" to="/">George's PLL Trainer: Welcome {props.currentUsername}</NavLink>
+//                     <div className="header-right">   
                       
-                        <NavLink id="home" to="/">Home</NavLink>
-                        <NavLink to="/UsersPage">Users</NavLink>
-                        <NavLink to="/Trainer">Trainer</NavLink> 
-                        <NavLink to="/TimeLogPage">Times</NavLink>
-                        <NavLink to="/AlgorithmsPage">Algorithms</NavLink> 
-                        <LoginStatus/>
+//                         <NavLink id="home" to="/">Home</NavLink>
+//                         {/* <NavLink to="/UsersPage">Users</NavLink> */}
+//                         <NavLink to="/Trainer">Trainer</NavLink> 
+//                         <NavLink to="/TimeLogPage">Times</NavLink>
+//                         <NavLink to="/AlgorithmsPage">My Algorithms</NavLink> 
+//                         {/* <LoginStatus/> */}
                         
-                        {/* <Route path="/error" component={ErrorPage}></Route>                       */}
-                    </div>
-                </div>
+//                         {/* <Route path="/error" component={ErrorPage}></Route>                       */}
+//                     </div>
+//                 </div>
                 
-                <Route exact path="/" component={Home}/>
-                <Route path="/UsersPage" component={UsersPage}/> 
-                <Route path="/Trainer" component={Trainer}/> 
-                <Route path="/TimeLogPage" component={TimeLogPage}></Route> 
-                <Route path="/AlgorithmsPage" component={AlgorithmsPage}></Route>  
-            </div>        
-        </Router> 
-    );
-}
+//                 <Route exact path="/" component={Home}/>
+//                 {/* <Route path="/UsersPage" component={UsersPage}/>  */}
+//                 <Route path="/Trainer" component={Trainer}/> 
+//                 <Route path="/TimeLogPage" component={TimeLogPage}></Route> 
+//                 <Route path="/AlgorithmsPage" component={AlgorithmsPage}></Route>  
+//             </div>        
+//         </Router> 
+//     );
+// }
 
 
 
-export default RoutePage;
+// export default RoutePage;
 
 
-{/* <div className="header">
-<a href="worm.html" className="logo">George's PLL Trainer</a>
-<div className="header-right">
-    <a className="active" href="#home">Home</a> 
-    <a href="">ebverjbgwerhi</a>
-    <a href="">Contact</a>
-    <a href="">About</a> 
-</div>
-</div> */}
+class Routing extends Component { 
+    constructor(props){ 
+      super(props); 
+      this.state = { 
+        username:'', 
+        password:''
+      }
+    }
+    
+
+    logOut=()=>{ 
+        this.props.logOut();
+    }
+  
+      render() {
+        return ( 
+            <Router> 
+                <div> 
+                    <div className="header">               
+                        <NavLink className="logo" to="/">George's PLL Trainer: Welcome {this.props.currentUsername}</NavLink> 
+                        <button onClick={this.logOut}>Logout</button>
+                        <div className="header-right">   
+                        
+                            <NavLink id="home" to="/">Home</NavLink>
+                            {/* <NavLink to="/UsersPage">Users</NavLink> */}
+                            <NavLink to="/Trainer">Trainer</NavLink> 
+                            {/* <NavLink to="/TimeLogPage">Times</NavLink> */}
+                            <NavLink to="/AlgorithmsPage">My Algorithms</NavLink> 
+                            {/* <LoginStatus/> */}
+                            
+                            {/* <Route path="/error" component={ErrorPage}></Route>                       */}
+                        </div>
+                    </div>
+                    
+                    {/* <Route currentUserID={this.props.currentUserID} exact path="/" component={Home}/>  */}
+                    <Route exact path="/" render={() => <Home currentUserID={this.props.currentUserID}/>}/> 
+                    <Route exact path="/Trainer" render={() => <Trainer currentUserID={this.props.currentUserID}/>}/>  
+                    {/* <Route exact path="/TimeLogPage" render={() => <TimeLogPage currentUserID={this.props.currentUserID}/>}/>   */}
+                    <Route exact path="/AlgorithmsPage" render={() => <AlgorithmsPage currentUserID={this.props.currentUserID}/>}/> 
+                    {/* {...routeProps}  */}
+                    {/* <Route path="/my/path" render={(routeProps) => ( <MyComponent {...routeProps} {...props}/>)}/> */}
+                    {/* <Route path="/UsersPage" component={UsersPage}/>  */}
+                    {/* <Route path="/Trainer" component={Trainer} /> 
+                    <Route path="/TimeLogPage" component={TimeLogPage}></Route> 
+                    <Route path="/AlgorithmsPage" component={AlgorithmsPage}></Route>   */}
+                </div>        
+            </Router> 
+       
+        );
+      } 
+    }
+    
+    export default Routing;

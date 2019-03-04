@@ -19,9 +19,9 @@ class DisplayUserAlgTimes extends Component {
 
   getRequest = () => { 
     console.log("doing getuserAlgRequest");
-    console.log(this.props.userID+" User") ;
+    console.log(this.props.currentUserID+" User id succesfully passed") ;
     console.log(this.props.algID+" alg");
-    axios.get(`/getUserAlgTimes/${this.props.userID}/${this.props.algID}`).then(r => { this.setState({ times: r.data }) });
+    axios.get(`/getUserAlgTimes/${this.props.currentUserID}/${this.props.algID}`).then(r => { this.setState({ times: r.data }) });
     
   }
   render() {

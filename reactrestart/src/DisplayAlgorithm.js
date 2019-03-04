@@ -16,18 +16,22 @@ class DisplayAlgorithm extends Component{
 
       getRequest = () => { 
    
-        axios.get(`/getUserAlgs/${this.state.userID}`).then(r => { this.setState({ algorithms: r.data }) }); 
+        axios.get(`/getUserAlgs/${this.props.currentUserID}`).then(r => { this.setState({ algorithms: r.data }) }); 
         
       }  
 
 render(){ 
    
-    let algorithms = this.state.algorithms.map(a=><TrainerDisplay name={a.name} algID={a.algID} userID={a.userID}/>)
+    let algorithms = this.state.algorithms.map(a=><TrainerDisplay name={a.name} algID={a.algID} currentUserID={this.props.currentUserID}/>)
     return(   
+      <div>
         <div>
         {algorithms}
-        {this.getRequest()}
+        {/* {this.getRequest()}  */}
+       
         </div>
+        <button onClick={this.getRequest}>Click to Show Algorithms and Times</button>
+      </div>
     );
 }
 

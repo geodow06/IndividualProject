@@ -22,7 +22,7 @@ class DeleteAlgorithm extends Component {
       return (
         <a>      
            
-            <button onClick={this.deleteRequest}>Delete Algorithm</button>
+            <button onClick={this.deleteRequest}>Delete</button>
         </a>
       
       );  
