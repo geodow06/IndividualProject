@@ -10,7 +10,7 @@ render(){
     <div>      
          
           <li key={`myKey${this.props.userID}`}>  
-            <a>{this.props.userName} <DeleteUser userName={this.props.userName} userID={this.props.userID} /><UpdateUser userID={this.props.userID}/></a> 
+            <a>{this.props.userID} {this.props.userName} {this.props.userPassword} <DeleteUser userName={this.props.userName} userID={this.props.userID} /><UpdateUser userID={this.props.userID}/></a> 
           </li>
         
     </div>
@@ -22,3 +22,4 @@ render(){
 } 
 
 export default Users; 
+{/* <UpdateUser userName={this.props.userName} password = {this.props.password} useruserID={this.props.userID}/> */}

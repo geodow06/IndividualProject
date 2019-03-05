@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import './App.css'; 
-
+import NavBar from './NavBar.js';
+import Cube from './Cube.js'; 
+import axios from 'axios';
+import GetAllUsers from './GetAllUsers'; 
+import AddUser from './AddUser';
 class Home extends Component { 
 
-  constructor(props){ 
-    super(props); 
-    this.state = {       
-    }
-  } 
+
 
   render() {
     return (
       <div>
         {/* <NavBar/>  */}
         {/* <Cube/> */}  
-        <h1>Welcome {this.props.currentUserID} to my PLL Training companion.</h1>
+        <h1>Welcome</h1>
         {/* <UserGet/>  */}
         {/* <AddUser/> */}
       

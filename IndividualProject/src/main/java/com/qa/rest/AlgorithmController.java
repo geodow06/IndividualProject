@@ -35,10 +35,11 @@ public class AlgorithmController {
 		return svc.getAnAlgorithm(algID);
 	}
 
-	@RequestMapping("/updateAlgorithm/{name}/{moves}/{scramble}/{algID}")
-	public String updateAlgorithm(@PathVariable String name, @PathVariable String moves, @PathVariable String scramble, @PathVariable Long algID) {
+	@RequestMapping("/updateAlgorithm/{name}/{moves}/{scramble}/{userID}/{algID}")
+	public String updateAlgorithm(@PathVariable String name, @PathVariable String moves, @PathVariable String scramble,
+			@PathVariable Long userID, @PathVariable Long algID) {
 
-		return svc.updateAlgorithm(name, moves, scramble, algID);
+		return svc.updateAlgorithm(name, moves, scramble, userID, algID);
 	}
 
 	@RequestMapping("/deleteAlgorithm/{algID}")
