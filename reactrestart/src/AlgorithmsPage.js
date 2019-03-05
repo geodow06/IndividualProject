@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import AddAlgorithm from './AddAlgorithm'; 
 import GetAllAlgorithms from './GetAllAlgorithms'; 
 import GetAnAlgorithm from './GetAnAlgorithm';
+import GetUserAlgs from './GetUserAlgs';
 class AlgorithmsPage extends Component{ 
 
 // constructor(props){ 
@@ -14,9 +15,9 @@ render(){
     <div>
       
         
-        <AddAlgorithm/>  
+        <AddAlgorithm currentUserID={this.props.currentUserID}/>  
         
-        <GetAllAlgorithms/>
+        <GetUserAlgs currentUserID={this.props.currentUserID}/>
     
     </div>
   );

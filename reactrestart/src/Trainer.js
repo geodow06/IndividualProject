@@ -1,6 +1,8 @@
 import React, { Component } from 'react'; 
 
-import GetAnAlgorithm from './GetAnAlgorithm.js';
+import GenerateRandomScramble from './GenerateRandomScramble';
+
+
 class Trainer extends Component{ 
  
 
@@ -13,29 +15,14 @@ class Trainer extends Component{
     }
   }
 
-  setStates = (event)=>{ 
-    this.setState({[event.target.name]:event.target.value});
-  }  
-
-  handleSubmit=(event) =>{ 
-    console.log(`An ID was submitted: ${this.state.getid}`); 
-    event.preventDefault();
-  }
 
 render(){ 
   return (
     <div>
+      <GenerateRandomScramble currentUserID={this.props.currentUserID}/> 
+      {/* <DisplayAlgorithm/> */}
       
-        <h1>HELLO</h1> 
-         
-        <form onSubmit={this.handleSubmit} className="form-inline">  
-            <label> 
-                <input type="number" name='getid' target='one' className="form-control inputArea" onChange={this.setStates} getid={this.state.getid} id="getID" placeholder="getID *"></input>
-            </label> 
-            <input type="submit" value="Submit" onClick={this.getRequest}></input>
-
-        </form> 
-        <GetAnAlgorithm getid={this.state.getid}/>
+     
     </div>
   );
 }

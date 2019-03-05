@@ -20,7 +20,7 @@ class GetAllTimes extends Component {
 
   }
   render() {
-    let times = this.state.times.map(t => <TimeListItems timeID={t.timeID} time={t.time} algFID={t.algID} />)
+    let times = this.state.times.map(t => <TimeListItems timeID={t.timeID} time={t.time} algID={t.algID} />)
     return (
       <div>
         <ul>

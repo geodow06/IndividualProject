@@ -1,5 +1,7 @@
 package com.qa.business;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -47,17 +49,25 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Optional<User> getAUser(Long userID) {
-
-		return userRepo.findById(userID);
+	public User getAUser(Long userID) {
+		List<User> allUsers = getAllUsers();
+		User theUser = new User(); 
+		for(int i=0;i<allUsers.size();i++) { 
+			if(allUsers.get(i).getUserID()==userID) { 
+				theUser=allUsers.get(i);
+			}
+		}
+		return theUser; 
+		
+//		return userRepo.findById(userID);
 	}
 
 	@Override
 	public String updateUser(String userName, String userPassword, Long userID) {
 
-		Optional<User> aUser = userRepo.findById(userID);
-		if (aUser.isPresent()) {
-			User newUser = aUser.get();
+		User aUser = getAUser(userID);
+		if (aUser != null) {
+			User newUser = aUser;
 
 			newUser.setUserName(userName);
 			newUser.setUserPassword(userPassword);
@@ -72,6 +82,46 @@ public class UserServiceImpl implements UserService {
 	public String deleteUser(Long userID) {
 		userRepo.deleteById(userID);
 		return "User " + userID + " deleted.";
+	}
+
+	@Override
+	public List<Algorithm> getUserAlgs(Long userID) {
+		User aUser = getAUser(userID);
+		List<User> allUsers = getAllUsers();
+		if (aUser != null) {
+			
+			List<Algorithm> algList =  aUser.getUserAlgs();
+			return algList;
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public String getRandomScramble(Long userID) {
+		List<Algorithm> userAlgs = getUserAlgs(userID);
+		int next = (int) Math.floor(Math.random() * userAlgs.size());
+		Algorithm nextAlg = userAlgs.get(next);
+
+		return nextAlg.getScramble();
+
+	}
+
+	@Override
+	public List<TimeLog> getUserAlgTimes(Long userID, Long algID) {
+		List<Algorithm> userAlgs = getUserAlgs(userID);
+		List<TimeLog> algTimes = new ArrayList<TimeLog>();
+		for (int i = 0; i < userAlgs.size(); i++) {
+			if (userAlgs.get(i).getAlgID() == algID) {
+				algTimes = userAlgs.get(i).getTimeLogs(); 
+				
+
+			} else {
+				continue;
+			}
+		}
+		return algTimes;
+
 	}
 
 }

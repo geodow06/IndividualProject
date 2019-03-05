@@ -1,7 +1,7 @@
 package com.qa.persistence.domain;
 
 import java.util.List;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,7 +37,7 @@ public class Algorithm {
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "algID", nullable = false, insertable = false, updatable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	private Set<TimeLog> timeLogs;
+	private List<TimeLog> timeLogs;
 
 	@Column(name = "userID")
 	private Long userID;
@@ -46,7 +46,7 @@ public class Algorithm {
 
 	}
 
-	public Algorithm(Long algID, String name, String moves, String scramble, Set<TimeLog> timeLogs, Long userID) {
+	public Algorithm(Long algID, String name, String moves, String scramble, List<TimeLog> timeLogs, Long userID) {
 		super();
 		this.algID = algID;
 		this.name = name;
@@ -96,11 +96,11 @@ public class Algorithm {
 		this.scramble = scramble;
 	}
 
-	public Set<TimeLog> getTimeLogs() {
+	public List<TimeLog> getTimeLogs() {
 		return timeLogs;
 	}
 
-	public void setTimeLogs(Set<TimeLog> timeLogs) {
+	public void setTimeLogs(List<TimeLog> timeLogs) {
 		this.timeLogs = timeLogs;
 	}
 

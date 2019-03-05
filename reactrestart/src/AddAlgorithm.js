@@ -7,10 +7,10 @@ class AddAlgorithm extends Component {
   constructor(){ 
     super(); 
     this.state = { 
-      algname:'', 
+      algName:'', 
       moves:'',  
       scramble:'',
-      userid:''
+     
     }
   }
 
@@ -18,7 +18,7 @@ class AddAlgorithm extends Component {
 
     pushRequest = ()=>{ 
      
-      axios.post(`/addAlgorithm/${this.state.algname}/${this.state.moves}/${this.state.scramble}/${this.state.userid}`); 
+      axios.post(`/addAlgorithm/${this.state.algName}/${this.state.moves}/${this.state.scramble}/${this.props.currentUserID}`); 
       
     } 
 
@@ -27,10 +27,7 @@ class AddAlgorithm extends Component {
     } 
 
     handleSubmit=(event) =>{ 
-      console.log('A name was submitted: ' + this.state.algname); 
-      console.log('A moves was submitted: '+ this.state.moves); 
-      console.log('A scramble was submitted: '+ this.state.scramble); 
-      console.log('A userID was submitted: '+ this.state.userid);
+
       event.preventDefault();
     }
 
@@ -41,10 +38,10 @@ class AddAlgorithm extends Component {
                 <label className="required">* required </label>
                 
                 <label>
-                  <input type="text" name='algname' target='one' className="form-control inputArea" onChange={this.setStates} algname={this.state.algname} id="algname" placeholder="algname *"></input> 
+                  <input type="text" name='algName' target='one' className="form-control inputArea" onChange={this.setStates} algName={this.state.algName} id="algName" placeholder="algName *"></input> 
                   <input type="text" name='moves' target='two' className="form-control inputArea" onChange={this.setStates} moves={this.state.moves} id="moves" placeholder="Moves *"></input> 
                   <input type="text" name='scramble' target='three' className="form-control inputArea" onChange={this.setStates} scramble={this.state.scramble} id="scramble" placeholder="Scramble *"></input> 
-                  <input type="text" name='userid' target='four' className="form-control inputArea" onChange={this.setStates} userid={this.state.userid} id="userid" placeholder="userid *"></input> 
+                 
                 </label> 
                 
                 <input type="submit" value="Submit" onClick={this.pushRequest}/> 

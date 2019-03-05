@@ -1,5 +1,7 @@
 import React, { Component } from 'react'; 
-import DeleteAlgorithm from './DeleteAlgorithm';
+import DeleteAlgorithm from './DeleteAlgorithm'; 
+import AddDefaultAlgorithms from './AddDefaultAlgorithms'; 
+import UpdateAlgorithm from './UpdateAlgorithm';
 class AlgorithmsListItems extends Component{ 
  
 
@@ -9,7 +11,15 @@ render(){
     <div>      
         <div> 
           <li key={`aMyKey`}>  
-            <a>{this.props.algID} {this.props.name} {this.props.moves} {this.props.scramble} {this.props.userID}<DeleteAlgorithm algID={this.props.algID}/></a>
+            <a>Algorithm Name : {this.props.name} Moves : {this.props.moves} Scramble : {this.props.scramble}
+              <a>
+                <DeleteAlgorithm algID={this.props.algID}/>
+              </a>
+              <a>
+                <UpdateAlgorithm algID={this.props.algID}/>
+              </a>
+              
+            </a>
           </li>
         </div> 
     </div>

@@ -16,6 +16,7 @@ class AddUser extends Component {
 
     pushRequest = ()=>{ 
       axios.post(`/addUser/${this.state.username}/${this.state.password}`); 
+      this.props.signedUp();
       
     } 
 

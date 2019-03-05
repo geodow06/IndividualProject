@@ -1,7 +1,7 @@
 package com.qa.persistence.domain;
 
 import java.util.List;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,13 +36,13 @@ public class User {
 	@JoinColumn(name = "userID", nullable = false, insertable = false, updatable = false) 
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@Column(name = "userAlgs")
-	private Set<Algorithm> userAlgs;
+	private List<Algorithm> userAlgs;
 
 	public User() {
 
 	}
 
-	public User(Long userID, String userName, String userPassword, Set<Algorithm> userAlgs) {
+	public User(Long userID, String userName, String userPassword, List<Algorithm> userAlgs) {
 		super();
 		this.userID = userID;
 		this.userName = userName;
@@ -54,11 +54,11 @@ public class User {
 		return userID;
 	}
 
-	public Set<Algorithm> getUserAlgs() {
+	public List<Algorithm> getUserAlgs() {
 		return userAlgs;
 	}
 
-	public void setUserAlgs(Set<Algorithm> userAlgs) {
+	public void setUserAlgs(List<Algorithm> userAlgs) {
 		this.userAlgs = userAlgs;
 	}
 
