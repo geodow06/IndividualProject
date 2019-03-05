@@ -53,18 +53,17 @@ public class AlgorithmBusinessTest {
 
 	@Test
 	public void testUpdateAlgorithm() {
-		// TODO add update method
-//		Mockito.when(testString).thenReturn(testString); 
-		// assertEquals(testString, svc.updateAlgorithm(testString, testLong));
+	
+	Mockito.when(testString).thenReturn(testString); 
+	assertEquals(testString, svc.updateAlgorithm(testString, testString, testString, testLong));
 	}
 
 	@Test
 	public void testDeleteAlgorithm() {
 //		Mockito.when(repo.deleteById(testLong));  
 //		repo.deleteById(testLong);  
-
-//		Mockito.when();
-		// .thenReturn(testString)
+//
+//		Mockito.when().thenReturn(testString)
 //		assertEquals(testString, svc.deleteAlgorithm(testLong));
 	}
 
