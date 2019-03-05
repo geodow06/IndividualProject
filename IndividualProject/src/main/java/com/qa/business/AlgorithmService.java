@@ -16,7 +16,7 @@ public interface AlgorithmService {
 	
 	
 	//U 
-	public String updateAlgorithm(String name, String moves, String scramble, Long userID, Long algID); 
+	public String updateAlgorithm(String name, String moves, String scramble, Long algID); 
 	
 	//D 
 	public String deleteAlgorithm(Long algID); 
