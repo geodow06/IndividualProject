@@ -85,7 +85,7 @@ class Routing extends Component {
                     </div>
                     
                     {/* <Route currentUserID={this.props.currentUserID} exact path="/" component={Home}/>  */}
-                    <Route exact path="/" render={() => <Home currentUserID={this.props.currentUserID}/>}/> 
+                    <Route exact path="/" render={() => <Home currentUsername={this.props.currentUsername}/>}/> 
                     <Route exact path="/Trainer" render={() => <Trainer currentUserID={this.props.currentUserID}/>}/>  
                     {/* <Route exact path="/TimeLogPage" render={() => <TimeLogPage currentUserID={this.props.currentUserID}/>}/>   */}
                     <Route exact path="/AlgorithmsPage" render={() => <AlgorithmsPage currentUserID={this.props.currentUserID}/>}/> 

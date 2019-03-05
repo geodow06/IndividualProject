@@ -14,7 +14,7 @@ class Home extends Component {
       <div>
         {/* <NavBar/>  */}
         {/* <Cube/> */}  
-        <h1>Welcome {this.props.currentUserID} to my PLL Training companion.</h1>
+        <h1>Welcome {this.props.currentUsername} to my PLL Training companion.</h1>
         {/* <UserGet/>  */}
         {/* <AddUser/> */}
       

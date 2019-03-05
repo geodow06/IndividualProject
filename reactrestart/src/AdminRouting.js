@@ -83,7 +83,7 @@ class AdminRouting extends Component {
                     </div>
                     
                    
-                    <Route exact path="/" render={() => <Home currentUserID={this.props.currentUserID}/>}/> 
+                    <Route exact path="/" render={() => <Home currentUsername={this.props.currentUsername}/>}/> 
                     <Route path="/UsersPage" component={UsersPage}/>
                 </div>        
             </Router> 

@@ -54,9 +54,9 @@ public class AlgorithmEndpointTest {
 
 	@Test
 	public void testUpdateAlgorithm() {
-		Mockito.when(svc.updateAlgorithm(testString, testString, testString, testLong, testLong))
+		Mockito.when(svc.updateAlgorithm(testString, testString, testString, testLong))
 				.thenReturn(testString);
-		assertEquals(testString, aCon.updateAlgorithm(testString, testString, testString, testLong, testLong));
+		assertEquals(testString, aCon.updateAlgorithm(testString, testString, testString, testLong));
 
 	}
 
