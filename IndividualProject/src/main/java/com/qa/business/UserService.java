@@ -14,7 +14,8 @@ public interface UserService {
 	public List<User> getAllUsers();
 	public String getRandomScramble(Long userID); 
 	public User getAUser(Long userID); 
-	public List<TimeLog> getUserAlgTimes(Long userID, Long algID);
+	public List<TimeLog> getUserAlgTimes(Long userID, Long algID); 
+	public User logInUser(String username, String Password);
 	
 
 	// U

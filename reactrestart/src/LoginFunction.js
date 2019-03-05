@@ -17,7 +17,8 @@ class LoginFunction extends Component {
        users:[], 
        accepted:false, 
        status:"Log In", 
-       loginselected:false
+       loginselected:false, 
+       logInResponse:[]
       
     }
   } 
@@ -37,6 +38,10 @@ class LoginFunction extends Component {
       axios.get('/getAllUsers').then(r => { this.setState({ users: r.data }) }); 
       
     } 
+ 
+    logInUser=(enteredUsername, enteredPassword)=>{ 
+      axios.get(`/logInUser/${enteredUsername}/${enteredPassword}`).then(r=>{this.setState({logInResponse: r.data})});
+    }
 
     makeLoggedIn = ()=>{ 
       this.setState({loggedin:true});

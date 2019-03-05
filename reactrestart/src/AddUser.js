@@ -25,8 +25,6 @@ class AddUser extends Component {
     } 
 
     handleSubmit=(event) =>{ 
-      console.log('A username was submitted: ' + this.state.username); 
-      console.log('A password was submitted: '+ this.state.password);
       event.preventDefault();
     }
 

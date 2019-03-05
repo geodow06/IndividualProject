@@ -62,5 +62,11 @@ public class UserController {
 	@RequestMapping("/getUserAlgTimes/{userID}/{algID}") 
 	public List<TimeLog> getUserAlgTimes(@PathVariable Long userID, @PathVariable Long algID){ 
 		return svc.getUserAlgTimes(userID, algID);
+	} 
+	
+	@RequestMapping("logInUser/{userName}/{userPassword}") 
+	public User logInUser(@PathVariable String userName, @PathVariable String userPassword) {
+		return svc.logInUser(userName, userPassword); 
+		
 	}
 }
