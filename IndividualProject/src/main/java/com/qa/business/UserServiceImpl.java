@@ -24,22 +24,23 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepo;
-
-//	@Override
-//	public User createUser(String user) {
-//		User aUser = new User();
-//		aUser.setUser_name();
-//		
-//
-//		return userRepo.save(aUser);
-//	} 
+	@Autowired
+	private CustomMethodsServiceImpl svc;
 
 	@Override
-	public User createUser(String userName, String userPassword) {
+	public String addUser(String userName, String userPassword) {
 		User aUser = new User();
 		aUser.setUserName(userName);
 		aUser.setUserPassword(userPassword);
-		return userRepo.save(aUser);
+
+		if (userName.length() < 5 && userPassword.length() < 5) {
+			return "Your username and password must be atleast five characters long";
+		} else if (svc.checkUsernames(userName)) {
+			return userName + " has already been taken please choose another";
+		} else {
+			userRepo.save(aUser);
+			return "User " + userName + " succesfully added.";
+		}
 	}
 
 	@Override
@@ -125,19 +126,18 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User logInUser(String username, String Password) {
-		List<User> users = getAllUsers(); 
+		List<User> users = getAllUsers();
 //		userRepo.findAll(username); 
-		for(int i=0;i<users.size();i++) {  
-			User user = users.get(i); 
-			
-			if(user.getUserName().equals(username)){ 
+		for (int i = 0; i < users.size(); i++) {
+			User user = users.get(i);
+
+			if (user.getUserName().equals(username)) {
 				return user;
-			
-			} 
-			
-		} 
+
+			}
+
+		}
 		return null;
-		
 
 	}
 

@@ -8,15 +8,17 @@ class AddUser extends Component {
     super(props); 
     this.state = { 
       username:'', 
-      password:''
+      password:'', 
+      requestResponse:''
     }
   }
 
 
 
     pushRequest = ()=>{ 
-      axios.post(`/addUser/${this.state.username}/${this.state.password}`); 
-      this.props.signedUp();
+      axios.post(`/addUser/${this.state.username}/${this.state.password}`).then(r => { this.setState({ requestResponse: r.data }) }); 
+
+      this.props.signedUp(this.state.requestResponse,this.state.username);
       
     } 
 

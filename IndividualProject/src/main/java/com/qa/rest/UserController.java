@@ -21,9 +21,9 @@ public class UserController {
 	public UserServiceImpl svc; 
 	
 	@RequestMapping("/addUser/{userName}/{userPassword}")
-	public User createUser(@PathVariable String userName, @PathVariable String userPassword) {
+	public String addUser(@PathVariable String userName, @PathVariable String userPassword) {
 		
-		return svc.createUser(userName, userPassword);
+		return svc.addUser(userName, userPassword);
 	}
 
 	@RequestMapping("/getAllUsers")
