@@ -28,7 +28,7 @@ public class CustomMethodsServiceImpl implements CustomMethodsService {
 //		return false; 
 //		usernames.get(i).trim().toLowerCase().equals(username.trim().toLowerCase())
 		for (int i = 0; i < usernames.size(); i++) {
-			if (usernames.get(i).toLowerCase().equals(username.toLowerCase())) {
+			if (usernames.get(i).equals(username)) {
 				return true;
 			}
 		}

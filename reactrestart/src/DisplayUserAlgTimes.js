@@ -26,7 +26,7 @@ class DisplayUserAlgTimes extends Component {
         <ul>
           {times}
         </ul>
-        {/* <button onClick={this.getRequest}>Click</button>  */}
+        {/* <button onClick={this.getRequest}>Click</button> */}
         {this.getRequest()}
       </div>
 
