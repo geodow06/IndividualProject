@@ -9,9 +9,6 @@ class GetAllUsers extends Component {
     this.state = {
       data: "",
       users: []
-      // username:"null",
-      // user:{username:"",password:""}, 
-      // password:"null"
     }
   }
 
@@ -20,17 +17,14 @@ class GetAllUsers extends Component {
   }
 
   render() {
-    let users = this.state.users.map(u => <Users userID={u.userID} userName={u.userName} userPassword={u.userPassword}/>)
+    let users = this.state.users.map(u => <Users userID={u.userID} userName={u.userName} userPassword={u.userPassword} />)
     return (
       <div>
-
-
         <ul key={`myKey${this.state.userID}`}>
-          {users} 
+          {users}
         </ul>
         {this.getRequest()}
         {/* <button onClick={this.getRequest}>Click</button> */}
-
       </div>
 
     );

@@ -1,10 +1,7 @@
 import React, { Component } from 'react'; 
 import DeleteUser from './DeleteUser';
 import UpdateUser from './UpdateUser';
-
-
 class Users extends Component{ 
-
 render(){ 
   return (
     <div>      
@@ -16,9 +13,6 @@ render(){
     </div>
   );
 }
-
-
-
 } 
 
 export default Users; 
