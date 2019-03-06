@@ -5,21 +5,22 @@ import java.util.Optional;
 import com.qa.persistence.domain.*;
 
 public interface AlgorithmService {
-	//C 
-	public Algorithm createAlgorithm(String name, String moves, String scramble, Long userID); 
-	
-	//R 
-	public List<Algorithm> getAllAlgorithms(); 
-	public String getScramble(Long algID); 
+	// C
+	public String createAlgorithm(String name, String moves, String scramble, Long userID);
 
-	public Optional<Algorithm> getAnAlgorithm(Long algID); 
-	
-	
-	//U 
-	public String updateAlgorithm(String name, String moves, String scramble, Long algID); 
-	
-	//D 
-	public String deleteAlgorithm(Long algID); 
-	
+	// R
+	public List<Algorithm> getAllAlgorithms();
+
+
+	public Algorithm getRandomAlgorithm(Long userID);
+	public Algorithm getAnAlgorithm(Long algID); 
+	public Long getRandomAlgID(Long userID);
+
+	// U
+	public String updateAlgorithm(String name, String moves, String scramble, Long algID);
+
+	// D
+	public String deleteAlgorithm(Long algID);
+
 //	public int cycleAlgorithms(String alg_name);
 }

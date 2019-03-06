@@ -90,13 +90,13 @@ class Timer extends Component {
         isOn: false,
         start: 0, 
         currentTime:null, 
-        algID:3
+ 
       }
       
   
     } 
     addTime=()=>{  
-        axios.post(`/addTimeLog/${this.state.time}/${this.state.algID}`);
+        axios.post(`/addTimeLog/${this.state.time}/${this.props.currentAlgID}`).then(this.setState({isOn:false, time:0}));
     }
     
     startTimer=()=> {
@@ -118,23 +118,22 @@ class Timer extends Component {
     } 
     submitTime=()=>{ 
         this.setState({currentTime:this.state.time}); 
-        console.log(this.state.currentTime); 
         this.addTime();
     }
     render() {
-      let start = (this.state.time == 0) ?
+      let start = (this.state.time === 0) ?
         <button onClick={this.startTimer}>start</button> :
         null
-      let stop = (this.state.time == 0 || !this.state.isOn) ?
+      let stop = (this.state.time === 0 || !this.state.isOn) ?
         null :
         <button onClick={this.stopTimer}>stop</button>
-      let resume = (this.state.time == 0 || this.state.isOn) ?
+      let resume = (this.state.time === 0 || this.state.isOn) ?
         null :
         <button onClick={this.startTimer}>resume</button>
-      let reset = (this.state.time == 0 || this.state.isOn) ?
+      let reset = (this.state.time === 0 || this.state.isOn) ?
         null :
         <button onClick={this.resetTimer}>reset</button> 
-      let submit = (this.state.time == 0 || this.state.isOn)? 
+      let submit = (this.state.time === 0 || this.state.isOn)? 
         null: 
         <button onClick={this.submitTime}>submit time</button>
       return(

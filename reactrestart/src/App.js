@@ -4,6 +4,7 @@ import RoutePage from './Routing.js';
 import LoginPage from './LoginPage'; 
 import axios from 'axios';
 import AdminRouting from './AdminRouting';
+import AddUser from './AddUser';
 class App extends Component {
 
   constructor(props) {
@@ -19,31 +20,21 @@ class App extends Component {
       loginAccepted: false,
       register: false,
       user: [],
-      displayedResponse: ''
+      displayedResponse: '',
+      username: '',
+      password: '',
+      requestResponse: ''
     }
   }
-  // setCurrentUser = (userid, enteredUsername, loginAccepted) => {
-  //   this.setState({ currentUserID: userid, currentUsername: enteredUsername, loggedIn: loginAccepted });
-  //   // console.log(`${this.state.currentUserID}  id  ${this.state.currentUsername} username  ${this.state.loggedIn}    `)
-  // } 
+
 
   setCurrentUser = (e) => {
     e.preventDefault();
     this.getRequest();
-
-
-    // this.setState({ loggedIn: true, currentUsername: this.state.user.userName, currentUserID: this.state.user.userID });
-
-    console.log(this.state.user.userName);
-    console.log(this.state.currentUsername);
-
-
-    console.log(this.state.user.userID);
-    console.log(this.state.currentUserID);
-    console.log(`user id ${this.state.currentUserID} username ${this.state.currentUsername}`);
-    // this.props.setCurrentUser(this.state.userIDToSend, this.state.usernameToSend, this.state.loginAccepted);
-
-
+  }
+ 
+  pushRequest = () => {
+    axios.post(`/addUser/${this.state.username}/${this.state.password}`).then(r => { this.setState({ requestResponse: r.data }) }); 
   }
 
   getRequest = () => { 
@@ -53,23 +44,60 @@ class App extends Component {
 
   setStates = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+  } 
+
+  setStates2 = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  signUp = () => {
+    this.setState({ register: true });
+  }
+  signedUp = () => {
+    if (this.state.requestResponse === "User " + this.state.username + " succesfully added.") {
+      this.setState({ register: false });
+    }
+  } 
+
+  handleSubmit(e){ 
+    e.preventDefault();
   }
 
   logOut = () => {
     this.setState({ loggedIn: false });
   }
   render() {
-    if (!this.state.loggedIn) {
+    
+    if(this.state.register) {
       return (
-        // <LoginPage setCurrentUser={this.setCurrentUser} /> 
+        <div>
+        <form onSubmit={this.handleSubmit} className="form-inline">
+          <label className="required">* required </label>
+          <label>
+            <input type="text" name='username' target='one' className="form-control inputArea" onChange={this.setStates} username={this.state.username} id="Username" placeholder="Username *"></input>
+            <input type="text" name='password' target='two' className="form-control inputArea" onChange={this.setStates} password={this.state.password} id="Password" placeholder="Password *"></input>
+          </label>
+          <input type="submit" value="Submit" onClick={this.pushRequest} /> 
+          <button onClick={this.signedUp}>Return to Login Page</button>
+        </form> 
+        <div> 
+          <a>{this.state.requestResponse}</a> 
+        </div>
+      </div>
+      );
+    }
+    
+    
+    else if (!this.state.loggedIn) {
+      return (
         <div>
           <h1>Welcome Please Sign In</h1>
           <form onSubmit={this.setCurrentUser} className="form-inline">
             <label className="required"></label>
 
             <label>
-              <input type="text" name='enteredUsername' target='one' className="form-control inputArea" onChange={this.setStates} enteredUsername={this.state.enteredUsername} id="enteredUsername" placeholder="username *"></input>
-              <input type="text" name='enteredPassword' target='two' className="form-control inputArea" onChange={this.setStates} enteredPassword={this.state.enteredPassword} id="enteredPassword" placeholder="password *"></input>
+              <input type="text" name='enteredUsername' target='one' className="form-control inputArea" onChange={this.setStates2} enteredUsername={this.state.enteredUsername} id="enteredUsername" placeholder="username *"></input>
+              <input type="password" name='enteredPassword' target='two' className="form-control inputArea" onChange={this.setStates2} enteredPassword={this.state.enteredPassword} id="enteredPassword" placeholder="password *"></input>
             </label>
 
             <input type="submit" value="Submit" />
@@ -77,8 +105,9 @@ class App extends Component {
           <button onClick={this.signUp}>Or Register An Account Here</button>
         </div>
       );
-    }
-    else if (this.state.currentUsername === "Admin") {
+    } 
+  
+    else if (this.state.enteredUsername === "Admin") {
       return (
         <AdminRouting currentUsername={this.state.enteredUsername} logOut={this.logOut} />
       );

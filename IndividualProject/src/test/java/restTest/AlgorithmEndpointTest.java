@@ -48,14 +48,13 @@ public class AlgorithmEndpointTest {
 	@Test
 	public void testGetAnAlgorithm() {
 		Algorithm MOCK_OBJECT = new Algorithm();
-		Mockito.when(svc.getAnAlgorithm(testLong)).thenReturn(Optional.of(MOCK_OBJECT));
+		Mockito.when(svc.getAnAlgorithm(testLong)).thenReturn(MOCK_OBJECT);
 		assertEquals(Optional.of(MOCK_OBJECT), aCon.getAnAlgorithm(testLong));
 	}
 
 	@Test
 	public void testUpdateAlgorithm() {
-		Mockito.when(svc.updateAlgorithm(testString, testString, testString, testLong))
-				.thenReturn(testString);
+		Mockito.when(svc.updateAlgorithm(testString, testString, testString, testLong)).thenReturn(testString);
 		assertEquals(testString, aCon.updateAlgorithm(testString, testString, testString, testLong));
 
 	}

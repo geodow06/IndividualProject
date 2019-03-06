@@ -61,7 +61,7 @@ class LoginPage extends Component {
   // getRequest = () => {
   //   axios.get('/getAllUsers').then(r => { this.setState({ users: r.data }) });
 
-  // }
+  // } 
   getRequest = () => {
     axios.get(`/logInUser/${this.state.enteredUsername}/${this.state.enteredPassword}`).then(r => { this.setState({ user: r.data }) });
   }

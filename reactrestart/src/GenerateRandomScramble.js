@@ -11,8 +11,9 @@ class GenerateRandomScramble extends Component {
     super(props);
     this.state = {
         userID:"", 
-        data:"", 
-        running:null
+        randomAlgorithm:"", 
+        running:null, 
+        algID:""
       
 
     }
@@ -35,7 +36,7 @@ class GenerateRandomScramble extends Component {
 
   generateRandomScramble = () =>{  
       
-      axios.get(`/getRandomScramble/${this.props.currentUserID}`).then(s=>{this.setState({scramble:s.data})});
+      axios.get(`/getRandomAlgorithm/${this.props.currentUserID}`).then(r=>{this.setState({randomAlgorithm:r.data})});
   } 
 
 
@@ -45,11 +46,11 @@ class GenerateRandomScramble extends Component {
         return( 
            <div>
             <div>
-              <h1 id="randomScramble">{this.state.scramble}</h1>
+              <h1 id="randomScramble">{this.state.randomAlgorithm.scramble}</h1>
               <button onClick={this.generateRandomScramble}>Next Scramble</button>
             </div>   
             <div id="timer">     
-              <Timer currentUserID={this.props.currentUserID}/> 
+              <Timer currentUserID={this.props.currentUserID} currentAlgID={this.state.randomAlgorithm.algID}/> 
             </div>
             <div id="timeBox"> 
               <DisplayAlgorithm currentUserID={this.props.currentUserID}/>

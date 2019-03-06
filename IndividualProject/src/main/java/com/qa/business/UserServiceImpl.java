@@ -99,16 +99,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String getRandomScramble(Long userID) {
-		List<Algorithm> userAlgs = getUserAlgs(userID);
-		int next = (int) Math.floor(Math.random() * userAlgs.size());
-		Algorithm nextAlg = userAlgs.get(next);
-
-		return nextAlg.getScramble();
-
-	}
-
-	@Override
 	public List<TimeLog> getUserAlgTimes(Long userID, Long algID) {
 		List<Algorithm> userAlgs = getUserAlgs(userID);
 		List<TimeLog> algTimes = new ArrayList<TimeLog>();

@@ -13,19 +13,20 @@ class DisplayUserAlgTimes extends Component {
   }
 
   getRequest = () => {
-    console.log("doing getuserAlgRequest");
-    console.log(this.props.currentUserID + " User id succesfully passed");
-    console.log(this.props.algID + " alg");
+    // console.log("doing getuserAlgRequest");
+    // console.log(this.props.currentUserID + " User id succesfully passed");
+    // console.log(this.props.algID + " alg");
     axios.get(`/getUserAlgTimes/${this.props.currentUserID}/${this.props.algID}`).then(r => { this.setState({ times: r.data }) });
 
   }
   render() {
-    let times = this.state.times.map(t => <TimeDisplay time={t.time} />);
+    let times = this.state.times.map(t => <TimeDisplay time={t.time} timeID={t.timeID}/>);
     return (
       <div>
         <ul>
           {times}
-        </ul>
+        </ul> 
+        
         {/* <button onClick={this.getRequest}>Click</button> */}
         {this.getRequest()}
       </div>

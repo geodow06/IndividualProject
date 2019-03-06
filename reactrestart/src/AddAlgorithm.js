@@ -38,7 +38,7 @@ class AddAlgorithm extends Component {
                 <label className="required">* required </label>
                 
                 <label>
-                  <input type="text" name='algName' target='one' className="form-control inputArea" onChange={this.setStates} algName={this.state.algName} id="algName" placeholder="algName *"></input> 
+                  <input type="text" name='algName' target='one' className="form-control inputArea" onChange={this.setStates} algName={this.state.algName} id="algName" placeholder="Name *"></input> 
                   <input type="text" name='moves' target='two' className="form-control inputArea" onChange={this.setStates} moves={this.state.moves} id="moves" placeholder="Moves *"></input> 
                   <input type="text" name='scramble' target='three' className="form-control inputArea" onChange={this.setStates} scramble={this.state.scramble} id="scramble" placeholder="Scramble *"></input> 
                  

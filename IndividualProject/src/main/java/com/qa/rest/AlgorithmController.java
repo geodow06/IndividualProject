@@ -18,8 +18,8 @@ public class AlgorithmController {
 	private AlgorithmServiceImpl svc;
 
 	@RequestMapping("/addAlgorithm/{name}/{moves}/{scramble}/{userID}")
-	public Algorithm createAlgorithm(@PathVariable String name, @PathVariable String moves,
-			@PathVariable String scramble, @PathVariable Long userID) {
+	public String createAlgorithm(@PathVariable String name, @PathVariable String moves, @PathVariable String scramble,
+			@PathVariable Long userID) {
 		return svc.createAlgorithm(name, moves, scramble, userID);
 	}
 
@@ -30,13 +30,14 @@ public class AlgorithmController {
 	}
 
 	@RequestMapping("/getAnAlgorithm/{algID}")
-	public Optional<Algorithm> getAnAlgorithm(@PathVariable Long algID) {
+	public Algorithm getAnAlgorithm(@PathVariable Long algID) {
 
 		return svc.getAnAlgorithm(algID);
 	}
 
 	@RequestMapping("/updateAlgorithm/{name}/{moves}/{scramble}/{algID}")
-	public String updateAlgorithm(@PathVariable String name, @PathVariable String moves, @PathVariable String scramble, @PathVariable Long algID) {
+	public String updateAlgorithm(@PathVariable String name, @PathVariable String moves, @PathVariable String scramble,
+			@PathVariable Long algID) {
 
 		return svc.updateAlgorithm(name, moves, scramble, algID);
 	}
@@ -45,10 +46,10 @@ public class AlgorithmController {
 	public String deleteAlgorithm(@PathVariable Long algID) {
 
 		return svc.deleteAlgorithm(algID);
-	} 
-	
-	@RequestMapping("/getScramble/{algID}")
-	public String getScramble(@PathVariable Long algID) { 
-		return svc.getScramble(algID);
+	}
+
+	@RequestMapping("/getRandomAlgorithm/{userID}")
+	public Algorithm getRandomAlgorithm(@PathVariable Long userID) {
+		return svc.getRandomAlgorithm(userID);
 	}
 }

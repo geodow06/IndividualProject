@@ -1,5 +1,6 @@
 package com.qa.business;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -21,13 +22,14 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 	private AlgorithmRepository algRepo;
 
 	@Override
-	public Algorithm createAlgorithm(String name, String moves, String scramble, Long userID) {
+	public String createAlgorithm(String name, String moves, String scramble, Long userID) {
 		Algorithm anAlgorithm = new Algorithm();
 		anAlgorithm.setMoves(moves);
 		anAlgorithm.setName(name);
 		anAlgorithm.setScramble(scramble);
 		anAlgorithm.setUserID(userID);
-		return algRepo.save(anAlgorithm);
+		algRepo.save(anAlgorithm);
+		return "Algorithm " + name + " successfully created";
 	}
 
 	@Override
@@ -37,9 +39,9 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 	}
 
 	@Override
-	public Optional<Algorithm> getAnAlgorithm(Long algID) {
+	public Algorithm getAnAlgorithm(Long algID) {
 
-		return algRepo.findById(algID);
+		return algRepo.findById(algID).get();
 	}
 
 	@Override
@@ -53,7 +55,7 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 			newAlgorithm.setMoves(moves);
 			newAlgorithm.setName(name);
 			newAlgorithm.setScramble(scramble);
-			
+
 			algRepo.save(newAlgorithm);
 		} else {
 
@@ -68,20 +70,38 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 		return "Algorithm " + algID + " deleted.";
 	}
 
+//	@Override
+//	public String getRandomScramble(Long ID) {
+//
+//		Optional<Algorithm> anAlgorithm = algRepo.findById(algID);
+//
+//		if (anAlgorithm.isPresent()) {
+//			Algorithm algorithm = anAlgorithm.get();
+//
+//			String scramble = algorithm.getScramble();
+//
+//			return scramble;
+//		} else {
+//			return "Algorithm not in database";
+//		}
+//	}
+
 	@Override
-	public String getScramble(Long algID) {
-
-		Optional<Algorithm> anAlgorithm = algRepo.findById(algID);
-
-		if (anAlgorithm.isPresent()) {
-			Algorithm algorithm = anAlgorithm.get();
-
-			String scramble = algorithm.getScramble();
-
-			return scramble;
-		} else {
-			return "Algorithm not in database";
+	public Long getRandomAlgID(Long userID) {
+		List<Algorithm> allAlgs = getAllAlgorithms();
+		List<Long> algIDs = new ArrayList<>();
+		for (Algorithm alg : allAlgs) {
+			algIDs.add(alg.getAlgID());
 		}
+		Integer iD = (int) Math.floor(Math.random() * algIDs.size());
+
+		return algIDs.get(iD);
+	}
+
+	@Override
+	public Algorithm getRandomAlgorithm(Long userID) {
+		Algorithm randomAlg = algRepo.findById(getRandomAlgID(userID)).get();
+		return randomAlg;
 	}
 
 }

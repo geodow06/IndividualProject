@@ -15,8 +15,6 @@ public interface UserService {
 	// R
 	public List<User> getAllUsers();
 
-	public String getRandomScramble(Long userID);
-
 	public User getAUser(Long userID);
 
 	public List<TimeLog> getUserAlgTimes(Long userID, Long algID);

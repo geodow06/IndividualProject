@@ -20,7 +20,6 @@ class DeleteTimeLog extends Component {
   
       return (
         <a>      
-           
             <button onClick={this.deleteRequest}>Delete Time</button>
         </a>
       

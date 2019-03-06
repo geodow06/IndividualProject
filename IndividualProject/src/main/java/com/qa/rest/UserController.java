@@ -58,11 +58,6 @@ public class UserController {
 		return svc.getUserAlgs(userID);
 	}
 
-	@RequestMapping("/getRandomScramble/{userID}")
-	public String getRandomScramble(@PathVariable Long userID) {
-		return svc.getRandomScramble(userID);
-	}
-
 	@RequestMapping("/getUserAlgTimes/{userID}/{algID}")
 	public List<TimeLog> getUserAlgTimes(@PathVariable Long userID, @PathVariable Long algID) {
 		return svc.getUserAlgTimes(userID, algID);

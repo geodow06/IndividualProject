@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import DeleteTimeLog from './DeleteTimeLog';
 const prettyMs = require('pretty-ms');
 class TimeDisplay extends Component {
 
@@ -16,8 +16,10 @@ class TimeDisplay extends Component {
 
           <li key={`aMyKey${this.props.timeID}`}>
             <a>{prettyMs(parseInt(this.props.time), { secDecimalDigits: 4 })}</a>
-            {/* <a>{this.props.time}</a> */}
+            {/* <a>{this.props.time}</a> */} 
+            <DeleteTimeLog timeID={this.props.timeID} />
           </li>
+          
 
         </div>
       );
