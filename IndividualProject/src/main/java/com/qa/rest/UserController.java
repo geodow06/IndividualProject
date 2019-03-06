@@ -18,49 +18,59 @@ import com.qa.persistence.domain.User;
 @RestController
 public class UserController {
 	@Autowired
-	public UserServiceImpl svc; 
-	
+	public UserServiceImpl svc;
+
 	@RequestMapping("/addUser/{userName}/{userPassword}")
-	public User createUser(@PathVariable String userName, @PathVariable String userPassword) {
-		
-		return svc.createUser(userName, userPassword);
+	public String addUser(@PathVariable String userName, @PathVariable String userPassword) {
+
+		return svc.addUser(userName, userPassword);
 	}
 
 	@RequestMapping("/getAllUsers")
 	public List<User> getAllUsers() {
-	
+
 		return svc.getAllUsers();
 	}
+
 //	@RequestMapping(value = " /getAUser/{userId}", method=RequestMethod.GET)
 	@RequestMapping("/getAUser/{userID}")
 	public User getAUser(@PathVariable Long userID) {
-		
+
 		return svc.getAUser(userID);
 	}
 
 	@RequestMapping("/updateUser/{userName}/{userPassword}/{userID}")
-	public String updateUser(@PathVariable String userName, @PathVariable String userPassword, @PathVariable Long userID) {
-		
+	public String updateUser(@PathVariable String userName, @PathVariable String userPassword,
+			@PathVariable Long userID) {
+
 		return svc.updateUser(userName, userPassword, userID);
 	}
 
 	@RequestMapping("/deleteUser/{userID}")
 	public String deleteUser(@PathVariable Long userID) {
-		
+
 		return svc.deleteUser(userID);
 	}
+
 	@RequestMapping("/getUserAlgs/{userID}")
 	public List<Algorithm> getUserAlgs(@PathVariable Long userID) {
-		
+
 		return svc.getUserAlgs(userID);
 	}
-	@RequestMapping("/getRandomScramble/{userID}") 
-	public String getRandomScramble(@PathVariable Long userID) { 
+
+	@RequestMapping("/getRandomScramble/{userID}")
+	public String getRandomScramble(@PathVariable Long userID) {
 		return svc.getRandomScramble(userID);
-	} 
-	
-	@RequestMapping("/getUserAlgTimes/{userID}/{algID}") 
-	public List<TimeLog> getUserAlgTimes(@PathVariable Long userID, @PathVariable Long algID){ 
+	}
+
+	@RequestMapping("/getUserAlgTimes/{userID}/{algID}")
+	public List<TimeLog> getUserAlgTimes(@PathVariable Long userID, @PathVariable Long algID) {
 		return svc.getUserAlgTimes(userID, algID);
+	}
+
+	@RequestMapping("logInUser/{userName}/{userPassword}")
+	public User logInUser(@PathVariable String userName, @PathVariable String userPassword) {
+		return svc.logInUser(userName, userPassword);
+
 	}
 }

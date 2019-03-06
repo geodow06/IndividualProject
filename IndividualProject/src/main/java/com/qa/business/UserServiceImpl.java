@@ -24,22 +24,23 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepo;
-
-//	@Override
-//	public User createUser(String user) {
-//		User aUser = new User();
-//		aUser.setUser_name();
-//		
-//
-//		return userRepo.save(aUser);
-//	} 
+	@Autowired
+	private CustomMethodsServiceImpl svc;
 
 	@Override
-	public User createUser(String userName, String userPassword) {
+	public String addUser(String userName, String userPassword) {
 		User aUser = new User();
 		aUser.setUserName(userName);
 		aUser.setUserPassword(userPassword);
-		return userRepo.save(aUser);
+
+		if (userName.length() < 5 && userPassword.length() < 5) {
+			return "Your username and password must be atleast five characters long";
+		} else if (svc.checkUsernames(userName)) {
+			return userName + " has already been taken please choose another";
+		} else {
+			userRepo.save(aUser);
+			return "User " + userName + " succesfully added.";
+		}
 	}
 
 	@Override
@@ -51,14 +52,14 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getAUser(Long userID) {
 		List<User> allUsers = getAllUsers();
-		User theUser = new User(); 
-		for(int i=0;i<allUsers.size();i++) { 
-			if(allUsers.get(i).getUserID()==userID) { 
-				theUser=allUsers.get(i);
+		User theUser = new User();
+		for (int i = 0; i < allUsers.size(); i++) {
+			if (allUsers.get(i).getUserID() == userID) {
+				theUser = allUsers.get(i);
 			}
 		}
-		return theUser; 
-		
+		return theUser;
+
 //		return userRepo.findById(userID);
 	}
 
@@ -89,8 +90,8 @@ public class UserServiceImpl implements UserService {
 		User aUser = getAUser(userID);
 		List<User> allUsers = getAllUsers();
 		if (aUser != null) {
-			
-			List<Algorithm> algList =  aUser.getUserAlgs();
+
+			List<Algorithm> algList = aUser.getUserAlgs();
 			return algList;
 		} else {
 			return null;
@@ -113,14 +114,30 @@ public class UserServiceImpl implements UserService {
 		List<TimeLog> algTimes = new ArrayList<TimeLog>();
 		for (int i = 0; i < userAlgs.size(); i++) {
 			if (userAlgs.get(i).getAlgID() == algID) {
-				algTimes = userAlgs.get(i).getTimeLogs(); 
-				
+				algTimes = userAlgs.get(i).getTimeLogs();
 
 			} else {
 				continue;
 			}
 		}
 		return algTimes;
+
+	}
+
+	@Override
+	public User logInUser(String username, String Password) {
+		List<User> users = getAllUsers();
+//		userRepo.findAll(username); 
+		for (int i = 0; i < users.size(); i++) {
+			User user = users.get(i);
+
+			if (user.getUserName().equals(username)) {
+				return user;
+
+			}
+
+		}
+		return null;
 
 	}
 

@@ -10,7 +10,7 @@ class GenerateRandomScramble extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        userID:12, 
+        userID:"", 
         data:"", 
         running:null
       
@@ -51,11 +51,10 @@ class GenerateRandomScramble extends Component {
             <div id="timer">     
               <Timer currentUserID={this.props.currentUserID}/> 
             </div>
-      
-            <button onClick={this.endTraining}>Click to stop</button>
             <div id="timeBox"> 
               <DisplayAlgorithm currentUserID={this.props.currentUserID}/>
-            </div>
+            </div> 
+            <button onClick={this.endTraining}>Click to stop</button>
            </div>
         ); 
     } 

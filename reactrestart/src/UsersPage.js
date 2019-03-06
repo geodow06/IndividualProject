@@ -1,27 +1,20 @@
-import React, { Component } from 'react'; 
-
-import AddUser from './AddUser.js'; 
+import React, { Component } from 'react';
+import AddUser from './AddUser.js';
 import GetAllUsers from './GetAllUsers.js';
-class UsersPage extends Component{ 
+class UsersPage extends Component {
 
-constructor(props){ 
+  constructor(props) {
     super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <AddUser />
+        <GetAllUsers />
+      </div>
+    );
+  }
 }
-
-render(){ 
-  return (
-    <div>
-      
-        
-        <AddUser/> 
-        <GetAllUsers/>
-    
-    </div>
-  );
-}
-
-
-
-} 
 
 export default UsersPage;
