@@ -51,16 +51,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getAUser(Long userID) {
-		List<User> allUsers = getAllUsers();
-		User theUser = new User();
-		for (int i = 0; i < allUsers.size(); i++) {
-			if (allUsers.get(i).getUserID() == userID) {
-				theUser = allUsers.get(i);
-			}
-		}
-		return theUser;
 
-//		return userRepo.findById(userID);
+		return userRepo.findById(userID).get();
+
 	}
 
 	@Override
@@ -102,9 +95,19 @@ public class UserServiceImpl implements UserService {
 	public List<TimeLog> getUserAlgTimes(Long userID, Long algID) {
 		List<Algorithm> userAlgs = getUserAlgs(userID);
 		List<TimeLog> algTimes = new ArrayList<TimeLog>();
-		for (int i = 0; i < userAlgs.size(); i++) {
-			if (userAlgs.get(i).getAlgID() == algID) {
-				algTimes = userAlgs.get(i).getTimeLogs();
+//		for (int i = 0; i < userAlgs.size(); i++) {
+//			if (userAlgs.get(i).getAlgID() == algID) {
+//				algTimes = userAlgs.get(i).getTimeLogs();
+//
+//			} else {
+//				continue;
+//			}
+//		}
+//		return algTimes;  
+
+		for (Algorithm alg : userAlgs) {
+			if (alg.getAlgID() == algID) {
+				algTimes = alg.getTimeLogs();
 
 			} else {
 				continue;
@@ -117,9 +120,17 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User logInUser(String username, String Password) {
 		List<User> users = getAllUsers();
-//		userRepo.findAll(username); 
-		for (int i = 0; i < users.size(); i++) {
-			User user = users.get(i);
+//		for (int i = 0; i < users.size(); i++) {
+//			User user = users.get(i);
+//
+//			if (user.getUserName().equals(username)) {
+//				return user;
+//
+//			}
+//
+//		}
+//		return null; 
+		for (User user : users) {
 
 			if (user.getUserName().equals(username)) {
 				return user;
@@ -129,6 +140,13 @@ public class UserServiceImpl implements UserService {
 		}
 		return null;
 
+	}
+
+	@Override
+	public User getAdmin(String username) {
+		User admin = userRepo.findByUserName(username);
+
+		return admin;
 	}
 
 }

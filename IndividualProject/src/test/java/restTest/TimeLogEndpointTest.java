@@ -60,4 +60,18 @@ public class TimeLogEndpointTest {
 		Mockito.when(svc.deleteTimeLog(testLong)).thenReturn(testString);
 		assertEquals(testString, tCon.deleteTimeLog(testLong));
 	}
+
+	@Test
+	public void testCreateTimeLog() {
+		// TODO
+		Mockito.when(svc.createTimeLog(testString, testLong)).thenReturn(testString);
+		assertEquals(testString, tCon.addTimeLog(testString, testLong));
+	}
+
+	@Test
+	public void testGet3Avg() {
+		Mockito.when(svc.get3Avg(testLong, testLong)).thenReturn(testString);
+		assertEquals(testString, tCon.get3Avg(testLong, testLong));
+
+	}
 }

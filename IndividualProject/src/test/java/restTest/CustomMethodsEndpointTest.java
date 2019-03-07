@@ -20,6 +20,7 @@ import com.qa.rest.CustomMethodsController;
 public class CustomMethodsEndpointTest {
 	private static final Long testLong = 1L;
 	private static final String testString = "test";
+	private static final List<String> MOCK_LIST = new ArrayList<>();
 	@InjectMocks
 	CustomMethodsController cMCon;
 	@Mock
@@ -38,8 +39,8 @@ public class CustomMethodsEndpointTest {
 
 	@Test
 	public void testGetAllUsernames() {
-		List<String> MOCK_OBJECT = new ArrayList<>();
-		Mockito.when(svc.getAllUsernames()).thenReturn(MOCK_OBJECT);
-		assertEquals(MOCK_OBJECT, svc.getAllUsernames());
+
+		Mockito.when(svc.getAllUsernames()).thenReturn(MOCK_LIST);
+		assertEquals(MOCK_LIST, svc.getAllUsernames());
 	}
 }

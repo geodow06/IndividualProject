@@ -21,6 +21,8 @@ public interface UserService {
 
 	public User logInUser(String username, String Password);
 
+	public User getAdmin(String username);
+
 	// U
 	public String updateUser(String userName, String userPassword, Long userId);
 

@@ -66,4 +66,29 @@ public class UserBusinessTest {
 		// .thenReturn(testString)
 //		assertEquals(testString, svc.deleteUser(testLong));
 	}
+
+	@Test
+	public void testAddUser() {
+		// TODO
+	}
+
+	@Test
+	public void testGetUserAlgs() {
+		// TODO
+	}
+
+	@Test
+	public void testGetUserAlgTimes() {
+		// TODO
+	}
+
+	@Test
+	public void testLogInUser() {
+		// TODO
+	}
+
+	@Test
+	public void testGetAdmin() {
+		// TODO
+	}
 }

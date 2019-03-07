@@ -53,9 +53,9 @@ public class AlgorithmBusinessTest {
 
 	@Test
 	public void testUpdateAlgorithm() {
-	
-	Mockito.when(testString).thenReturn(testString); 
-	assertEquals(testString, svc.updateAlgorithm(testString, testString, testString, testLong));
+
+		Mockito.when(testString).thenReturn(testString);
+		assertEquals(testString, svc.updateAlgorithm(testString, testString, testString, testLong));
 	}
 
 	@Test
@@ -65,6 +65,26 @@ public class AlgorithmBusinessTest {
 //
 //		Mockito.when().thenReturn(testString)
 //		assertEquals(testString, svc.deleteAlgorithm(testLong));
+	}
+
+	@Test
+	public void testCreateAlgorithm() {
+		// TODO
+	}
+
+	@Test
+	public void testGetRandomAlgID() {
+		// TODO
+	}
+
+	@Test
+	public void testGetRandomAlgorithm() {
+		// TODO
+	}
+
+	@Test
+	public void testAddDefaultAlgorithm() {
+		// TODO
 	}
 
 }

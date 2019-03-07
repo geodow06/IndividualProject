@@ -2,6 +2,7 @@ package restTest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +25,8 @@ import com.qa.rest.AlgorithmController;
 public class AlgorithmEndpointTest {
 	private static final Long testLong = 1L;
 	private static final String testString = "test";
+	private static final Algorithm MOCK_OBJECT = new Algorithm();
+	private static final List<Algorithm> MOCK_LIST = new ArrayList<>();
 	@InjectMocks
 	AlgorithmController aCon;
 
@@ -40,14 +43,14 @@ public class AlgorithmEndpointTest {
 
 	@Test
 	public void testGetAllAlgorithms() {
-		List<Algorithm> MOCK_LIST = Arrays.asList(Algorithm, Algorithm, Algorithm);
+
 		Mockito.when(svc.getAllAlgorithms()).thenReturn(MOCK_LIST);
 		assertEquals(MOCK_LIST, aCon.getAllAlgorithms());
 	}
 
 	@Test
 	public void testGetAnAlgorithm() {
-		Algorithm MOCK_OBJECT = new Algorithm();
+
 		Mockito.when(svc.getAnAlgorithm(testLong)).thenReturn(MOCK_OBJECT);
 		assertEquals(Optional.of(MOCK_OBJECT), aCon.getAnAlgorithm(testLong));
 	}
@@ -63,5 +66,11 @@ public class AlgorithmEndpointTest {
 	public void testDeleteAlgorithm() {
 		Mockito.when(svc.deleteAlgorithm(testLong)).thenReturn(testString);
 		assertEquals(testString, aCon.deleteAlgorithm(testLong));
+	}
+
+	@Test
+	public void testGetRandomAlgorithm() {
+		Mockito.when(svc.getRandomAlgorithm(testLong)).thenReturn(MOCK_OBJECT);
+		assertEquals(MOCK_OBJECT, aCon.getRandomAlgorithm(testLong));
 	}
 }

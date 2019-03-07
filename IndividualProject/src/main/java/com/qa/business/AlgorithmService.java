@@ -8,12 +8,15 @@ public interface AlgorithmService {
 	// C
 	public String createAlgorithm(String name, String moves, String scramble, Long userID);
 
+	public String addDefaultAlgorithms(Long userID);
+
 	// R
 	public List<Algorithm> getAllAlgorithms();
 
-
 	public Algorithm getRandomAlgorithm(Long userID);
-	public Algorithm getAnAlgorithm(Long algID); 
+
+	public Algorithm getAnAlgorithm(Long algID);
+
 	public Long getRandomAlgID(Long userID);
 
 	// U
@@ -22,5 +25,4 @@ public interface AlgorithmService {
 	// D
 	public String deleteAlgorithm(Long algID);
 
-//	public int cycleAlgorithms(String alg_name);
 }

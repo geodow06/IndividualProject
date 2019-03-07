@@ -67,4 +67,15 @@ public class TimeLogBusinessTest {
 		// .thenReturn(testString)
 //		assertEquals(testString, svc.deleteTimeLog(testLong));
 	}
+
+	@Test
+	public void testCreateTimeLog() {
+		// TODO
+	}
+
+	@Test
+	public void testGet3Avg() {
+		// TODO
+	}
+
 }

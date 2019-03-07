@@ -1,6 +1,7 @@
 package com.qa.business;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -70,22 +71,6 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 		return "Algorithm " + algID + " deleted.";
 	}
 
-//	@Override
-//	public String getRandomScramble(Long ID) {
-//
-//		Optional<Algorithm> anAlgorithm = algRepo.findById(algID);
-//
-//		if (anAlgorithm.isPresent()) {
-//			Algorithm algorithm = anAlgorithm.get();
-//
-//			String scramble = algorithm.getScramble();
-//
-//			return scramble;
-//		} else {
-//			return "Algorithm not in database";
-//		}
-//	}
-
 	@Override
 	public Long getRandomAlgID(Long userID) {
 		List<Algorithm> allAlgs = getAllAlgorithms();
@@ -102,6 +87,13 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 	public Algorithm getRandomAlgorithm(Long userID) {
 		Algorithm randomAlg = algRepo.findById(getRandomAlgID(userID)).get();
 		return randomAlg;
+	}
+
+	@Override
+	public String addDefaultAlgorithms(Long userID) {
+		List<Algorithm> defaultAlgorithms = Arrays.asList();
+		return "Deafault algorithms added";
+
 	}
 
 }

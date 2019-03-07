@@ -2,6 +2,7 @@ package restTest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +19,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import com.qa.business.AlgorithmServiceImpl;
 import com.qa.business.UserServiceImpl;
 import com.qa.persistence.domain.Algorithm;
+import com.qa.persistence.domain.TimeLog;
 import com.qa.persistence.domain.User;
 import com.qa.rest.UserController;
 
@@ -27,6 +29,10 @@ public class UserEndpointTest {
 	private static final String testUserName = "username";
 	private static final String testUserPassword = "password";
 	private static final Long testLong = 1L;
+	private static final List<TimeLog> MOCK_TIMELIST = new ArrayList<>();
+	private static final List<User> MOCK_USERLIST = new ArrayList<>();
+	private static final List<Algorithm> MOCK_ALGLIST = new ArrayList<>();
+	private static final User MOCK_USER = new User();
 	@InjectMocks
 	UserController uCon;
 
@@ -35,8 +41,9 @@ public class UserEndpointTest {
 
 	@Mock
 	User user;
-	@Mock 
+	@Mock
 	Algorithm algorithm;
+
 	@Before
 	public void setup() {
 //		uCon.svc;
@@ -44,9 +51,9 @@ public class UserEndpointTest {
 
 	@Test
 	public void testGetAllUsers() {
-		List<User> MOCK_LIST = Arrays.asList(user, user, user);
-		Mockito.when(svc.getAllUsers()).thenReturn(MOCK_LIST);
-		assertEquals(MOCK_LIST, uCon.getAllUsers());
+
+		Mockito.when(svc.getAllUsers()).thenReturn(MOCK_USERLIST);
+		assertEquals(MOCK_USERLIST, uCon.getAllUsers());
 	}
 
 //	@Test
@@ -66,22 +73,35 @@ public class UserEndpointTest {
 	public void testDeleteUser() {
 		Mockito.when(svc.deleteUser(testLong)).thenReturn(testString);
 		assertEquals(testString, uCon.deleteUser(testLong));
-	} 
-	
-	@Test 
-	public void testGetUserAlgs() {  
-		List<Algorithm> MOCK_SET = Arrays.asList(algorithm, algorithm);
-		Mockito.when(svc.getUserAlgs(testLong)).thenReturn(MOCK_SET); 
-		assertEquals(MOCK_SET, uCon.getUserAlgs(testLong));
-	} 
-	
-	@Test 
-	public void testGetRandomScramble() { 
-		
-	} 
-	
-	@Test 
-	public void testGetUserTimes() { 
-		
+	}
+
+	@Test
+	public void testGetUserAlgs() {
+
+		Mockito.when(svc.getUserAlgs(testLong)).thenReturn(MOCK_ALGLIST);
+		assertEquals(MOCK_ALGLIST, uCon.getUserAlgs(testLong));
+	}
+
+//	@Test 
+//	public void testGetRandomScramble() { 
+//		Mockito.when(svc.ge)
+//	} 
+
+	@Test
+	public void testGetUserAlgTimes() {
+		Mockito.when(svc.getUserAlgTimes(testLong, testLong)).thenReturn(MOCK_TIMELIST);
+		assertEquals(MOCK_TIMELIST, uCon.getUserAlgTimes(testLong, testLong));
+	}
+
+	@Test
+	public void testLogInUer() {
+		Mockito.when(svc.logInUser(testUserName, testUserPassword)).thenReturn(MOCK_USER);
+		assertEquals(MOCK_USER, uCon.logInUser(testUserName, testUserPassword));
+	}
+
+	@Test
+	public void testAddUser() {
+		Mockito.when(svc.addUser(testUserName, testUserPassword)).thenReturn(testString);
+		assertEquals(testString, uCon.logInUser(testUserName, testUserPassword));
 	}
 }
