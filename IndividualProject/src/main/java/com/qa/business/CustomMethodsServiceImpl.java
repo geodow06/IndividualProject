@@ -18,32 +18,19 @@ public class CustomMethodsServiceImpl implements CustomMethodsService {
 
 	@Override
 	public boolean checkUsernames(String username) {
-
 		List<String> usernames = getAllUsernames();
-
-//		for (String str : usernames) {
-//			if (str.trim().toLowerCase().contains(username.trim().toLowerCase()))
-//				return true;
-//		}
-//		return false; 
-//		usernames.get(i).trim().toLowerCase().equals(username.trim().toLowerCase())
 		for (int i = 0; i < usernames.size(); i++) {
 			if (usernames.get(i).equals(username)) {
 				return true;
 			}
 		}
 		return false;
-
 	}
 
+	@Override
 	public List<String> getAllUsernames() {
 		List<User> users = svc.getAllUsers();
 		List<String> usernames = new ArrayList<>();
-//		for (int i = 0; i < users.size(); i++) {
-//			usernames.add(users.get(i).getUserName());
-//		}
-//		return usernames; 
-
 		for (User user : users) {
 			usernames.add(user.getUserName());
 		}

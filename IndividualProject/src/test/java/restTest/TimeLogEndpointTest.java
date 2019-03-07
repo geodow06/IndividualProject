@@ -45,7 +45,7 @@ public class TimeLogEndpointTest {
 	@Test
 	public void testGetAnTimeLog() {
 		TimeLog MOCK_OBJECT = new TimeLog();
-		Mockito.when(svc.getATimeLog(testLong)).thenReturn(Optional.of(MOCK_OBJECT));
+		Mockito.when(svc.getATimeLog(testLong)).thenReturn(MOCK_OBJECT);
 		assertEquals(Optional.of(MOCK_OBJECT), tCon.getATimeLog(testLong));
 	}
 

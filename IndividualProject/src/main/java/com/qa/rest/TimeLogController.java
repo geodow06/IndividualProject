@@ -20,8 +20,8 @@ public class TimeLogController {
 	public TimeLogServiceImpl svc;
 
 	@RequestMapping("/addTimeLog/{time}/{algID}")
-	public TimeLog addTimeLog(@PathVariable String time, @PathVariable Long algID) {
-		TimeLog result = svc.createTimeLog(time, algID);
+	public String addTimeLog(@PathVariable String time, @PathVariable Long algID) {
+		String result = svc.createTimeLog(time, algID);
 
 		return result;
 	}
@@ -33,7 +33,7 @@ public class TimeLogController {
 	}
 
 	@RequestMapping("/getATimeLog/{timeID}")
-	public Optional<TimeLog> getATimeLog(@PathVariable Long timeID) {
+	public TimeLog getATimeLog(@PathVariable Long timeID) {
 
 		return svc.getATimeLog(timeID);
 	}

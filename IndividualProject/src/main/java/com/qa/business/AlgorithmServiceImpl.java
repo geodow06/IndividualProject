@@ -48,19 +48,13 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 	@Override
 	public String updateAlgorithm(String name, String moves, String scramble, Long algID) {
 
-		Optional<Algorithm> anAlgorithm = algRepo.findById(algID);
+		Algorithm anAlgorithm = algRepo.findById(algID).get();
 
-		if (anAlgorithm.isPresent()) {
-			Algorithm newAlgorithm = anAlgorithm.get();
+		anAlgorithm.setMoves(moves);
+		anAlgorithm.setName(name);
+		anAlgorithm.setScramble(scramble);
 
-			newAlgorithm.setMoves(moves);
-			newAlgorithm.setName(name);
-			newAlgorithm.setScramble(scramble);
-
-			algRepo.save(newAlgorithm);
-		} else {
-
-		}
+		algRepo.save(anAlgorithm);
 
 		return "Algorithm " + algID + " updated";
 	}

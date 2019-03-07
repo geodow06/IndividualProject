@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import RoutePage from './Routing.js';
-import LoginPage from './LoginPage'; 
+import LoginPage from './LoginPage';
 import axios from 'axios';
 import AdminRouting from './AdminRouting';
 import AddUser from './AddUser';
@@ -32,19 +32,19 @@ class App extends Component {
     e.preventDefault();
     this.getRequest();
   }
- 
+
   pushRequest = () => {
-    axios.post(`/addUser/${this.state.username}/${this.state.password}`).then(r => { this.setState({ requestResponse: r.data }) }); 
+    axios.post(`/addUser/${this.state.username}/${this.state.password}`).then(r => { this.setState({ requestResponse: r.data }) });
   }
 
-  getRequest = () => { 
+  getRequest = () => {
     console.log(`user id ${this.state.enteredUsername} username ${this.state.enteredPassword}`);
-    axios.get(`/logInUser/${this.state.enteredUsername}/${this.state.enteredPassword}`).then(r => { this.setState({ user: r.data , loggedIn:true}) });
+    axios.get(`/logInUser/${this.state.enteredUsername}/${this.state.enteredPassword}`).then(r => { this.setState({ user: r.data, loggedIn: true }) });
   }
 
   setStates = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-  } 
+  }
 
   setStates2 = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -57,9 +57,9 @@ class App extends Component {
     if (this.state.requestResponse === "User " + this.state.username + " succesfully added.") {
       this.setState({ register: false });
     }
-  } 
+  }
 
-  handleSubmit(e){ 
+  handleSubmit(e) {
     e.preventDefault();
   }
 
@@ -67,27 +67,27 @@ class App extends Component {
     this.setState({ loggedIn: false });
   }
   render() {
-    
-    if(this.state.register) {
+
+    if (this.state.register) {
       return (
         <div>
-        <form onSubmit={this.handleSubmit} className="form-inline">
-          <label className="required">* required </label>
-          <label>
-            <input type="text" name='username' target='one' className="form-control inputArea" onChange={this.setStates} username={this.state.username} id="Username" placeholder="Username *"></input>
-            <input type="text" name='password' target='two' className="form-control inputArea" onChange={this.setStates} password={this.state.password} id="Password" placeholder="Password *"></input>
-          </label>
-          <input type="submit" value="Submit" onClick={this.pushRequest} /> 
-          <button onClick={this.signedUp}>Return to Login Page</button>
-        </form> 
-        <div> 
-          <a>{this.state.requestResponse}</a> 
+          <form onSubmit={this.handleSubmit} className="form-inline">
+            <label className="required">* required </label>
+            <label>
+              <input type="text" name='username' target='one' className="form-control inputArea" onChange={this.setStates} username={this.state.username} id="Username" placeholder="Username *"></input>
+              <input type="text" name='password' target='two' className="form-control inputArea" onChange={this.setStates} password={this.state.password} id="Password" placeholder="Password *"></input>
+            </label>
+            <input type="submit" value="Submit" onClick={this.pushRequest} />
+            <button onClick={this.signedUp}>Return to Login Page</button>
+          </form>
+          <div>
+            <a>{this.state.requestResponse}</a>
+          </div>
         </div>
-      </div>
       );
     }
-    
-    
+
+
     else if (!this.state.loggedIn) {
       return (
         <div>
@@ -105,8 +105,8 @@ class App extends Component {
           <button onClick={this.signUp}>Or Register An Account Here</button>
         </div>
       );
-    } 
-  
+    }
+
     else if (this.state.enteredUsername === "Admin") {
       return (
         <AdminRouting currentUsername={this.state.enteredUsername} logOut={this.logOut} />

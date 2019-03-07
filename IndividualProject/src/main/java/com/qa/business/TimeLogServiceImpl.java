@@ -23,42 +23,37 @@ public class TimeLogServiceImpl implements TimeLogService {
 	private TimeLogRepository timeRepo;
 
 	@Override
-	public TimeLog createTimeLog(String time, Long algID) {
+	public String createTimeLog(String time, Long algID) {
 		TimeLog aTimeLog = new TimeLog();
 		aTimeLog.setTime(time);
 		aTimeLog.setAlgID(algID);
-		return timeRepo.save(aTimeLog);
+		timeRepo.save(aTimeLog);
+		return "TimeLog created";
 	}
 
 	@Override
 	public List<TimeLog> getAllTimeLogs() {
-		// TODO Auto-generated method stub
 		return timeRepo.findAll();
 	}
 
 	@Override
-	public Optional<TimeLog> getATimeLog(Long timeID) {
-		// TODO Auto-generated method stub
-		return timeRepo.findById(timeID);
+	public TimeLog getATimeLog(Long timeID) {
+		return timeRepo.findById(timeID).get();
 	}
 
 	@Override
-	public String get3Avg(Long userId, Long algID) {
+	public String get3Avg(Long userID, Long algID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String updateTimeLog(String time, Long algID, Long timeID) {
-		Optional<TimeLog> aTimeLog = timeRepo.findById(timeID);
-		
-		if(aTimeLog.isPresent()) { 
-			TimeLog newTimeLog = aTimeLog.get(); 
-			
-			newTimeLog.setTime(time);
-			newTimeLog.setAlgID(algID); 
-			
-		}
+		TimeLog aTimeLog = getATimeLog(timeID);
+
+		aTimeLog.setTime(time);
+		aTimeLog.setAlgID(algID);
+
 		return "TimeLog " + timeID + " updated";
 	}
 
