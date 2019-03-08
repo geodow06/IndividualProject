@@ -102,6 +102,6 @@ public class UserEndpointTest {
 	@Test
 	public void testAddUser() {
 		Mockito.when(svc.addUser(testUserName, testUserPassword)).thenReturn(testString);
-		assertEquals(testString, uCon.logInUser(testUserName, testUserPassword));
+		assertEquals(testString, uCon.addUser(testUserName, testUserPassword));
 	}
 }

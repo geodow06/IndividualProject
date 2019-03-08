@@ -27,7 +27,7 @@ class AddUser extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="form-inline">
-          <label className="required">* required </label>
+          <label className="required">To create a new user please enter a username and password</label>
           <label>
             <input type="text" name='username' target='one' className="form-control inputArea" onChange={this.setStates} username={this.state.username} id="Username" placeholder="Username *"></input>
             <input type="text" name='password' target='two' className="form-control inputArea" onChange={this.setStates} password={this.state.password} id="Password" placeholder="Password *"></input>

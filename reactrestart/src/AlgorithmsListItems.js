@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DeleteAlgorithm from './DeleteAlgorithm';
-import AddDefaultAlgorithms from './AddDefaultAlgorithms';
+
 import UpdateAlgorithm from './UpdateAlgorithm';
 class AlgorithmsListItems extends Component {
 
@@ -18,6 +18,7 @@ class AlgorithmsListItems extends Component {
               <a>
                 <UpdateAlgorithm algID={this.props.algID} />
               </a>
+
 
             </a>
           </li>

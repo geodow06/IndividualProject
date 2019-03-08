@@ -79,15 +79,8 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 
 	@Override
 	public Algorithm getRandomAlgorithm(Long userID) {
-		Algorithm randomAlg = algRepo.findById(getRandomAlgID(userID)).get();
+		Long iD = getRandomAlgID(userID);
+		Algorithm randomAlg = algRepo.findById(iD).get();
 		return randomAlg;
 	}
-
-	@Override
-	public String addDefaultAlgorithms(Long userID) {
-		List<Algorithm> defaultAlgorithms = Arrays.asList();
-		return "Deafault algorithms added";
-
-	}
-
 }

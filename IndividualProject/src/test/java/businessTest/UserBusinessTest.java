@@ -2,6 +2,7 @@ package businessTest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -22,11 +23,13 @@ import com.qa.persistence.repository.UserRepository;
 public class UserBusinessTest {
 	private static final Long testLong = 1L;
 	private static final String testString = "test";
+	private static final User MOCK_USER = new User();
+	private static final List<User> MOCK_LIST = new ArrayList<>();
 	@InjectMocks
 	UserServiceImpl svc;
 
 	@Mock
-	UserRepository repo;
+	UserRepository userRepo;
 
 	@Mock
 	User User;
@@ -38,16 +41,15 @@ public class UserBusinessTest {
 
 	@Test
 	public void testGetAllUsers() {
-		List<User> MOCK_LIST = Arrays.asList(User, User, User);
-		Mockito.when(repo.findAll()).thenReturn(MOCK_LIST);
+
+		Mockito.when(userRepo.findAll()).thenReturn(MOCK_LIST);
 		assertEquals(MOCK_LIST, svc.getAllUsers());
 	}
 
 	@Test
 	public void testGetAUser() {
-		User MOCK_OBJECT = new User();
-		Mockito.when(repo.findById(testLong)).thenReturn(Optional.of(MOCK_OBJECT));
-		assertEquals(Optional.of(MOCK_OBJECT), svc.getAUser(testLong));
+		Mockito.when(userRepo.findById(testLong)).thenReturn(Optional.of(MOCK_USER));
+		assertEquals(Optional.of(MOCK_USER), Optional.of(svc.getAUser(testLong)));
 	}
 
 	@Test

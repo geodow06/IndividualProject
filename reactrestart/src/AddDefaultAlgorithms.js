@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'; 
-// import '/roofpig_and_three.min.js'
+// import '/roofpig_and_three.min'
 import axios from 'axios';
 
 class AddDefaultAlgorithms extends Component { 
@@ -9,7 +9,7 @@ class AddDefaultAlgorithms extends Component {
     this.state = { 
     
       offerdefault:true,
-      defaultAlgorithms:[{name:"J", moves:"U", scramble:"U'"},{name:"H", moves:"U", scramble:"U'"}], 
+      defaultAlgorithms:[{name:"Ja", moves:"U", scramble:"B2 R2 U' R2 U R2 D' R2 D B2"},{name:"Jb", moves:"U", scramble:"F U F' L D F2 R' F R F D' L'"},{name:"Ua",moves:"R T U",scramble:"F R B' R B D R D' R F2 U F"},{name:"Ub",moves:"T A U",scramble:"R L' U2 R B2 L2 D' L2 B2 R2 U' L F2"},{name:"T",moves:"R T U",scramble:"L2 F2 R' D' R F2 L' U L2 R B2 L R'"}], 
       algorithms:[]
     }
   }
@@ -26,7 +26,9 @@ class AddDefaultAlgorithms extends Component {
     }
 
     pushDefault = ()=>{ 
-    for(let i=0;i<this.state.defaultAlgorithms.length;i++){
+    console.log(this.state.defaultAlgorithms.length)
+    for(let i=0;i<this.state.defaultAlgorithms.length;i++) 
+    {
     axios.post(`/addAlgorithm/${this.state.defaultAlgorithms[i].name}/${this.state.defaultAlgorithms[i].moves}/${this.state.defaultAlgorithms[i].scramble}/${this.props.currentUserID}`); 
    
     }

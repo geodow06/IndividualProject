@@ -52,7 +52,7 @@ public class AlgorithmEndpointTest {
 	public void testGetAnAlgorithm() {
 
 		Mockito.when(svc.getAnAlgorithm(testLong)).thenReturn(MOCK_OBJECT);
-		assertEquals(Optional.of(MOCK_OBJECT), aCon.getAnAlgorithm(testLong));
+		assertEquals(MOCK_OBJECT, aCon.getAnAlgorithm(testLong));
 	}
 
 	@Test

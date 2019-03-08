@@ -2,6 +2,7 @@ package businessTest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +23,8 @@ import com.qa.persistence.repository.TimeLogRepository;
 public class TimeLogBusinessTest {
 	private static final Long testLong = 1L;
 	private static final String testString = "test";
+	private static final TimeLog MOCK_OBJECT = new TimeLog();
+	private static final List<TimeLog> MOCK_LIST = new ArrayList<>();
 	@InjectMocks
 	TimeLogServiceImpl svc;
 
@@ -39,16 +42,15 @@ public class TimeLogBusinessTest {
 	@Test
 	public void testGetAllTimeLogs() {
 
-		List<TimeLog> MOCK_LIST = Arrays.asList(TimeLog, TimeLog, TimeLog);
 		Mockito.when(repo.findAll()).thenReturn(MOCK_LIST);
 		assertEquals(MOCK_LIST, svc.getAllTimeLogs());
 	}
 
 	@Test
 	public void testGetATimeLog() {
-		TimeLog MOCK_OBJECT = new TimeLog();
+
 		Mockito.when(repo.findById(testLong)).thenReturn(Optional.of(MOCK_OBJECT));
-		assertEquals(Optional.of(MOCK_OBJECT), svc.getATimeLog(testLong));
+		assertEquals(MOCK_OBJECT, svc.getATimeLog(testLong));
 	}
 
 	@Test

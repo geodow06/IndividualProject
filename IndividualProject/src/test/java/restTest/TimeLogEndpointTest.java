@@ -22,6 +22,7 @@ import com.qa.rest.TimeLogController;
 public class TimeLogEndpointTest {
 	private static final Long testLong = 1L;
 	private static final String testString = "test";
+	private static final TimeLog MOCK_OBJECT = new TimeLog();
 	@InjectMocks
 	TimeLogController tCon;
 	@Mock
@@ -43,10 +44,10 @@ public class TimeLogEndpointTest {
 	}
 
 	@Test
-	public void testGetAnTimeLog() {
-		TimeLog MOCK_OBJECT = new TimeLog();
+	public void testGetATimeLog() {
+
 		Mockito.when(svc.getATimeLog(testLong)).thenReturn(MOCK_OBJECT);
-		assertEquals(Optional.of(MOCK_OBJECT), tCon.getATimeLog(testLong));
+		assertEquals(MOCK_OBJECT, tCon.getATimeLog(testLong));
 	}
 
 	@Test

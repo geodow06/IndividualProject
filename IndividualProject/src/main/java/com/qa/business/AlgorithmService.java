@@ -8,8 +8,6 @@ public interface AlgorithmService {
 	// C
 	public String createAlgorithm(String name, String moves, String scramble, Long userID);
 
-	public String addDefaultAlgorithms(Long userID);
-
 	// R
 	public List<Algorithm> getAllAlgorithms();
 

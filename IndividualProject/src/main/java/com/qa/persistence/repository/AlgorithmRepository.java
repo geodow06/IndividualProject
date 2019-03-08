@@ -8,5 +8,5 @@ import com.qa.persistence.domain.Algorithm;
 
 @Repository
 public interface AlgorithmRepository extends JpaRepository<Algorithm, Long> {
-
+	
 }

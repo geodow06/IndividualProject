@@ -10,7 +10,7 @@ class UsersPage extends Component {
   render() {
     return (
       <div>
-        <AddUser />
+        {/* <AddUser /> */}
         <GetAllUsers />
       </div>
     );
