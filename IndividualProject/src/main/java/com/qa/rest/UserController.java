@@ -47,7 +47,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/deleteUser/{userID}")
-	public String deleteUser(@PathVariable Long userID) {
+	public boolean deleteUser(@PathVariable Long userID) {
 
 		return svc.deleteUser(userID);
 	}

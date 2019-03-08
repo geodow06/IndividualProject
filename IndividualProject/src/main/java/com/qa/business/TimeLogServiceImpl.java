@@ -44,7 +44,7 @@ public class TimeLogServiceImpl implements TimeLogService {
 	@Override
 	public String get3Avg(Long userID, Long algID) {
 		// TODO Auto-generated method stub
-		return null;
+		return "Average got";
 	}
 
 	@Override
@@ -58,9 +58,9 @@ public class TimeLogServiceImpl implements TimeLogService {
 	}
 
 	@Override
-	public String deleteTimeLog(Long timeID) {
+	public boolean deleteTimeLog(Long timeID) {
 		timeRepo.deleteById(timeID);
-		return "Time " + timeID + " deleted.";
+		return timeRepo.existsById(timeID);
 	}
 
 }

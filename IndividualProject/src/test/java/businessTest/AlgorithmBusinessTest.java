@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,10 +26,14 @@ import com.qa.persistence.domain.*;
 @RunWith(MockitoJUnitRunner.class)
 public class AlgorithmBusinessTest {
 	private static final Long testLong = 1L;
+	Long thelong = mock(Long.class);
 	private static final String testString = "test";
+	String string = mock(String.class);
 	private static final Algorithm MOCK_OBJECT = new Algorithm();
+	Algorithm algorithm = mock(Algorithm.class);
 	private static final String inputTestString = "input";
 	private static final List<Long> MOCK_LONGLIST = new ArrayList<>();
+	private static final List<Algorithm> MOCK_LIST = new ArrayList<>();
 	@InjectMocks
 	AlgorithmServiceImpl svc;
 
@@ -44,7 +51,6 @@ public class AlgorithmBusinessTest {
 	@Test
 	public void testGetAllAlgorithms() {
 
-		List<Algorithm> MOCK_LIST = Arrays.asList(Algorithm, Algorithm, Algorithm);
 		Mockito.when(algRepo.findAll()).thenReturn(MOCK_LIST);
 		assertEquals(MOCK_LIST, svc.getAllAlgorithms());
 	}
@@ -59,18 +65,23 @@ public class AlgorithmBusinessTest {
 	@Test
 	@Ignore
 	public void testUpdateAlgorithm() {
-
-		// Mockito.when(algRepo.updateAlgorithm(testString, testString, testString,
-		// testLong)).thenReturn(testString);
-		// assertEquals(testString, svc.updateAlgorithm(testString, testString,
-		// testString, testLong));
+		//verify(algorithm, times(0)).setMoves(testString);
+		//verify(algorithm, times(0)).setName(testString);
+		//verify(algorithm, times(0)).setScramble(testString); 
+		
+//		// Mockito.when(algRepo.updateAlgorithm(testString, testString, testString,
+//		// testLong)).thenReturn(testString);
+//		// assertEquals(testString, svc.updateAlgorithm(testString, testString,
+//		// testString, testLong)); 
+//		Mockito.when(verify(algRepo).save(algorithm)).thenReturn(MOCK_OBJECT);
+		//verify(algRepo, times(0)).save(algorithm);
 
 	}
 
 	@Test
 	public void testDeleteAlgorithm() {
-		String response = "Algorithm " + testLong + " deleted.";
-		assertEquals(response, svc.deleteAlgorithm(testLong));
+		
+		assertEquals(false, svc.deleteAlgorithm(testLong));
 	}
 
 	@Test

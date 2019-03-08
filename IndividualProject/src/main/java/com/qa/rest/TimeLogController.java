@@ -51,7 +51,7 @@ public class TimeLogController {
 	}
 
 	@RequestMapping("/deleteTimeLog/{timeID}")
-	public String deleteTimeLog(@PathVariable Long timeID) {
+	public boolean deleteTimeLog(@PathVariable Long timeID) {
 
 		return svc.deleteTimeLog(timeID);
 	}

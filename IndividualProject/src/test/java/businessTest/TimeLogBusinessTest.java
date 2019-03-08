@@ -1,6 +1,8 @@
 package businessTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +31,7 @@ public class TimeLogBusinessTest {
 	TimeLogServiceImpl svc;
 
 	@Mock
-	TimeLogRepository repo;
+	TimeLogRepository timeRepo;
 
 	@Mock
 	TimeLog TimeLog;
@@ -42,42 +44,41 @@ public class TimeLogBusinessTest {
 	@Test
 	public void testGetAllTimeLogs() {
 
-		Mockito.when(repo.findAll()).thenReturn(MOCK_LIST);
+		Mockito.when(timeRepo.findAll()).thenReturn(MOCK_LIST);
 		assertEquals(MOCK_LIST, svc.getAllTimeLogs());
 	}
 
 	@Test
 	public void testGetATimeLog() {
 
-		Mockito.when(repo.findById(testLong)).thenReturn(Optional.of(MOCK_OBJECT));
+		Mockito.when(timeRepo.findById(testLong)).thenReturn(Optional.of(MOCK_OBJECT));
 		assertEquals(MOCK_OBJECT, svc.getATimeLog(testLong));
 	}
 
 	@Test
 	public void testUpdateTimeLog() {
-		// TODO add update method
-		// Mockito.when(testString).thenReturn(testString);
-		// assertEquals(testString, svc.updateTimeLog(testString, testLong));
+		String response = "TimeLog 1 updated";
+
+		assertEquals(response, svc.updateTimeLog(testString, testLong, testLong));
 	}
 
 	@Test
 	public void testDeleteTimeLog() {
-//		Mockito.when(repo.deleteById(testLong));  
-//		repo.deleteById(testLong);  
+		boolean response = false;
+		assertEquals(response, svc.deleteTimeLog(testLong));
 
-//		Mockito.when();
-		// .thenReturn(testString)
-//		assertEquals(testString, svc.deleteTimeLog(testLong));
 	}
 
 	@Test
 	public void testCreateTimeLog() {
-		// TODO
+		String response = "TimeLog created";
+		assertEquals(response, svc.createTimeLog(testString, testLong));
 	}
 
 	@Test
 	public void testGet3Avg() {
-		// TODO
+		String response = "Average got";
+		assertEquals(response, svc.get3Avg(testLong, testLong));
 	}
 
 }

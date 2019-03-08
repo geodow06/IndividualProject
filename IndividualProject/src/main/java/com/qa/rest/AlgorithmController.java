@@ -43,7 +43,7 @@ public class AlgorithmController {
 	}
 
 	@RequestMapping("/deleteAlgorithm/{algID}")
-	public String deleteAlgorithm(@PathVariable Long algID) {
+	public boolean deleteAlgorithm(@PathVariable Long algID) {
 
 		return svc.deleteAlgorithm(algID);
 	}

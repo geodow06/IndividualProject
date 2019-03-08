@@ -33,7 +33,7 @@ public class User {
 	private String userPassword;
 
 	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name = "userID", nullable = false, insertable = false, updatable = false) 
+	@JoinColumn(name = "userID", nullable = false, insertable = false, updatable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@Column(name = "userAlgs")
 	private List<Algorithm> userAlgs;

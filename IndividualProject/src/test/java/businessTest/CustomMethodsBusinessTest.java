@@ -47,11 +47,6 @@ public class CustomMethodsBusinessTest {
 
 	@Test
 	public void testCheckUsernames() {
-//		Mockito.when(repo.deleteById(testLong));  
-//		repo.deleteById(testLong);  
-		// Mockito.when(svc.checkUsernames(testString)).thenReturn(true);
-//		Mockito.when();
-		// .thenReturn(testString)
-		// assertEquals(true, svc.checkUsernames(testString));
+
 	}
 }

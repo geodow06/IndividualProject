@@ -58,8 +58,8 @@ public class TimeLogEndpointTest {
 
 	@Test
 	public void testDeleteTimeLog() {
-		Mockito.when(svc.deleteTimeLog(testLong)).thenReturn(testString);
-		assertEquals(testString, tCon.deleteTimeLog(testLong));
+		Mockito.when(svc.deleteTimeLog(testLong)).thenReturn(true);
+		assertEquals(true, tCon.deleteTimeLog(testLong));
 	}
 
 	@Test

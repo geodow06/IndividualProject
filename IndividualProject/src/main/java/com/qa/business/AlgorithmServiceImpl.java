@@ -60,9 +60,9 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 	}
 
 	@Override
-	public String deleteAlgorithm(Long algID) {
+	public boolean deleteAlgorithm(Long algID) {
 		algRepo.deleteById(algID);
-		return "Algorithm " + algID + " deleted.";
+		return algRepo.existsById(algID);
 	}
 
 	@Override

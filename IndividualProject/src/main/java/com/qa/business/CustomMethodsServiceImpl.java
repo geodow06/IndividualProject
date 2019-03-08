@@ -36,4 +36,12 @@ public class CustomMethodsServiceImpl implements CustomMethodsService {
 		}
 		return usernames;
 	}
+
+	@Override
+	public boolean deleteById(Long iD) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
 }

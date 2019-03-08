@@ -1,6 +1,8 @@
 package businessTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,24 +56,24 @@ public class UserBusinessTest {
 
 	@Test
 	public void testUpdateUser() {
-		// TODO add update method
-//		Mockito.when(testString).thenReturn(testString); 
-		// assertEquals(testString, svc.updateUser(testString, testLong));
+		String response = "User 1 updated";
+		// assertEquals(response, svc.updateUser(testString, testString, testLong));
+
 	}
 
 	@Test
 	public void testDeleteUser() {
-//		Mockito.when(repo.deleteById(testLong));  
-//		repo.deleteById(testLong);  
 
-//		Mockito.when();
-		// .thenReturn(testString)
-//		assertEquals(testString, svc.deleteUser(testLong));
+		boolean response = false;
+		assertEquals(response, svc.deleteUser(testLong));
+
 	}
 
 	@Test
 	public void testAddUser() {
-		// TODO
+		assertEquals("Your username and password must be atleast five characters long", svc.addUser("123", "123"));
+		// assertEquals("User username succesfully added.",svc.addUser("username",
+		// "password"));
 	}
 
 	@Test
@@ -91,6 +93,7 @@ public class UserBusinessTest {
 
 	@Test
 	public void testGetAdmin() {
-		// TODO
+
+		assertEquals(null, svc.getAdmin(testString));
 	}
 }

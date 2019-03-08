@@ -73,9 +73,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String deleteUser(Long userID) {
+	public boolean deleteUser(Long userID) {
+		
 		userRepo.deleteById(userID);
-		return "User " + userID + " deleted.";
+		return userRepo.existsById(userID);
 	}
 
 	@Override
@@ -95,16 +96,6 @@ public class UserServiceImpl implements UserService {
 	public List<TimeLog> getUserAlgTimes(Long userID, Long algID) {
 		List<Algorithm> userAlgs = getUserAlgs(userID);
 		List<TimeLog> algTimes = new ArrayList<TimeLog>();
-//		for (int i = 0; i < userAlgs.size(); i++) {
-//			if (userAlgs.get(i).getAlgID() == algID) {
-//				algTimes = userAlgs.get(i).getTimeLogs();
-//
-//			} else {
-//				continue;
-//			}
-//		}
-//		return algTimes;  
-
 		for (Algorithm alg : userAlgs) {
 			if (alg.getAlgID() == algID) {
 				algTimes = alg.getTimeLogs();
@@ -120,16 +111,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User logInUser(String username, String Password) {
 		List<User> users = getAllUsers();
-//		for (int i = 0; i < users.size(); i++) {
-//			User user = users.get(i);
-//
-//			if (user.getUserName().equals(username)) {
-//				return user;
-//
-//			}
-//
-//		}
-//		return null; 
+
 		for (User user : users) {
 
 			if (user.getUserName().equals(username)) {

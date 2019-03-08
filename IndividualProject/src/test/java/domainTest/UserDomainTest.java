@@ -19,7 +19,10 @@ public class UserDomainTest {
 	Long userID = 1L;
 	String password = "password";
 	String username = "username";
-
+	Long newUserID = 2L; 
+	String newUserName = "new username";
+	String newUserPassword = "new password"; 
+	List<Algorithm> newUserAlgs = new ArrayList<>();
 	@Before
 	public void setup() {
 		Algorithm alg1 = new Algorithm();
@@ -30,14 +33,46 @@ public class UserDomainTest {
 
 	}
 
-	@Test
-	public void setAndGetUserTest() {
 
+	
+	@Test 
+	public void testGetUserID() { 
 		assertEquals(userID, user.getUserID());
+	} 
+	@Test 
+	public void testSetUserID() { 
+		user.setUserID(newUserID); 
+		assertEquals(newUserID, user.getUserID());
+	}
+	@Test 
+	public void testGetUserName() { 
 		assertEquals(username, user.getUserName());
+	} 
+	@Test 
+	public void testSetUserName() { 
+		
+		user.setUserName(newUserName); 
+		assertEquals(newUserName, user.getUserName());
+	}
+	@Test 
+	public void testGetUserPassword() { 
 		assertEquals(password, user.getUserPassword());
+	} 
+	@Test 
+	public void testSetUserPassword() { 
+		
+		
+		user.setUserPassword(newUserPassword); 
+		assertEquals(newUserPassword, user.getUserPassword());
+	}
+	@Test 
+	public void testGetUserAlgs() { 
 		assertEquals(userAlgs, user.getUserAlgs());
-
+	} 
+	@Test 
+	public void testSetUserAlgs() { 
+		user.setUserAlgs(newUserAlgs); 
+		assertEquals(newUserAlgs, user.getUserAlgs());
 	}
 
 }

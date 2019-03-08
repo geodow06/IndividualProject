@@ -56,12 +56,12 @@ public class UserEndpointTest {
 		assertEquals(MOCK_USERLIST, uCon.getAllUsers());
 	}
 
-//	@Test
-//	public void testGetAUser() {
-//		User MOCK_OBJECT = new User();
-//		Mockito.when(svc.getAUser(testLong)).thenReturn(Optional.of(MOCK_OBJECT));
-//		assertEquals(Optional.of(MOCK_OBJECT), uCon.getAUser(testLong));
-//	}
+	@Test
+	public void testGetAUser() {
+		User MOCK_OBJECT = new User();
+		Mockito.when(svc.getAUser(testLong)).thenReturn(MOCK_OBJECT);
+		assertEquals(MOCK_OBJECT, uCon.getAUser(testLong));
+	}
 
 	@Test
 	public void testUpdateAUser() {
@@ -70,9 +70,10 @@ public class UserEndpointTest {
 	}
 
 	@Test
-	public void testDeleteUser() {
-		Mockito.when(svc.deleteUser(testLong)).thenReturn(testString);
-		assertEquals(testString, uCon.deleteUser(testLong));
+	public void testDeleteUser() { 
+		boolean testBoolean = true;
+		Mockito.when(svc.deleteUser(testLong)).thenReturn(testBoolean);
+		assertEquals(testBoolean, uCon.deleteUser(testLong));
 	}
 
 	@Test

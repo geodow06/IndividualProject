@@ -19,7 +19,7 @@ public interface TimeLogService {
 	public String updateTimeLog(String time, Long algId, Long timeID);
 
 	// D
-	public String deleteTimeLog(Long timeID);
+	public boolean deleteTimeLog(Long timeID);
 
 //	int cycleUsers(String user_name);
 }

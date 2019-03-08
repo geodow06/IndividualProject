@@ -7,5 +7,6 @@ import com.qa.persistence.domain.User;
 public interface CustomMethodsService {
 	public boolean checkUsernames(String username);
 
-	public List<String> getAllUsernames();
+	public List<String> getAllUsernames(); 
+	public boolean deleteById(Long iD);
 }

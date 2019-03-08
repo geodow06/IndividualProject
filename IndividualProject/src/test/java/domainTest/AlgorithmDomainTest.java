@@ -1,6 +1,8 @@
 package domainTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 
@@ -23,6 +25,7 @@ public class AlgorithmDomainTest {
 	String scramble = "scramble";
 	List<TimeLog> timeLogs = new ArrayList<TimeLog>();
 	Long userID = 1L;
+	// private static final Algorithm MOCK_OBJECT = mock(Algorithm.class);
 
 	@Before
 	public void setup() {
@@ -35,14 +38,75 @@ public class AlgorithmDomainTest {
 	}
 
 	@Test
-	public void setAndGetAlgorithmTest() {
-
+	public void testGetAlgID() {
 		assertEquals(algID, algorithm.getAlgID());
+	}
+
+	@Test
+	public void testGetName() {
 		assertEquals(name, algorithm.getName());
+	}
+
+	@Test
+	public void testGetMoves() {
 		assertEquals(moves, algorithm.getMoves());
+	}
+
+	@Test
+	public void testGetScramble() {
 		assertEquals(scramble, algorithm.getScramble());
+	}
+
+	@Test
+	public void testGetTimeLogs() {
 		assertEquals(timeLogs, algorithm.getTimeLogs());
+	}
+
+	@Test
+	public void testGetUserID() {
 		assertEquals(userID, algorithm.getUserID());
+	}
+
+	@Test
+	public void testSetAlgID() {
+		Long newAlgID = 2L;
+		algorithm.setAlgID(newAlgID);
+		assertEquals(newAlgID, algorithm.getAlgID());
+	}
+
+	@Test
+	public void testSetName() {
+		String newName = "new name";
+		algorithm.setName(newName);
+		assertEquals("new name", algorithm.getName());
 
 	}
+
+	@Test
+	public void testSetMoves() {
+		String newMoves = "new moves";
+		algorithm.setMoves(newMoves);
+		assertEquals("new moves", algorithm.getMoves());
+	}
+
+	@Test
+	public void testSetScramble() {
+		String newScramble = "new scramble";
+		algorithm.setScramble(newScramble);
+		assertEquals("new scramble", algorithm.getScramble());
+	}
+
+	@Test
+	public void testSetTimeLogs() {
+		algorithm.setTimeLogs(timeLogs);
+		assertEquals(timeLogs, algorithm.getTimeLogs());
+	}
+
+	@Test
+	public void testSetUserID() {
+		Long newUserID = 2L;
+		algorithm.setUserID(newUserID);
+		assertEquals(newUserID, algorithm.getUserID());
+	}
+
 }

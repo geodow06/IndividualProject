@@ -27,7 +27,7 @@ public interface UserService {
 	public String updateUser(String userName, String userPassword, Long userId);
 
 	// D
-	public String deleteUser(Long userID);
+	public boolean deleteUser(Long userID);
 
 //	public int cycleUsers(String user_name);
 }

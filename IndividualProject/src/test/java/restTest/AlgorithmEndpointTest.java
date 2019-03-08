@@ -40,7 +40,14 @@ public class AlgorithmEndpointTest {
 	public void setup() {
 //		uCon.svc;
 	}
-
+	
+	@Test 
+	public void testCreateAlgorithm() { 
+		String response = "Algorithm test successfully created";
+		Mockito.when(svc.createAlgorithm(testString, testString, testString, testLong)).thenReturn(response);
+		assertEquals(response, aCon.createAlgorithm(testString, testString, testString, testLong));
+	}
+	
 	@Test
 	public void testGetAllAlgorithms() {
 
@@ -64,8 +71,8 @@ public class AlgorithmEndpointTest {
 
 	@Test
 	public void testDeleteAlgorithm() {
-		Mockito.when(svc.deleteAlgorithm(testLong)).thenReturn(testString);
-		assertEquals(testString, aCon.deleteAlgorithm(testLong));
+		Mockito.when(svc.deleteAlgorithm(testLong)).thenReturn(true);
+		assertEquals(true, aCon.deleteAlgorithm(testLong));
 	}
 
 	@Test
