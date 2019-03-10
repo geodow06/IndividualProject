@@ -48,10 +48,10 @@ class GenerateRandomScramble extends Component {
   render() { 
     if(this.state.running){
         return( 
-           <div className="centre">
-           <div className="centre">
+           <div className="Body">
+           <div>
             <div className="centre">
-              <div className="centre">
+              <div>
               <h1 id="scramble" className="centre">{this.state.randomAlgorithm.scramble}</h1>
               </div> 
               <div>
@@ -61,8 +61,8 @@ class GenerateRandomScramble extends Component {
             <div className="centre" id="timer">     
               <Timer currentUserID={this.props.currentUserID} currentAlgID={this.state.randomAlgorithm.algID}/> 
             </div>
-            <div className="centre">
-             
+            <div className="left">
+            <button className="button" onClick={this.endTraining}>Click to stop</button> 
             <h2>The previous algorithm was :  {this.state.previousName} </h2>
             <h2>With a possible solution of : {this.state.previousMoves}</h2>
             </div>
@@ -72,14 +72,14 @@ class GenerateRandomScramble extends Component {
            <div className="left" id="timeBox"> 
               <DisplayAlgorithm currentUserID={this.props.currentUserID}/>
             </div> 
-            <button className="button" className="left" onClick={this.endTraining}>Click to stop</button>
+
            </div>
         ); 
     } 
     else{ 
         return( 
-            <div className="centre"><br/><br/><br/><p>Click the button below to begin the training.</p><button className="button" className="centre" onClick={this.startTraining}>Click to begin training</button></div>
-     
+            
+    <button onClick={this.startTraining}>Click to begin</button> 
 
         );
     }

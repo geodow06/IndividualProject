@@ -69,7 +69,7 @@ class AdminRouting extends Component {
             <Router> 
                 <div> 
                     <div className="header">               
-                        <NavLink className="logo" to="/">George's PLL Trainer: {this.props.currentUsername}</NavLink> 
+                        <NavLink className="logo" to="/">George's PLL Trainer: Welcome {this.props.currentUsername}</NavLink> 
                         <button className="button"onClick={this.logOut}>Logout</button>
                         <div className="header-right">   
                         
