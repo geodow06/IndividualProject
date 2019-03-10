@@ -33,9 +33,7 @@ class AddAlgorithm extends Component {
 
     render() {
       return (
-        <div className="centre"> 
-        <br/> 
-        <br/>
+        <div> 
             <form onSubmit={this.handleSubmit} className="form-inline">
                 <label className="required">* required </label>
                 
