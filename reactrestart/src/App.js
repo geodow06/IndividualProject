@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import RoutePage from './Routing.js';
-import LoginPage from './LoginPage';
+
 import axios from 'axios';
 import AdminRouting from './AdminRouting';
-import AddUser from './AddUser';
+
 class App extends Component {
 
   constructor(props) {
@@ -90,8 +90,8 @@ class App extends Component {
 
     else if (!this.state.loggedIn) {
       return (
-        <div>
-          <h1>Welcome Please Sign In</h1>
+        <div className="centre">
+          <h1 className="centre">Welcome Please Sign In</h1>
           <form onSubmit={this.setCurrentUser} className="form-inline">
             <label className="required"></label>
 
