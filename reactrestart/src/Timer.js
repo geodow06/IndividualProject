@@ -122,20 +122,20 @@ class Timer extends Component {
     }
     render() {
       let start = (this.state.time === 0) ?
-        <button onClick={this.startTimer}>start</button> :
+        <button className="button" onClick={this.startTimer}>start</button> :
         null
       let stop = (this.state.time === 0 || !this.state.isOn) ?
         null :
-        <button onClick={this.stopTimer}>stop</button>
+        <button className="button"onClick={this.stopTimer}>stop</button>
       let resume = (this.state.time === 0 || this.state.isOn) ?
         null :
-        <button onClick={this.startTimer}>resume</button>
+        <button className="button" onClick={this.startTimer}>resume</button>
       let reset = (this.state.time === 0 || this.state.isOn) ?
         null :
-        <button onClick={this.resetTimer}>reset</button> 
+        <button  className="button" onClick={this.resetTimer}>reset</button> 
       let submit = (this.state.time === 0 || this.state.isOn)? 
         null: 
-        <button onClick={this.submitTime}>submit time</button>
+        <button className="button" onClick={this.submitTime}>submit time</button>
       return(
         <div>
           <h3>timer: {prettyMs(this.state.time,{secDecimalDigits:4})}</h3>

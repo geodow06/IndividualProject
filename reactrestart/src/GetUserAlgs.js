@@ -23,14 +23,16 @@ render(){
    
     let algorithms = this.state.algorithms.map(a=><AlgorithmsListItems algID={a.algID} name={a.name} moves={a.moves} scramble={a.scramble} currentUserID={this.props.currentUserID}/>)
     return(  
-        <div>
-            <div>
+        <div className="centre">
+            <div><br/><br/><br/>
             {algorithms}
-            {/* {this.getRequest()}  */}
-            <button onClick={this.getRequest}>Press to display your algorithms</button> 
-           
-            </div>
+            {/* {this.getRequest()}  */} 
+            <br/>
+            <button className="button"onClick={this.getRequest}>Press to display your algorithms</button> 
+            <br/> 
             <AddDefaultAlgorithms currentUserID={this.props.currentUserID}/> 
+            </div>
+            
            
         </div>
     );

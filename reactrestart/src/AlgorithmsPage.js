@@ -9,7 +9,8 @@ render(){
   return (
     <div>
       
-        <div>
+        <div> 
+        
         <AddAlgorithm currentUserID={this.props.currentUserID}/>  
         <GetUserAlgs currentUserID={this.props.currentUserID}/>
         </div> 

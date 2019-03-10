@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 		aUser.setUserName(userName);
 		aUser.setUserPassword(userPassword);
 
-		if (userName.length() < 5 && userPassword.length() < 5) {
+		if (userName.length() < 5 || userPassword.length() < 5) {
 			return "Your username and password must be atleast five characters long";
 		} else if (svc.checkUsernames(userName)) {
 			return userName + " has already been taken please choose another";

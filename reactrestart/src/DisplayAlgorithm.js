@@ -26,7 +26,7 @@ class DisplayAlgorithm extends Component {
         <div>
           {algorithms}
         </div>
-        <button onClick={this.getRequest}>Click to Show Algorithms and Times</button>
+        <button className="button"onClick={this.getRequest}>Click to Show Algorithms and Times</button>
       </div>
     );
   }
