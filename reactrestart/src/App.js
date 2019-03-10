@@ -54,9 +54,9 @@ class App extends Component {
     this.setState({ register: true });
   }
   signedUp = () => {
-    if (this.state.requestResponse === "User " + this.state.username + " succesfully added.") {
+    // if (this.state.requestResponse === "User " + this.state.username + " succesfully added.") {
       this.setState({ register: false });
-    }
+    // }
   }
 
   handleSubmit(e) {
@@ -96,7 +96,7 @@ class App extends Component {
     else if (!this.state.loggedIn) {
       return (
         <div className="centre">
-          <h1 className="centre">Welcome Please Sign In</h1>
+          <h1 className="centre">Welcome to my PLL trainer please sign in below</h1>
           <form onSubmit={this.setCurrentUser} className="form-inline">
             <label className="required"></label>
 
