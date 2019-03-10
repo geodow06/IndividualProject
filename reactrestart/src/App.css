@@ -17,9 +17,7 @@ code {
 { 
     font-size: 10px;
 }  
-#content{ 
-    
-}
+
 
 h1 {
   text-align: center !important;
@@ -37,10 +35,6 @@ body {
   font-family: Arial, Helvetica, sans-serif; 
   
 }  
-
-.Body{ 
-  display: inline-block;
-}
 
 .centre{ 
   text-align: center;
@@ -169,7 +163,10 @@ input {
   padding:5px;
 } 
 
-form + button { margin-top: 10px; }
+form + button { margin-top: 10px; } 
+button+button { margin-left: 10px; }
+input+input {margin-left:10px;} 
+input+label {margin-left:10px;}
 
 
 
