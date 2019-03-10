@@ -41,7 +41,7 @@ class AddDefaultAlgorithms extends Component {
       if(this.state.offerdefault){
       return (
         <div> 
-            <button onClick={this.pushDefault}>Add Default Algorithms</button>
+            <button className="button" onClick={this.pushDefault}>Add Default Algorithms</button>
         </div>
       ); 
     } 

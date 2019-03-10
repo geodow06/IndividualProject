@@ -55,14 +55,14 @@ class GenerateRandomScramble extends Component {
               <h1 id="scramble" className="centre">{this.state.randomAlgorithm.scramble}</h1>
               </div> 
               <div>
-              <button onClick={this.generateRandomScramble}>Next Scramble</button>
+              <button className="button" onClick={this.generateRandomScramble}>Next Scramble</button>
               </div>
             </div>   
             <div className="centre" id="timer">     
               <Timer currentUserID={this.props.currentUserID} currentAlgID={this.state.randomAlgorithm.algID}/> 
             </div>
             <div className="left">
-            <button onClick={this.endTraining}>Click to stop</button> 
+            <button className="button" onClick={this.endTraining}>Click to stop</button> 
             <h2>The previous algorithm was :  {this.state.previousName} </h2>
             <h2>With a possible solution of : {this.state.previousMoves}</h2>
             </div>

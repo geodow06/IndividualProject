@@ -121,6 +121,56 @@ body {
     font-size: 50px;
 } 
 
+.button { 
+  border-radius:4px; 
+  padding:10px; 
+  cursor:pointer;
+} 
+
+.submit { 
+  border-radius:4px;
+}
+
+.button span {
+  cursor: pointer;
+  /* display: inline-block; */
+  position: relative;
+  transition: 0.5s;
+} 
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}  
+
+
+
+input[type=text]:focus {
+  border: 3px solid lightblue;
+}   
+input[type=password]:focus{ 
+  border: 3px solid lightblue;
+}
+
+input { 
+  padding:5px;
+} 
+
+form + button { margin-top: 10px; }
+
 
 
 

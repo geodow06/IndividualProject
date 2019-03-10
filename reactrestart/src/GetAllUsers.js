@@ -23,8 +23,8 @@ class GetAllUsers extends Component {
         <ul key={`myKey${this.state.userID}`}>
           {users}
         </ul>
-        {this.getRequest()}
-        {/* <button onClick={this.getRequest}>Click</button> */}
+        
+        <button className="button"onClick={this.getRequest}>Click</button>
       </div>
 
     );

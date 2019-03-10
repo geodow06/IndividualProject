@@ -70,7 +70,10 @@ class App extends Component {
 
     if (this.state.register) {
       return (
-        <div>
+        <div className="centre"> 
+          <h1> 
+            Please sign up by entering a username and password.
+          </h1>
           <form onSubmit={this.handleSubmit} className="form-inline">
             <label className="required">* required </label>
             <label>
@@ -78,8 +81,10 @@ class App extends Component {
               <input type="text" name='password' target='two' className="form-control inputArea" onChange={this.setStates} password={this.state.password} id="Password" placeholder="Password *"></input>
             </label>
             <input type="submit" value="Submit" onClick={this.pushRequest} />
-            <button onClick={this.signedUp}>Return to Login Page</button>
+           
           </form>
+          <button className="button"onClick={this.signedUp}><span>Return to Login Page</span></button>
+          
           <div>
             <a>{this.state.requestResponse}</a>
           </div>
@@ -100,9 +105,9 @@ class App extends Component {
               <input type="password" name='enteredPassword' target='two' className="form-control inputArea" onChange={this.setStates2} enteredPassword={this.state.enteredPassword} id="enteredPassword" placeholder="password *"></input>
             </label>
 
-            <input type="submit" value="Submit" />
+            <input className="submit"type="submit" value="Submit" />
           </form>
-          <button onClick={this.signUp}>Or Register An Account Here</button>
+          <button className="button"onClick={this.signUp}><span>Or Register An Account Here</span></button>
         </div>
       );
     }

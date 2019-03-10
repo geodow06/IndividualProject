@@ -27,7 +27,7 @@ render(){
             <div>
             {algorithms}
             {/* {this.getRequest()}  */}
-            <button onClick={this.getRequest}>Press to display your algorithms</button> 
+            <button className="button"onClick={this.getRequest}>Press to display your algorithms</button> 
            
             </div>
             <AddDefaultAlgorithms currentUserID={this.props.currentUserID}/> 
