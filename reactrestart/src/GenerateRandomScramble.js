@@ -72,7 +72,7 @@ class GenerateRandomScramble extends Component {
            <div className="left" id="timeBox"> 
               <DisplayAlgorithm currentUserID={this.props.currentUserID}/>
             </div> 
-            <button className="button" className="left" onClick={this.endTraining}>Click to stop</button>
+            <button className="button" className="centre" onClick={this.endTraining}>Click to stop</button>
            </div>
         ); 
     } 

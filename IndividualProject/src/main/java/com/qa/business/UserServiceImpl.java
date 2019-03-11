@@ -114,13 +114,14 @@ public class UserServiceImpl implements UserService {
 
 		for (User user : users) {
 
-			if (user.getUserName().equals(username)) {
+			if (user.getUserName().equals(username)&&user.getUserPassword().contentEquals(Password)) {
 				return user;
 
 			}
 
 		}
-		return null;
+		User nullUser = new User();
+		return nullUser;
 
 	}
 

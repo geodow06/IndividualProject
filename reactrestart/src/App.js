@@ -93,7 +93,7 @@ class App extends Component {
     }
 
 
-    else if (!this.state.loggedIn) {
+    else if (!this.state.loggedIn || !this.state.user.userName) {
       return (
         <div className="centre">
           <h1 className="centre">Welcome to my PLL trainer please sign in below</h1>
